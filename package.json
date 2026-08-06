@@ -1,0 +1,11 @@
+{
+  "name": "mh-portfolio",
+  "version": "0.1.0",
+  "description": "Multi-profile developer portfolio for Malwandla Hlongwane",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "echo \"V2: wire up Express entrypoint at server/index.js\" && exit 1",
+    "dev:client": "npx serve client"
+  },
+  "license": "MIT"
+}

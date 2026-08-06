@@ -1,0 +1,42 @@
+{
+  "software": {
+    "label": "Software Development",
+    "headline": "Software Developer",
+    "summary": "Building web applications end to end — from database design to a polished UI.",
+    "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
+    "skills": ["JavaScript", "Java", "HTML", "CSS", "SQL", "Git"],
+    "projects": ["taskify"]
+  },
+  "android": {
+    "label": "Android Development",
+    "headline": "Android Developer",
+    "summary": "Designing and building native Android applications with clean, maintainable code.",
+    "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
+    "skills": ["Java", "Android SDK", "XML Layouts", "SQLite", "Git"],
+    "projects": []
+  },
+  "database": {
+    "label": "Database Development",
+    "headline": "Database Developer",
+    "summary": "Modeling, normalizing, and optimizing relational databases for real applications.",
+    "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
+    "skills": ["MySQL", "SQL", "ER Modeling", "Normalization", "Git"],
+    "projects": ["taskify"]
+  },
+  "helpdesk": {
+    "label": "IT Help Desk",
+    "headline": "IT Support Technician",
+    "summary": "Diagnosing and resolving hardware, software, and user-facing technical issues.",
+    "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
+    "skills": ["Troubleshooting", "Ticketing Systems", "Customer Support", "Windows", "Networking Basics"],
+    "projects": []
+  },
+  "networking": {
+    "label": "Networking",
+    "headline": "Network Support Technician",
+    "summary": "Configuring, maintaining, and troubleshooting network infrastructure.",
+    "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
+    "skills": ["TCP/IP", "Subnetting", "Routing & Switching", "Network Security Basics", "Cisco Packet Tracer"],
+    "projects": []
+  }
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Malwandla Hlongwane — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#3B82F6',
+          secondary: '#22C55E',
+          bg: '#0F172A',
+          card: '#1E293B',
+          text: '#F8FAFC',
+          muted: '#94A3B8'
+        },
+        fontFamily: {
+          display: ['Poppins', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-bg text-text font-body">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 bg-bg/80 backdrop-blur border-b border-white/5">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#hero" class="font-display font-semibold text-lg">MH<span class="text-primary">.</span></a>
+      <div class="hidden md:flex gap-8 text-sm text-muted">
+        <a href="#about" class="hover:text-text transition">About</a>
+        <a href="#skills" class="hover:text-text transition">Skills</a>
+        <a href="#projects" class="hover:text-text transition">Projects</a>
+        <a href="#education" class="hover:text-text transition">Education</a>
+        <a href="#certificates" class="hover:text-text transition">Certificates</a>
+        <a href="#contact" class="hover:text-text transition">Contact</a>
+      </div>
+      <button id="downloadCvBtn" class="text-sm font-medium bg-primary hover:bg-primary/90 transition px-4 py-2 rounded-lg">Download CV</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="max-w-6xl mx-auto px-6 pt-16 pb-10 text-center">
+    <div class="w-28 h-28 mx-auto rounded-full bg-card border border-white/10 mb-6 overflow-hidden flex items-center justify-center text-muted text-xs">
+      photo
+    </div>
+    <h1 class="font-display text-4xl md:text-5xl font-semibold">Malwandla Hlongwane</h1>
+    <p id="typedHeadline" class="mt-3 text-lg md:text-xl text-primary font-mono h-7"></p>
+    <p class="mt-2 text-muted max-w-xl mx-auto">Diploma in ICT — Application Development Student</p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <button id="downloadCvBtnHero" class="bg-primary hover:bg-primary/90 transition px-6 py-3 rounded-lg font-medium">Download CV</button>
+      <a href="#contact" class="border border-white/15 hover:border-white/30 transition px-6 py-3 rounded-lg font-medium">Contact Me</a>
+      <a href="#projects" class="border border-white/15 hover:border-white/30 transition px-6 py-3 rounded-lg font-medium">View Projects</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="bg-card rounded-xl border border-white/5 py-5">
+        <p class="font-display text-2xl font-semibold" data-stat="projects">0</p>
+        <p class="text-xs text-muted mt-1">Projects</p>
+      </div>
+      <div class="bg-card rounded-xl border border-white/5 py-5">
+        <p class="font-display text-2xl font-semibold" data-stat="technologies">0</p>
+        <p class="text-xs text-muted mt-1">Technologies</p>
+      </div>
+      <div class="bg-card rounded-xl border border-white/5 py-5">
+        <p class="font-display text-2xl font-semibold" data-stat="certificates">0</p>
+        <p class="text-xs text-muted mt-1">Certificates</p>
+      </div>
+      <div class="bg-card rounded-xl border border-white/5 py-5">
+        <p class="font-display text-2xl font-semibold" data-stat="years">0</p>
+        <p class="text-xs text-muted mt-1">Years Coding</p>
+      </div>
+      <div class="col-span-2 md:col-span-1 bg-card rounded-xl border border-white/5 py-5">
+        <p class="font-display text-2xl font-semibold" data-stat="repos">0</p>
+        <p class="text-xs text-muted mt-1">GitHub Repos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE SWITCHER -->
+  <section id="profiles" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold text-center">Pick a lens</h2>
+    <p class="text-muted text-center mt-2 max-w-lg mx-auto">Five profiles, one person. Choose one and the skills, projects, and CV below update to match.</p>
+    <div id="profileCards" class="mt-8 flex flex-wrap justify-center gap-3"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">About Me</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-card rounded-xl border border-white/5 p-6">
+        <p id="profileSummary" class="text-muted leading-relaxed">Select a profile above to see a tailored summary.</p>
+      </div>
+      <div class="bg-card rounded-xl border border-white/5 p-6 text-sm space-y-2">
+        <p><span class="text-muted">Location:</span> Pretoria, Gauteng, ZA</p>
+        <p><span class="text-muted">Qualification:</span> Diploma in ICT (Application Development)</p>
+        <p><span class="text-muted">Availability:</span> Seeking internship</p>
+        <p><span class="text-muted">Email:</span>  MalwandlaHlongwaneICT@outlook.com</p>
+        <p><span class="text-muted">Languages:</span> English,Xitsonga, Sepedi</p>
+      </div>
+      <div class="bg-card rounded-xl border border-white/5 p-6 text-sm">
+        <p class="text-muted mb-2">Interests</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-bg px-3 py-1 rounded-full border border-white/10">Cars</span>
+          <span class="bg-bg px-3 py-1 rounded-full border border-white/10">Technology</span>
+          <span class="bg-bg px-3 py-1 rounded-full border border-white/10">Music</span>
+          <span class="bg-bg px-3 py-1 rounded-full border border-white/10">Psychology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">Skills</h2>
+    <div id="skillsList" class="grid sm:grid-cols-2 gap-4"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">Projects</h2>
+    <div class="bg-card rounded-xl border border-white/5 p-6 max-w-md">
+      <p class="font-display font-semibold">Taskify</p>
+      <p class="text-muted text-sm mt-1">Marketplace for students.</p>
+      <div class="flex flex-wrap gap-2 mt-3 text-xs">
+        <span class="bg-bg px-2 py-1 rounded border border-white/10">JavaScript</span>
+        <span class="bg-bg px-2 py-1 rounded border border-white/10">Express</span>
+        <span class="bg-bg px-2 py-1 rounded border border-white/10">MySQL</span>
+      </div>
+      <div class="flex gap-4 mt-4 text-sm">
+        <a href="#" class="text-primary hover:underline">GitHub</a>
+        <a href="#" class="text-primary hover:underline">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">Education</h2>
+    <ol class="border-l border-white/10 pl-6 space-y-8">
+      <li>
+        <p class="font-display font-semibold">High School</p>
+      </li>
+      <li>
+        <p class="font-display font-semibold">Diploma in ICT — Application Development</p>
+        <p class="text-muted text-sm">In progress</p>
+      </li>
+      <li>
+        <p class="font-display font-semibold text-muted">Advanced Diploma</p>
+        <p class="text-muted text-sm">Planned</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section id="certificates" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">Certificates</h2>
+    <p class="text-muted text-sm">No certificates added yet — plug entries into this section as you earn them.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-14">
+    <h2 class="font-display text-2xl font-semibold mb-8">Contact</h2>
+    <form id="contactForm" class="bg-card border border-white/5 rounded-xl p-6 max-w-lg space-y-4">
+      <input type="text" name="name" placeholder="Your name" required class="w-full bg-bg border border-white/10 rounded-lg px-4 py-3 text-sm outline-none focus:border-primary" />
+      <input type="email" name="email" placeholder="Your email" required class="w-full bg-bg border border-white/10 rounded-lg px-4 py-3 text-sm outline-none focus:border-primary" />
+      <textarea name="message" placeholder="Message" rows="4" required class="w-full bg-bg border border-white/10 rounded-lg px-4 py-3 text-sm outline-none focus:border-primary"></textarea>
+      <button type="submit" class="bg-primary hover:bg-primary/90 transition px-6 py-3 rounded-lg font-medium">Send Message</button>
+      <p id="contactStatus" class="text-sm text-secondary hidden">Thanks — your message client will open shortly.</p>
+    </form>
+  </section>
+
+  <footer class="border-t border-white/5 py-8 text-center text-muted text-xs">
+    Built by Malwandla Hlongwane · <span id="year"></span>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

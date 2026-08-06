@@ -1,0 +1,50 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Profile card */
+.profile-card {
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.profile-card:hover {
+  transform: translateY(-2px);
+}
+.profile-card.active {
+  border-color: #3B82F6;
+  background-color: rgba(59, 130, 246, 0.08);
+}
+
+/* Typing cursor */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: #3B82F6;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Skill bar */
+.skill-bar-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3B82F6, #22C55E);
+  width: 0%;
+  transition: width 0.8s ease;
+}
+
+/* Fade-in on load */
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
