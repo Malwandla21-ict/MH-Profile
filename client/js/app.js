@@ -158,8 +158,27 @@ function renderProjects(projectIds) {
     .map((id) => projectsCatalog[id])
     .filter(Boolean)
     .map((project) => {
-      const media = project.image
-        ? `<img src="${project.image}" alt="${project.name}" class="w-full h-40 object-cover rounded-lg mb-4 border border-white/5" />`
+      const images = project.images || [];
+      const media = images.length
+        ? `
+          <div class="gallery relative w-full h-40 rounded-lg mb-4 border border-white/5 overflow-hidden bg-bg" data-images='${JSON.stringify(images)}'>
+            <img src="${images[0]}" alt="${project.name}" class="gallery-img w-full h-full object-cover object-top transition-opacity duration-200" />
+            ${
+              images.length > 1
+                ? `
+              <button class="gallery-prev active:scale-90 absolute left-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center text-xs transition" aria-label="Previous screenshot">‹</button>
+              <button class="gallery-next active:scale-90 absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center text-xs transition" aria-label="Next screenshot">›</button>
+              <div class="gallery-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                ${images
+                  .map(
+                    (_, i) =>
+                      `<button class="gallery-dot w-1.5 h-1.5 rounded-full ${i === 0 ? "bg-white/90" : "bg-white/40"} transition active:scale-90" data-i="${i}" aria-label="Screenshot ${i + 1}"></button>`
+                  )
+                  .join("")}
+              </div>`
+                : ""
+            }
+          </div>`
         : `<div class="w-full h-40 rounded-lg mb-4 border border-white/5 bg-bg flex items-center justify-center text-muted text-xs">No preview image yet</div>`;
 
       const tags = project.tech
@@ -188,6 +207,45 @@ function renderProjects(projectIds) {
       `;
     })
     .join("");
+
+  container.querySelectorAll(".gallery").forEach(setupGallery);
+}
+
+function setupGallery(el) {
+  const images = JSON.parse(el.dataset.images);
+  if (images.length <= 1) return;
+
+  let index = 0;
+  const img = el.querySelector(".gallery-img");
+  const dots = el.querySelectorAll(".gallery-dot");
+
+  function show(i) {
+    index = (i + images.length) % images.length;
+    img.style.opacity = "0";
+    setTimeout(() => {
+      img.src = images[index];
+      img.style.opacity = "1";
+    }, 120);
+    dots.forEach((d, di) => {
+      d.classList.toggle("bg-white/90", di === index);
+      d.classList.toggle("bg-white/40", di !== index);
+    });
+  }
+
+  el.querySelector(".gallery-prev")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    show(index - 1);
+  });
+  el.querySelector(".gallery-next")?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    show(index + 1);
+  });
+  dots.forEach((d) => {
+    d.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(Number(d.dataset.i));
+    });
+  });
 }
 
 // ---- Stats ----

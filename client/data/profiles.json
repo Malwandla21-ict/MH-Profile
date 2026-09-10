@@ -6,7 +6,7 @@
       "tech": ["Node.js", "Express", "MySQL", "HTML", "CSS", "JavaScript"],
       "github": "https://github.com/Malwandla21-ict/taskify",
       "demo": "https://taskify-frontend-ol07.onrender.com",
-      "image": "images/taskify-dashboard.png",
+      "images": ["images/taskify-dashboard.png"],
       "type": "Full Stack",
       "status": "Completed"
     },
@@ -16,7 +16,12 @@
       "tech": ["Java", "Android Studio", "Retrofit", "Room Database"],
       "github": "https://github.com/Malwandla21-ict/HealthWise",
       "demo": "",
-      "image": "",
+      "images": [
+        "images/healthwise-dashboard.jpg",
+        "images/healthwise-symptom-select.jpg",
+        "images/healthwise-ai-chat.jpg",
+        "images/healthwise-pill-scheduler.jpg"
+      ],
       "type": "Android",
       "status": "Completed"
     },
@@ -26,7 +31,11 @@
       "tech": ["Java", "JavaFX", "FXML", "Scene Builder", "CSS"],
       "github": "https://github.com/Malwandla21-ict/FuelSA",
       "demo": "",
-      "image": "images/fuelsa-login.png",
+      "images": [
+        "images/fuelsa-login.png",
+        "images/fuelsa-admin-dashboard.jpg",
+        "images/fuelsa-analytics.jpg"
+      ],
       "type": "JavaFX",
       "status": "Completed"
     },
@@ -36,7 +45,7 @@
       "tech": ["Cisco Packet Tracer", "TCP/IP", "Subnetting", "Routing & Switching"],
       "github": "",
       "demo": "",
-      "image": "images/network-topology.png",
+      "images": ["images/network-topology.png"],
       "type": "Networking",
       "status": "Completed"
     }
