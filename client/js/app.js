@@ -1,6 +1,14 @@
 // ---- Config ----
-const CONTACT_EMAIL = " MalwandlaHlongwaneICT@outlook.com"; // TODO: replace with your real address
+const CONTACT_EMAIL = "your.email@example.com"; // TODO: replace with your real address
 const DEFAULT_PROFILE = "software";
+
+const ICONS = {
+  code: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+  smartphone: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>',
+  database: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>',
+  wrench: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2-2z"/></svg>',
+  globe: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>'
+};
 
 // ---- State ----
 let profiles = {};
@@ -15,7 +23,6 @@ fetch("data/profiles.json")
     profiles = data;
     renderProfileCards();
     setActiveProfile(DEFAULT_PROFILE);
-    startTypingLoop(Object.values(profiles).map((p) => p.headline));
     updateStats();
   })
   .catch((err) => {
@@ -27,13 +34,20 @@ function renderProfileCards() {
   const container = document.getElementById("profileCards");
   container.innerHTML = "";
   Object.entries(profiles).forEach(([key, profile]) => {
-    const btn = document.createElement("button");
-    btn.className =
-      "profile-card bg-card border border-white/10 rounded-full px-5 py-2 text-sm font-medium";
-    btn.textContent = profile.label;
-    btn.dataset.key = key;
-    btn.addEventListener("click", () => setActiveProfile(key));
-    container.appendChild(btn);
+    const card = document.createElement("button");
+    card.className =
+      "profile-card bg-card border border-white/10 rounded-xl p-4";
+    card.dataset.key = key;
+    card.innerHTML = `
+      <span class="check-badge absolute -top-2 -right-2 w-5 h-5 rounded-full bg-primary items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+      <span class="text-primary">${ICONS[profile.icon] || ""}</span>
+      <p class="font-display font-semibold text-sm mt-3">${profile.label}</p>
+      <p class="text-muted text-xs mt-1 leading-snug">${profile.cardDescription}</p>
+    `;
+    card.addEventListener("click", () => setActiveProfile(key));
+    container.appendChild(card);
   });
 }
 
@@ -41,26 +55,21 @@ function setActiveProfile(key) {
   if (!profiles[key]) return;
   activeProfile = key;
 
-  // highlight active card
   document.querySelectorAll(".profile-card").forEach((el) => {
     el.classList.toggle("active", el.dataset.key === key);
   });
 
   const profile = profiles[key];
 
-  // About summary
   const summaryEl = document.getElementById("profileSummary");
   summaryEl.classList.remove("fade-in");
-  void summaryEl.offsetWidth; // restart animation
+  void summaryEl.offsetWidth;
   summaryEl.textContent = profile.summary;
   summaryEl.classList.add("fade-in");
 
-  // Skills
   renderSkills(profile.skills);
 
-  // CV download buttons
   document.getElementById("downloadCvBtn").onclick = () => downloadCv(profile.cv);
-  document.getElementById("downloadCvBtnHero").onclick = () => downloadCv(profile.cv);
 }
 
 function downloadCv(path) {
@@ -71,55 +80,24 @@ function downloadCv(path) {
 }
 
 // ---- Skills ----
-function renderSkills(skillNames) {
+function renderSkills(skills) {
   const container = document.getElementById("skillsList");
+  if (!container) return;
   container.innerHTML = "";
-  skillNames.forEach((name, i) => {
-    // Placeholder level — replace with real proficiency data per skill later
-    const level = 65 + ((i * 7) % 30);
+  skills.forEach((skill) => {
     const card = document.createElement("div");
     card.className = "bg-card border border-white/5 rounded-xl p-4 fade-in";
     card.innerHTML = `
       <div class="flex justify-between text-sm mb-2">
-        <span>${name}</span>
-        <span class="text-muted font-mono">${level}%</span>
+        <span>${skill.name}</span>
+        <span class="text-muted font-mono">${skill.level}%</span>
       </div>
       <div class="skill-bar-track">
-        <div class="skill-bar-fill" style="width:${level}%"></div>
+        <div class="skill-bar-fill" style="width:${skill.level}%"></div>
       </div>
     `;
     container.appendChild(card);
   });
-}
-
-// ---- Typing animation ----
-function startTypingLoop(phrases) {
-  const el = document.getElementById("typedHeadline");
-  el.classList.add("typing-cursor");
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  function tick() {
-    const current = phrases[phraseIndex];
-    el.textContent = deleting
-      ? current.slice(0, charIndex--)
-      : current.slice(0, charIndex++);
-
-    let delay = deleting ? 40 : 80;
-
-    if (!deleting && charIndex === current.length + 1) {
-      deleting = true;
-      delay = 1200;
-    } else if (deleting && charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      delay = 300;
-    }
-
-    setTimeout(tick, delay);
-  }
-  tick();
 }
 
 // ---- Stats (placeholder — wire to real data / GitHub API later) ----
@@ -130,6 +108,11 @@ function updateStats() {
     if (el) el.textContent = value;
   });
 }
+
+// ---- Theme toggle (light/dark) ----
+document.getElementById("themeToggle").addEventListener("click", () => {
+  document.body.classList.toggle("light");
+});
 
 // ---- Contact form (MVP: mailto, no backend yet) ----
 document.getElementById("contactForm").addEventListener("submit", (e) => {

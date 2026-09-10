@@ -2,10 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Profile card */
+/* Profile card (mockup style: bordered tile, icon, checkmark badge when active) */
 .profile-card {
+  position: relative;
   cursor: pointer;
   transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  text-align: left;
 }
 .profile-card:hover {
   transform: translateY(-2px);
@@ -14,15 +16,11 @@ html {
   border-color: #3B82F6;
   background-color: rgba(59, 130, 246, 0.08);
 }
-
-/* Typing cursor */
-.typing-cursor::after {
-  content: '|';
-  animation: blink 1s step-end infinite;
-  color: #3B82F6;
+.profile-card .check-badge {
+  display: none;
 }
-@keyframes blink {
-  50% { opacity: 0; }
+.profile-card.active .check-badge {
+  display: flex;
 }
 
 /* Skill bar */
@@ -47,4 +45,19 @@ html {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Light mode overrides (toggled via body.light) */
+body.light {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+body.light .bg-bg { background-color: #F8FAFC !important; }
+body.light .bg-card { background-color: #FFFFFF !important; }
+body.light .text-text { color: #0F172A !important; }
+body.light .text-muted { color: #64748B !important; }
+body.light .border-white\/5,
+body.light .border-white\/10,
+body.light .border-white\/15 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
 }

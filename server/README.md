@@ -9,4 +9,3 @@ Planned entrypoint: server/index.js (Express app)
 - middleware/   auth, validation, error handling
 - database/     connection + migrations (MySQL)
 - models/       data access layer
-

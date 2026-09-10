@@ -1,42 +1,79 @@
 {
   "software": {
-    "label": "Software Development",
+    "label": "Software Developer",
+    "icon": "code",
+    "cardDescription": "Building full-stack web applications and systems.",
     "headline": "Software Developer",
-    "summary": "Building web applications end to end — from database design to a polished UI.",
-    "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
-    "skills": ["JavaScript", "Java", "HTML", "CSS", "SQL", "Git"],
+    "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
+    "cv": "cv/Malwandla_Hlongwane_Software_CV.pdf",
+    "skills": [
+      { "name": "Java", "level": 85 },
+      { "name": "JavaScript", "level": 80 },
+      { "name": "MySQL", "level": 85 },
+      { "name": "HTML", "level": 90 },
+      { "name": "CSS", "level": 85 },
+      { "name": "Node.js", "level": 75 }
+    ],
     "projects": ["taskify"]
   },
   "android": {
-    "label": "Android Development",
+    "label": "Android Developer",
+    "icon": "smartphone",
+    "cardDescription": "Creating intuitive and performant mobile apps.",
     "headline": "Android Developer",
-    "summary": "Designing and building native Android applications with clean, maintainable code.",
-    "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
-    "skills": ["Java", "Android SDK", "XML Layouts", "SQLite", "Git"],
+    "summary": "I design and build native Android applications with clean, maintainable code — from UI layouts to local data storage.",
+    "cv": "cv/Malwandla_Hlongwane_Android_CV.pdf",
+    "skills": [
+      { "name": "Java", "level": 80 },
+      { "name": "Android SDK", "level": 75 },
+      { "name": "XML Layouts", "level": 80 },
+      { "name": "SQLite", "level": 70 }
+    ],
     "projects": []
   },
   "database": {
-    "label": "Database Development",
+    "label": "Database Developer",
+    "icon": "database",
+    "cardDescription": "Designing and optimizing robust database solutions.",
     "headline": "Database Developer",
-    "summary": "Modeling, normalizing, and optimizing relational databases for real applications.",
-    "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
-    "skills": ["MySQL", "SQL", "ER Modeling", "Normalization", "Git"],
+    "summary": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
+    "cv": "cv/Malwandla_Hlongwane_Database_CV.pdf",
+    "skills": [
+      { "name": "MySQL", "level": 85 },
+      { "name": "SQL", "level": 85 },
+      { "name": "ER Modeling", "level": 75 },
+      { "name": "Normalization", "level": 75 }
+    ],
     "projects": ["taskify"]
   },
   "helpdesk": {
     "label": "IT Help Desk",
+    "icon": "wrench",
+    "cardDescription": "Providing technical support and troubleshooting IT systems.",
     "headline": "IT Support Technician",
-    "summary": "Diagnosing and resolving hardware, software, and user-facing technical issues.",
-    "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
-    "skills": ["Troubleshooting", "Ticketing Systems", "Customer Support", "Windows", "Networking Basics"],
+    "summary": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
+    "cv": "cv/Malwandla_Hlongwane_ITSupport_CV.pdf",
+    "skills": [
+      { "name": "Troubleshooting", "level": 85 },
+      { "name": "Ticketing Systems", "level": 70 },
+      { "name": "Customer Support", "level": 85 },
+      { "name": "Windows", "level": 80 }
+    ],
     "projects": []
   },
   "networking": {
     "label": "Networking",
+    "icon": "globe",
+    "cardDescription": "Configuring and managing networks for reliable connectivity.",
     "headline": "Network Support Technician",
-    "summary": "Configuring, maintaining, and troubleshooting network infrastructure.",
-    "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
-    "skills": ["TCP/IP", "Subnetting", "Routing & Switching", "Network Security Basics", "Cisco Packet Tracer"],
+    "summary": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
+    "cv": "cv/Malwandla_Hlongwane_Networking_CV.pdf",
+    "skills": [
+      { "name": "TCP/IP", "level": 80 },
+      { "name": "Subnetting", "level": 75 },
+      { "name": "Routing & Switching", "level": 70 },
+      { "name": "Network Security Basics", "level": 65 }
+    ],
     "projects": []
   }
 }
