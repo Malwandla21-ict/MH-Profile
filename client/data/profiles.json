@@ -1,79 +1,123 @@
 {
-  "software": {
-    "label": "Software Developer",
-    "icon": "code",
-    "cardDescription": "Building full-stack web applications and systems.",
-    "headline": "Software Developer",
-    "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
-    "cv": "cv/Malwandla_Hlongwane_Software_CV.pdf",
-    "skills": [
-      { "name": "Java", "level": 85 },
-      { "name": "JavaScript", "level": 80 },
-      { "name": "MySQL", "level": 85 },
-      { "name": "HTML", "level": 90 },
-      { "name": "CSS", "level": 85 },
-      { "name": "Node.js", "level": 75 }
-    ],
-    "projects": ["taskify"]
+  "projectsCatalog": {
+    "taskify": {
+      "name": "Taskify — Campus Task & Equipment Marketplace",
+      "description": "Full-stack web app for posting tasks, hiring services, and renting equipment within a secure campus marketplace. JWT authentication, a full task lifecycle, equipment booking/return tracking, a ratings/reviews system, and simulated escrow payments.",
+      "tech": ["Node.js", "Express", "MySQL", "HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/Malwandla21-ict/taskify",
+      "demo": "https://taskify-frontend-ol07.onrender.com",
+      "image": "images/taskify-dashboard.png",
+      "type": "Full Stack",
+      "status": "Completed"
+    },
+    "healthwise": {
+      "name": "HealthWise — AI-Based Symptom Checker App",
+      "description": "Android health app that matches user-selected symptoms to possible conditions using an integrated AI API for dynamic explanations. Includes an interactive chatbot, Room Database for history storage, and AlarmManager-based reminders.",
+      "tech": ["Java", "Android Studio", "Retrofit", "Room Database"],
+      "github": "https://github.com/Malwandla21-ict/HealthWise",
+      "demo": "",
+      "image": "",
+      "type": "Android",
+      "status": "Completed"
+    },
+    "fuelsa": {
+      "name": "FUEL SA — Fuel Station Management System",
+      "description": "Desktop fuel station management application with a JavaFX GUI, built using OOP principles with modular separation of logic, controllers, and UI.",
+      "tech": ["Java", "JavaFX", "FXML", "Scene Builder", "CSS"],
+      "github": "https://github.com/Malwandla21-ict/FuelSA",
+      "demo": "",
+      "image": "images/fuelsa-login.png",
+      "type": "JavaFX",
+      "status": "Completed"
+    },
+    "networking-wan": {
+      "name": "Two-Campus WAN Design & Configuration",
+      "description": "Designed and configured a two-campus WAN with 5 departments per campus (5 computers each), separate student/staff/guest wireless networks, and verified inter-campus connectivity via successful ping tests.",
+      "tech": ["Cisco Packet Tracer", "TCP/IP", "Subnetting", "Routing & Switching"],
+      "github": "",
+      "demo": "",
+      "image": "images/network-topology.png",
+      "type": "Networking",
+      "status": "Completed"
+    }
   },
-  "android": {
-    "label": "Android Developer",
-    "icon": "smartphone",
-    "cardDescription": "Creating intuitive and performant mobile apps.",
-    "headline": "Android Developer",
-    "summary": "I design and build native Android applications with clean, maintainable code — from UI layouts to local data storage.",
-    "cv": "cv/Malwandla_Hlongwane_Android_CV.pdf",
-    "skills": [
-      { "name": "Java", "level": 80 },
-      { "name": "Android SDK", "level": 75 },
-      { "name": "XML Layouts", "level": 80 },
-      { "name": "SQLite", "level": 70 }
-    ],
-    "projects": []
-  },
-  "database": {
-    "label": "Database Developer",
-    "icon": "database",
-    "cardDescription": "Designing and optimizing robust database solutions.",
-    "headline": "Database Developer",
-    "summary": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
-    "cv": "cv/Malwandla_Hlongwane_Database_CV.pdf",
-    "skills": [
-      { "name": "MySQL", "level": 85 },
-      { "name": "SQL", "level": 85 },
-      { "name": "ER Modeling", "level": 75 },
-      { "name": "Normalization", "level": 75 }
-    ],
-    "projects": ["taskify"]
-  },
-  "helpdesk": {
-    "label": "IT Help Desk",
-    "icon": "wrench",
-    "cardDescription": "Providing technical support and troubleshooting IT systems.",
-    "headline": "IT Support Technician",
-    "summary": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
-    "cv": "cv/Malwandla_Hlongwane_ITSupport_CV.pdf",
-    "skills": [
-      { "name": "Troubleshooting", "level": 85 },
-      { "name": "Ticketing Systems", "level": 70 },
-      { "name": "Customer Support", "level": 85 },
-      { "name": "Windows", "level": 80 }
-    ],
-    "projects": []
-  },
-  "networking": {
-    "label": "Networking",
-    "icon": "globe",
-    "cardDescription": "Configuring and managing networks for reliable connectivity.",
-    "headline": "Network Support Technician",
-    "summary": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
-    "cv": "cv/Malwandla_Hlongwane_Networking_CV.pdf",
-    "skills": [
-      { "name": "TCP/IP", "level": 80 },
-      { "name": "Subnetting", "level": 75 },
-      { "name": "Routing & Switching", "level": 70 },
-      { "name": "Network Security Basics", "level": 65 }
-    ],
-    "projects": []
+  "profiles": {
+    "software": {
+      "label": "Software Developer",
+      "icon": "code",
+      "cardDescription": "Building full-stack web applications and systems.",
+      "headline": "Software Developer",
+      "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
+      "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
+      "skills": [
+        { "name": "Java", "level": 85 },
+        { "name": "JavaScript", "level": 80 },
+        { "name": "MySQL", "level": 85 },
+        { "name": "HTML", "level": 90 },
+        { "name": "CSS", "level": 85 },
+        { "name": "Node.js", "level": 75 }
+      ],
+      "projects": ["taskify", "fuelsa"]
+    },
+    "android": {
+      "label": "Android Developer",
+      "icon": "smartphone",
+      "cardDescription": "Creating intuitive and performant mobile apps.",
+      "headline": "Android Developer",
+      "summary": "I design and build native Android applications with clean, maintainable code — from UI layouts to local data storage.",
+      "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
+      "skills": [
+        { "name": "Java", "level": 80 },
+        { "name": "Android SDK", "level": 75 },
+        { "name": "XML Layouts", "level": 80 },
+        { "name": "SQLite", "level": 70 }
+      ],
+      "projects": ["healthwise"]
+    },
+    "database": {
+      "label": "Database Developer",
+      "icon": "database",
+      "cardDescription": "Designing and optimizing robust database solutions.",
+      "headline": "Database Developer",
+      "summary": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
+      "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
+      "skills": [
+        { "name": "MySQL", "level": 85 },
+        { "name": "SQL", "level": 85 },
+        { "name": "ER Modeling", "level": 75 },
+        { "name": "Normalization", "level": 75 }
+      ],
+      "projects": ["taskify"]
+    },
+    "helpdesk": {
+      "label": "IT Help Desk",
+      "icon": "wrench",
+      "cardDescription": "Providing technical support and troubleshooting IT systems.",
+      "headline": "IT Support Technician",
+      "summary": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
+      "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
+      "skills": [
+        { "name": "Troubleshooting", "level": 85 },
+        { "name": "Ticketing Systems", "level": 70 },
+        { "name": "Customer Support", "level": 85 },
+        { "name": "Windows", "level": 80 }
+      ],
+      "projects": ["networking-wan"]
+    },
+    "networking": {
+      "label": "Networking",
+      "icon": "globe",
+      "cardDescription": "Configuring and managing networks for reliable connectivity.",
+      "headline": "Network Support Technician",
+      "summary": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
+      "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
+      "skills": [
+        { "name": "TCP/IP", "level": 80 },
+        { "name": "Subnetting", "level": 75 },
+        { "name": "Routing & Switching", "level": 70 },
+        { "name": "Network Security Basics", "level": 65 }
+      ],
+      "projects": ["networking-wan"]
+    }
   }
 }

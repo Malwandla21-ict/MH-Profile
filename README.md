@@ -9,8 +9,8 @@ projects, CV download, certificates, and headline without a page reload.
 ## Build Stages
 
 - [x] **MVP v1** — hero + about rebuilt to match approved mockup
-- [ ] **MVP v2** — profile switcher card grid + skills (bars + icon grid) matched to mockup
-- [ ] **MVP v3** — projects carousel, 4-up summary band, 3-column contact
+- [x] **MVP v2** — profile switcher card grid + skills (bars + icon grid) matched to mockup
+- [x] **MVP v3 (mostly)** — real photo/contact/socials, per-profile projects grid (Taskify, HealthWise, FuelSA, Two-Campus WAN), 4-up summary band. Still open: 3-column contact layout with GitHub activity feed; a true carousel for projects if the grid ever outgrows itself.
 - [ ] **V2** — Express + MySQL backend, contact form → DB, profile data served from DB
 - [ ] **V3** — Admin dashboard (auth + CRUD) for managing content without touching code
 - [ ] **V4** — GitHub live stats, extras (dark mode polish, command palette, etc.)
