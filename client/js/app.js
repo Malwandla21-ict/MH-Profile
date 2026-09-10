@@ -91,10 +91,10 @@ function setActiveProfile(key) {
   const profile = profiles[key];
 
   const summaryEl = document.getElementById("profileSummary");
-  summaryEl.classList.remove("fade-in");
+  summaryEl.classList.remove("fade-in-text");
   void summaryEl.offsetWidth;
   summaryEl.textContent = profile.summary;
-  summaryEl.classList.add("fade-in");
+  summaryEl.classList.add("fade-in-text");
 
   renderSkills(profile.skills);
   renderProjects(profile.projects || []);
@@ -116,19 +116,31 @@ function renderSkills(skills) {
   const container = document.getElementById("skillsList");
   if (!container) return;
   container.innerHTML = "";
-  skills.forEach((skill) => {
+  skills.forEach((skill, i) => {
     const card = document.createElement("div");
     card.className = "bg-card border border-white/5 rounded-xl p-4 fade-in";
+    card.style.animationDelay = `${i * 50}ms`;
     card.innerHTML = `
       <div class="flex justify-between text-sm mb-2">
         <span>${skill.name}</span>
         <span class="text-muted font-mono">${skill.level}%</span>
       </div>
       <div class="skill-bar-track">
-        <div class="skill-bar-fill" style="width:${skill.level}%"></div>
+        <div class="skill-bar-fill"></div>
       </div>
     `;
     container.appendChild(card);
+
+    // Set the target fill on the next two frames so the browser paints the
+    // 0% starting state first — otherwise the transition has nothing to
+    // animate from and the bar just appears already full.
+    const fill = card.querySelector(".skill-bar-fill");
+    fill.style.transitionDelay = `${i * 60}ms`;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fill.style.transform = `scaleX(${skill.level / 100})`;
+      });
+    });
   });
 }
 
@@ -157,12 +169,12 @@ function renderProjects(projectIds) {
   container.innerHTML = projectIds
     .map((id) => projectsCatalog[id])
     .filter(Boolean)
-    .map((project) => {
+    .map((project, i) => {
       const images = project.images || [];
       const media = images.length
         ? `
           <div class="gallery relative w-full h-40 rounded-lg mb-4 border border-white/5 overflow-hidden bg-bg" data-images='${JSON.stringify(images)}'>
-            <img src="${images[0]}" alt="${project.name}" class="gallery-img w-full h-full object-cover object-top transition-opacity duration-200" />
+            <img src="${images[0]}" alt="${project.name}" class="gallery-img w-full h-full object-cover object-top" />
             ${
               images.length > 1
                 ? `
@@ -194,7 +206,7 @@ function renderProjects(projectIds) {
         : "";
 
       return `
-        <div class="bg-card rounded-xl border border-white/5 p-5 fade-in">
+        <div class="bg-card rounded-xl border border-white/5 p-5 fade-in" style="animation-delay:${i * 60}ms">
           ${media}
           <div class="flex items-center justify-between gap-2 mb-2">
             <p class="font-display font-semibold text-sm">${project.name}</p>
@@ -219,13 +231,17 @@ function setupGallery(el) {
   const img = el.querySelector(".gallery-img");
   const dots = el.querySelectorAll(".gallery-dot");
 
+  // Matches the 150ms transition on .gallery-img in style.css — kept in
+  // sync deliberately so the swap lands exactly as the fade-out finishes.
+  const CROSSFADE_MS = 150;
+
   function show(i) {
     index = (i + images.length) % images.length;
     img.style.opacity = "0";
     setTimeout(() => {
       img.src = images[index];
       img.style.opacity = "1";
-    }, 120);
+    }, CROSSFADE_MS);
     dots.forEach((d, di) => {
       d.classList.toggle("bg-white/90", di === index);
       d.classList.toggle("bg-white/40", di !== index);
@@ -276,5 +292,8 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
 
   const status = document.getElementById("contactStatus");
   status.classList.remove("hidden");
+  status.classList.remove("fade-in-text");
+  void status.offsetWidth;
+  status.classList.add("fade-in-text");
   form.reset();
 });
