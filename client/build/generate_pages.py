@@ -190,7 +190,7 @@ def other_tracks_html(profiles, current_key):
         if key == current_key:
             continue
         cards.append(
-            f"""<a href="{p['page']}" class="track-pill active:scale-95 flex items-center gap-2 bg-card border border-white/10 rounded-full pl-3 pr-4 py-2 text-sm text-muted hover:text-text hover:border-white/20 transition shrink-0">
+            f"""<a href="{p['page']}" class="track-pill active:scale-95 flex items-center gap-2 bg-card border border-white/10 rounded-lg pl-3 pr-4 py-2 text-sm text-muted hover:text-text hover:border-white/20 transition shrink-0">
           <span class="text-primary">{ICONS[p['icon']]}</span>{p['label']}
         </a>"""
         )
@@ -267,7 +267,7 @@ def flow_steps_html(steps):
 # info panel. Not data-driven like the rest of the site since it's one bespoke
 # diagram, not a repeated pattern.
 TOPOLOGY_NODES = [
-    {"id": "cloud", "icon": "cloud", "name": "Internet", "ip": "—", "role": "External network / WAN uplink.", "top": 8, "left": 50},
+    {"id": "cloud", "icon": "cloud", "name": "Internet", "ip": "N/A", "role": "External network / WAN uplink.", "top": 8, "left": 50},
     {"id": "router", "icon": "router", "name": "Router", "ip": "192.168.1.1", "role": "Routes traffic between the LAN and the internet; handles NAT and DHCP.", "top": 38, "left": 50},
     {"id": "switch", "icon": "network", "name": "Switch", "ip": "192.168.1.2", "role": "Connects devices within the LAN and forwards traffic by MAC address.", "top": 68, "left": 50},
     {"id": "pc1", "icon": "monitor", "name": "Workstation A", "ip": "192.168.1.10", "role": "Staff workstation on VLAN 10.", "top": 94, "left": 15},
@@ -367,7 +367,7 @@ def project_card_html(project, i):
           <div class="w-full md:w-1/2">
             <div class="flex items-center justify-between gap-2 mb-3">
               <p class="font-display text-2xl sm:text-3xl font-semibold">{project['name']}</p>
-              <span class="text-[10px] uppercase tracking-wide text-secondary border border-secondary/30 rounded-full px-2 py-0.5 shrink-0">{project['status']}</span>
+              <span class="text-[10px] uppercase tracking-wide text-secondary border border-secondary/30 rounded-lg px-2 py-0.5 shrink-0">{project['status']}</span>
             </div>
             <p class="text-muted leading-relaxed mb-4">{project['description']}</p>
             <div class="flex flex-wrap gap-2 text-xs mb-6">
@@ -472,8 +472,13 @@ def contact_section_html(number, site):
 
 
 def footer_html():
-    return """  <footer class="border-t border-white/5 py-8 text-center text-muted text-xs">
-    Built by Malwandla Hlongwane · <span id="year"></span>
+    return """  <footer class="border-t border-white/5 py-8 px-6 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-muted text-xs">
+    <span>Built by Malwandla Hlongwane · <span id="year"></span></span>
+    <span class="hidden sm:inline text-white/15">|</span>
+    <span class="flex items-center gap-4">
+      <a href="privacy.html" class="hover:text-text transition">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-text transition">Terms &amp; Conditions</a>
+    </span>
   </footer>"""
 
 
@@ -508,7 +513,7 @@ def render_role_page(key, profile, site, tools_catalog, projects_catalog, all_pr
 
     social = social_row().format(github=site["github"], linkedin=site["linkedin"], instagram=site["instagram"], tiktok=site["tiktok"], email=site["email"])
 
-    body = f"""{HEAD.format(title=f"{profile['headline']} — Malwandla Hlongwane", description=profile['tagline'], favicon=FAVICON_HREF)}
+    body = f"""{HEAD.format(title=f"{profile['headline']} · Malwandla Hlongwane", description=profile['tagline'], favicon=FAVICON_HREF)}
 <body class="bg-bg text-text font-body">
 
 {nav_html(cv_href(profile['cv']), profile['page'])}
@@ -517,7 +522,7 @@ def render_role_page(key, profile, site, tools_catalog, projects_catalog, all_pr
   <section id="hero" class="relative max-w-6xl mx-auto px-6 pt-14 pb-10 grid md:grid-cols-[3fr_2fr] gap-10 items-center">
     <span aria-hidden="true" class="hidden md:block absolute top-0 right-6 text-[160px] font-display font-bold text-white/[0.04] leading-none select-none pointer-events-none z-0">0{track_index}</span>
     <div class="relative z-10">
-      <span class="inline-flex items-center gap-2 text-xs bg-card border border-white/10 rounded-full px-3 py-1.5 text-muted">
+      <span class="inline-flex items-center gap-2 text-xs bg-card border border-white/10 rounded-lg px-3 py-1.5 text-muted">
         <span class="text-primary">{ICONS[profile['icon']]}</span>{profile['headline']}
       </span>
       <h1 class="font-display text-5xl sm:text-6xl font-bold mt-5 leading-[1.05] tracking-tight">
@@ -635,10 +640,10 @@ def render_landing(site, profiles, projects_catalog):
     cards_html = "\n        ".join(cards)
 
     landing_description = (
-        f"{site['name']} — {site['education']['qualification']} at {site['education']['institution']}. "
+        f"{site['name']}, {site['education']['qualification']} at {site['education']['institution']}. "
         "One ICT graduate, five specializations: software, Android, database, IT support, and networking."
     )
-    body = f"""{HEAD.format(title=f"{site['name']} — Portfolio", description=landing_description, favicon=FAVICON_HREF)}
+    body = f"""{HEAD.format(title=f"{site['name']} · Portfolio", description=landing_description, favicon=FAVICON_HREF)}
 <body class="bg-bg text-text font-body">
 
 {nav_html(combined_cv, 'index.html')}
@@ -710,7 +715,7 @@ def render_landing(site, profiles, projects_catalog):
     {section_header_html("03", "ABOUT ME", "Get to know me!")}
     <div class="reveal grid md:grid-cols-[1.3fr_1fr_1fr] gap-6">
       <div>
-        <p class="text-muted leading-relaxed">Final-year ICT student at the University of Mpumalanga, comfortable moving between frontend, backend, mobile, databases, and networking — I build across whichever track a role calls for.</p>
+        <p class="text-muted leading-relaxed">Final-year ICT student at the University of Mpumalanga, comfortable moving between frontend, backend, mobile, databases, and networking. I build across whichever track a role calls for.</p>
         <div class="grid grid-cols-2 gap-y-3 mt-6 text-sm">
           <span class="text-secondary">{ICONS['check']} Problem solver</span>
           <span class="text-secondary">{ICONS['check']} Team player</span>
@@ -749,6 +754,143 @@ def render_landing(site, profiles, projects_catalog):
     return body
 
 
+# ---------------------------------------------------------------------------
+# Legal pages (Privacy Policy, Terms & Conditions)
+# ---------------------------------------------------------------------------
+LEGAL_LAST_UPDATED = "11 September 2026"
+
+
+def privacy_sections(site):
+    return [
+        (
+            "Overview",
+            f"<p>This is the personal portfolio site of {site['name']}, a final-year ICT student "
+            "showcasing skills, projects, and CVs across five career tracks. This page explains what "
+            "data the site collects and how it's used. There are no user accounts, no purchases, and "
+            "no advertising here.</p>",
+        ),
+        (
+            "Contact form",
+            "<p>The contact form asks for your name, email address, and message. Submitting it sends "
+            "that information directly to my email inbox via <strong>Web3Forms</strong>, a third-party "
+            "form-processing service; this site doesn't store submissions in a database of its own. "
+            "Web3Forms may retain submission data, including your IP address for spam prevention, for "
+            "up to three years under its own policy. See "
+            '<a href="https://web3forms.com/privacy" target="_blank" rel="noopener" class="text-primary hover:underline">'
+            "Web3Forms's privacy policy</a> for details.</p>",
+        ),
+        (
+            "Fonts",
+            "<p>This site loads its typefaces (Poppins, Inter, JetBrains Mono) directly from Google "
+            "Fonts. Google states that the Google Fonts service does not use cookies, though requests "
+            "for font files go to Google's servers and may include standard technical data such as your "
+            'IP address. See <a href="https://fonts.google.com/faq" target="_blank" rel="noopener" '
+            'class="text-primary hover:underline">Google Fonts\' FAQ</a> for details.</p>',
+        ),
+        (
+            "Cookies and tracking",
+            "<p>This site does not set any cookies, does not use browser local storage, and runs no "
+            "analytics or advertising trackers. The only thing that can change between visits is a "
+            "light/dark theme preference, which is remembered only for the current browser session and "
+            "is never saved anywhere.</p>",
+        ),
+        (
+            "Hosting",
+            "<p>This site is hosted on GitHub Pages. Like any web host, GitHub's servers process "
+            "standard technical data (such as IP address and browser type) to serve the pages. See "
+            '<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" '
+            'target="_blank" rel="noopener" class="text-primary hover:underline">GitHub\'s Privacy Statement</a> '
+            "for details.</p>",
+        ),
+        (
+            "Links to other sites",
+            "<p>This site links out to GitHub, LinkedIn, Instagram, TikTok, and live project demos. "
+            "Those sites have their own privacy practices, which this policy doesn't cover.</p>",
+        ),
+        (
+            "Contact",
+            f'<p>Questions about this policy can be sent to <a href="mailto:{site["email"]}" '
+            f'class="text-primary hover:underline">{site["email"]}</a>.</p>',
+        ),
+    ]
+
+
+def terms_sections(site):
+    return [
+        (
+            "About this site",
+            f"<p>This site is the personal portfolio of {site['name']} (“I”, “me”), "
+            "built to showcase skills, projects, and CVs to potential employers and collaborators. It's "
+            "provided for informational purposes and isn't a commercial product or service.</p>",
+        ),
+        (
+            "Content and ownership",
+            "<p>Project write-ups, CVs, and the site's design and code are mine unless stated otherwise. "
+            "Source code for individual projects linked out to GitHub follows that repository's own "
+            "license, where one is provided.</p>",
+        ),
+        (
+            "No warranty",
+            '<p>This site is provided "as is." I’ve done my best to keep it accurate and available, '
+            "but I don't guarantee it will be error-free, uninterrupted, or fit for any particular "
+            "purpose.</p>",
+        ),
+        (
+            "External links",
+            "<p>Links to GitHub, LinkedIn, Instagram, TikTok, and live project demos lead to "
+            "third-party sites I don't control, and I'm not responsible for their content.</p>",
+        ),
+        (
+            "CV downloads",
+            "<p>CVs on this site are provided for recruitment and professional review. Please don't "
+            "redistribute or repost them without asking first.</p>",
+        ),
+        (
+            "Changes to these terms",
+            "<p>I may update this page as the site changes. Continuing to use the site after an update "
+            "means you accept the current version.</p>",
+        ),
+        (
+            "Contact",
+            f'<p>Questions about these terms can be sent to <a href="mailto:{site["email"]}" '
+            f'class="text-primary hover:underline">{site["email"]}</a>.</p>',
+        ),
+    ]
+
+
+def legal_page_html(page_file, title, sections, site):
+    combined_cv = cv_href("cv/CV_Malwandla_Hlongwane_Combined.pdf")
+    body_sections = "\n\n".join(
+        f"""    <div class="reveal mb-10 last:mb-0">
+      <h2 class="font-display text-xl font-semibold mb-3">{heading}</h2>
+      <div class="text-muted leading-relaxed text-sm sm:text-base space-y-3">
+        {content}
+      </div>
+    </div>"""
+        for heading, content in sections
+    )
+    description = f"{title} for {site['name']}'s portfolio site."
+    return f"""{HEAD.format(title=f"{title} · {site['name']}", description=description, favicon=FAVICON_HREF)}
+<body class="bg-bg text-text font-body">
+
+{nav_html(combined_cv, page_file)}
+
+  <section class="max-w-3xl mx-auto px-6 pt-14 pb-16">
+    <p class="text-xs text-muted mb-3">Last updated {LEGAL_LAST_UPDATED}</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-semibold tracking-tight mb-10">{title}</h1>
+
+{body_sections}
+
+  </section>
+
+{footer_html()}
+
+  <script src="js/site.js"></script>
+</body>
+</html>
+"""
+
+
 def main():
     data = json.loads(DATA_PATH.read_text())
     site = data["site"]
@@ -765,6 +907,14 @@ def main():
     landing_html = render_landing(site, profiles, projects_catalog)
     (OUT_DIR / "index.html").write_text(landing_html)
     print(f"wrote {(OUT_DIR / 'index.html').relative_to(OUT_DIR.parent)}")
+
+    privacy_html = legal_page_html("privacy.html", "Privacy Policy", privacy_sections(site), site)
+    (OUT_DIR / "privacy.html").write_text(privacy_html)
+    print(f"wrote {(OUT_DIR / 'privacy.html').relative_to(OUT_DIR.parent)}")
+
+    terms_html = legal_page_html("terms.html", "Terms & Conditions", terms_sections(site), site)
+    (OUT_DIR / "terms.html").write_text(terms_html)
+    print(f"wrote {(OUT_DIR / 'terms.html').relative_to(OUT_DIR.parent)}")
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@
     "tiktok": "https://www.tiktok.com/@malwandla2105?_r=1&_t=ZS-98bQNTqusdh",
     "web3formsAccessKey": "YOUR_WEB3FORMS_ACCESS_KEY",
     "education": {
-      "qualification": "Diploma in ICT — Application Development",
+      "qualification": "Diploma in ICT (Application Development)",
       "institution": "University of Mpumalanga",
       "status": "In progress"
     },
@@ -23,7 +23,7 @@
     },
     "certificates": {
       "status": "In progress",
-      "detail": "No certificates earned yet — exploring free/low-cost programs."
+      "detail": "No certificates earned yet. Exploring free/low-cost programs."
     }
   },
   "toolsCatalog": {
@@ -62,7 +62,7 @@
   },
   "projectsCatalog": {
     "taskify": {
-      "name": "Taskify — Campus Task & Equipment Marketplace",
+      "name": "Taskify: Campus Task & Equipment Marketplace",
       "description": "Full-stack web app for posting tasks, hiring services, and renting equipment within a secure campus marketplace. JWT authentication, a full task lifecycle, equipment booking/return tracking, a ratings/reviews system, and simulated escrow payments.",
       "tech": ["Node.js", "Express", "MySQL", "HTML", "CSS", "JavaScript"],
       "github": "https://github.com/Malwandla21-ict/taskify",
@@ -72,7 +72,7 @@
       "status": "Completed"
     },
     "healthwise": {
-      "name": "HealthWise — AI-Based Symptom Checker App",
+      "name": "HealthWise: AI-Based Symptom Checker App",
       "description": "Android health app that matches user-selected symptoms to possible conditions using an integrated AI API for dynamic explanations. Includes an interactive chatbot, Room Database for history storage, and AlarmManager-based reminders.",
       "tech": ["Java", "Android Studio", "Retrofit", "Room Database"],
       "github": "https://github.com/Malwandla21-ict/HealthWise",
@@ -87,7 +87,7 @@
       "status": "Completed"
     },
     "fuelsa": {
-      "name": "FUEL SA — Fuel Station Management System",
+      "name": "FUEL SA: Fuel Station Management System",
       "description": "Desktop fuel station management application with a JavaFX GUI, built using OOP principles with modular separation of logic, controllers, and UI.",
       "tech": ["Java", "JavaFX", "FXML", "Scene Builder", "CSS"],
       "github": "https://github.com/Malwandla21-ict/FuelSA",
@@ -118,7 +118,7 @@
       "icon": "code",
       "cardDescription": "Building full-stack web applications and systems.",
       "headline": "Software Developer",
-      "tagline": "I build full-stack web applications end to end — from the database up through the API to the interface.",
+      "tagline": "I build full-stack web applications end to end, from the database up through the API to the interface.",
       "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
       "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
       "skills": [
@@ -139,7 +139,7 @@
       "cardDescription": "Creating intuitive and performant mobile apps.",
       "headline": "Android Developer",
       "tagline": "I design and build native Android apps with clean architecture and a smooth, reliable user experience.",
-      "summary": "I design and build native Android applications with clean, maintainable code — from UI layouts to local data storage.",
+      "summary": "I design and build native Android applications with clean, maintainable code, from UI layouts to local data storage.",
       "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
       "skills": [
         { "name": "Java", "level": 80 },
@@ -192,8 +192,8 @@
       "icon": "globe",
       "cardDescription": "Configuring and managing networks for reliable connectivity.",
       "headline": "Network Support Technician",
-      "tagline": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
-      "summary": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
+      "tagline": "I configure, maintain, and troubleshoot network infrastructure, from subnetting to routing and switching.",
+      "summary": "I configure, maintain, and troubleshoot network infrastructure, from subnetting to routing and switching.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
         { "name": "TCP/IP", "level": 80 },
