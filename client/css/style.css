@@ -106,6 +106,25 @@ body {
 }
 
 /* ---------------------------------------------------------------------
+   Mobile nav panel — a disclosure/accordion, not a decorative reveal, so
+   the CSS-grid 0fr/1fr technique (tolerated height-animation exception)
+   is used instead of forcing a guessed max-height. The inner wrapper
+   clips overflow so nothing is visible/tappable while collapsed.
+--------------------------------------------------------------------- */
+.mobile-nav-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s var(--ease-out);
+}
+.mobile-nav-panel.is-open {
+  grid-template-rows: 1fr;
+}
+.mobile-nav-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ---------------------------------------------------------------------
    Entrances
 --------------------------------------------------------------------- */
 .fade-in {
@@ -166,6 +185,7 @@ body.light .bg-card { background-color: #F5F5F7 !important; }
    class, distinct from plain .bg-bg — the sticky nav, gallery controls, and
    topology panel use these, so they need their own light-mode overrides or
    they stay stuck on the dark color. */
+body.light .bg-bg\/95 { background-color: rgba(255, 255, 255, 0.95) !important; }
 body.light .bg-bg\/80 { background-color: rgba(255, 255, 255, 0.8) !important; }
 body.light .bg-bg\/70 { background-color: rgba(255, 255, 255, 0.7) !important; }
 body.light .bg-card\/50 { background-color: rgba(245, 245, 247, 0.5) !important; }
@@ -217,6 +237,9 @@ body.light .border-white\/15 {
      transition — this is just a safety net in case that path is ever
      bypassed. */
   .reveal {
+    transition-duration: 0.01ms !important;
+  }
+  .mobile-nav-panel {
     transition-duration: 0.01ms !important;
   }
 }

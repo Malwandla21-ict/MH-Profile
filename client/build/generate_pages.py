@@ -62,6 +62,7 @@ ICONS = {
     "arrow-right": '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>',
     "expand": '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>',
     "close": '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+    "menu": '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>',
     "instagram": '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
     "tiktok": '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M16.5 3c.4 2.2 1.9 3.7 4 4v3c-1.5 0-2.9-.4-4-1.2v6.3a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.1a2.5 2.5 0 1 0 1.7 2.4V3h3z"/></svg>',
     "phone": '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 3a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.4c1 .3 2 .5 3 .6a2 2 0 0 1 1.7 2z"/></svg>',
@@ -134,25 +135,42 @@ def nav_html(cv_href, active_page):
         f'<a href="{href}" class="{"text-text border-b-2 border-primary pb-1 -mb-1" if href.split("#")[0] == active_page else "hover:text-text transition"}">{label}</a>'
         for href, label in NAV_LINKS
     )
+    # A separate markup block from the desktop links above — full-width,
+    # generously padded rows read far better as a tap target list than the
+    # inline row does shrunk down, so it's its own layout rather than a
+    # reused one.
+    mobile_links = "\n          ".join(
+        f'<a href="{href}" class="mobile-nav-link block py-3 text-base font-medium {"text-primary" if href.split("#")[0] == active_page else "text-text"}">{label}</a>'
+        for href, label in NAV_LINKS
+    )
     return f"""  <header class="sticky top-0 z-40 bg-bg/80 backdrop-blur border-b border-white/5">
     <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="index.html" class="flex items-center gap-2 font-display font-semibold text-lg">
-        <span class="text-primary font-mono">&lt;/&gt;</span> Malwandla <span class="font-normal">Hlongwane</span>
+      <a href="index.html" class="flex items-center gap-2 font-display font-semibold text-lg shrink-0">
+        <span class="text-primary font-mono">&lt;/&gt;</span> Malwandla <span class="font-normal hidden sm:inline">Hlongwane</span>
       </a>
       <div class="hidden md:flex gap-8 text-sm text-muted">
         {links}
       </div>
-      <div class="flex items-center gap-3">
-        <button id="themeToggle" aria-label="Toggle light and dark mode" class="w-9 h-9 flex items-center justify-center rounded-lg border border-white/10 text-muted hover:text-text transition active:scale-90">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="mobileNavToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav" class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-muted hover:text-text transition active:scale-90 shrink-0">
+          <span class="menu-icon-open">{ICONS['menu']}</span>
+          <span class="menu-icon-close hidden">{ICONS['close']}</span>
+        </button>
+        <button id="themeToggle" aria-label="Toggle light and dark mode" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 text-muted hover:text-text transition active:scale-90 shrink-0">
           <span class="theme-icon-dark">{ICONS['moon']}</span>
           <span class="theme-icon-light hidden">{ICONS['sun']}</span>
         </button>
-        <a href="{cv_href}" download class="download-cv-btn text-sm font-medium bg-primary hover:bg-primary/90 transition px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95">
+        <a href="{cv_href}" download aria-label="Download CV" class="download-cv-btn text-sm font-medium bg-primary hover:bg-primary/90 transition px-3 sm:px-4 py-2 rounded-lg flex items-center gap-2 active:scale-95 shrink-0">
           {ICONS['download']}
-          Download CV
+          <span class="hidden sm:inline">Download CV</span>
         </a>
       </div>
     </nav>
+    <div id="mobileNav" class="mobile-nav-panel md:hidden">
+      <div class="mobile-nav-panel-inner border-t border-white/5 bg-bg/95 backdrop-blur px-6">
+        {mobile_links}
+      </div>
+    </div>
   </header>"""
 
 
@@ -299,14 +317,17 @@ def gallery_html(images, alt):
 
     controls = ""
     if len(images) > 1:
+        # Each dot's actual button is a larger invisible touch target (32px)
+        # around a small visible indicator span, so it's comfortable to tap
+        # on a phone without the dot row looking oversized.
         dots = "\n            ".join(
-            f'<button class="gallery-dot w-1.5 h-1.5 rounded-full {"bg-white/90" if i == 0 else "bg-white/40"} transition active:scale-90" data-i="{i}" aria-label="Screenshot {i + 1}"></button>'
+            f'<button class="gallery-dot w-8 h-8 flex items-center justify-center active:scale-90" data-i="{i}" aria-label="Screenshot {i + 1}"><span class="w-1.5 h-1.5 rounded-full {"bg-primary" if i == 0 else "bg-white/30"} transition"></span></button>'
             for i in range(len(images))
         )
         controls = f"""
-          <button class="gallery-prev active:scale-90 absolute left-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center transition" aria-label="Previous screenshot">{ICONS['chevron-left']}</button>
-          <button class="gallery-next active:scale-90 absolute right-1.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center transition" aria-label="Next screenshot">{ICONS['chevron-right']}</button>
-          <div class="gallery-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <button class="gallery-prev active:scale-90 absolute left-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center transition" aria-label="Previous screenshot">{ICONS['chevron-left']}</button>
+          <button class="gallery-next active:scale-90 absolute right-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-bg/70 backdrop-blur text-text flex items-center justify-center transition" aria-label="Next screenshot">{ICONS['chevron-right']}</button>
+          <div class="gallery-dots absolute bottom-0.5 left-1/2 -translate-x-1/2 flex">
             {dots}
           </div>"""
 
@@ -460,10 +481,10 @@ def lightbox_html():
     """One shared full-image viewer per page — every project-media thumbnail
     (single or multi-image) opens into this on click. site.js wires it up."""
     return f"""  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-10">
-    <button id="lightboxClose" type="button" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Close">{ICONS['close']}</button>
-    <button id="lightboxPrev" type="button" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Previous image">{ICONS['chevron-left']}</button>
+    <button id="lightboxClose" type="button" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Close">{ICONS['close']}</button>
+    <button id="lightboxPrev" type="button" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Previous image">{ICONS['chevron-left']}</button>
     <img id="lightboxImg" src="" alt="" class="gallery-img max-w-full max-h-full object-contain rounded-lg" />
-    <button id="lightboxNext" type="button" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Next image">{ICONS['chevron-right']}</button>
+    <button id="lightboxNext" type="button" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition active:scale-90" aria-label="Next image">{ICONS['chevron-right']}</button>
   </div>"""
 
 

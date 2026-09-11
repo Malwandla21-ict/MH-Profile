@@ -37,6 +37,55 @@
     }
   }
 
+  /* ---------- Mobile nav (hamburger disclosure) ---------- */
+  function initMobileNav() {
+    const toggle = document.getElementById("mobileNavToggle");
+    const panel = document.getElementById("mobileNav");
+    if (!toggle || !panel) return;
+
+    const openIcon = toggle.querySelector(".menu-icon-open");
+    const closeIcon = toggle.querySelector(".menu-icon-close");
+
+    const setOpen = (isOpen) => {
+      panel.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      if (openIcon && closeIcon) {
+        openIcon.classList.toggle("hidden", isOpen);
+        closeIcon.classList.toggle("hidden", !isOpen);
+      }
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(!panel.classList.contains("is-open"));
+    });
+
+    // Picking a link should close the menu rather than leave it open
+    // underneath the page it just navigated (or scrolled) to.
+    panel.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    // If the viewport grows past the mobile breakpoint while the menu is
+    // open (e.g. rotating a tablet, or resizing a desktop window), the
+    // desktop nav takes over — don't leave the mobile panel stuck open
+    // underneath it.
+    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    const handleBreakpointChange = (e) => {
+      if (e.matches) setOpen(false);
+    };
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener("change", handleBreakpointChange);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && panel.classList.contains("is-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+
   /* ---------- Footer year ---------- */
   function initFooterYear() {
     const el = document.getElementById("year");
@@ -124,8 +173,12 @@
       }, CROSSFADE_MS);
 
       dots.forEach((dot, i) => {
-        dot.classList.toggle("bg-primary", i === index);
-        dot.classList.toggle("bg-white/20", i !== index);
+        // The visible indicator is a small inner <span> — the button
+        // itself is just an enlarged (32px) touch target around it.
+        const indicator = dot.querySelector("span");
+        if (!indicator) return;
+        indicator.classList.toggle("bg-primary", i === index);
+        indicator.classList.toggle("bg-white/30", i !== index);
       });
     }
 
@@ -296,6 +349,7 @@
   /* ---------- Boot ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
+    initMobileNav();
     initFooterYear();
     initContactForm();
     initGalleries();
