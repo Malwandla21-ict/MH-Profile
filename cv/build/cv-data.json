@@ -1,0 +1,256 @@
+{
+  "site": {
+    "name": "Malwandla Hlongwane",
+    "location": "Gauteng, South Africa",
+    "phone": "065 883 1240",
+    "email": "MalwandlaHlongwaneICT@outlook.com",
+    "linkedinUrl": "https://www.linkedin.com/in/malwandla-hlongwane-8484603a3",
+    "linkedinDisplay": "linkedin.com/in/malwandla-hlongwane",
+    "githubUrl": "https://github.com/Malwandla21-ict",
+    "githubDisplay": "github.com/Malwandla21-ict"
+  },
+  "education": {
+    "qualification": "Diploma in Information and Communication Technology (Applications Development)",
+    "institution": "University of Mpumalanga, Expected Completion: 2026",
+    "average": "Average: 75–78%"
+  },
+  "cvs": [
+    {
+      "key": "SoftwareWebDev",
+      "fileBase": "CV_Malwandla_Hlongwane_SoftwareWebDev",
+      "roleTitle": "Junior Software Developer (Full-Stack / Web)",
+      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with hands-on experience designing and building full-stack web applications end to end, from database schema and REST APIs through to authentication and frontend integration. Comfortable working across the stack in JavaScript, PHP, and Java, with a strong grounding in software engineering practice (requirements analysis, UML modelling, Agile/Scrum, and testing). Seeking a junior software developer or internship role to apply and grow full-stack development skills in a professional environment.",
+      "skills": [
+        [{"bold": true, "text": "Languages: "}, {"text": "JavaScript, PHP, Java, HTML & CSS, SQL"}],
+        [{"bold": true, "text": "Backend & APIs: "}, {"text": "Node.js (Express), REST API design, JWT authentication, MVC / layered architecture"}],
+        [{"bold": true, "text": "Frameworks & Tools: "}, {"text": "Jakarta EE (Servlets, JSF, RESTful services), XAMPP, Git/GitHub"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL (schema design, normalization, advanced SQL, CRUD operations)"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "Requirements engineering, UML/system modelling, Agile & Scrum practices, test-driven development, object-oriented design & design patterns"}]
+      ],
+      "projectSections": [
+        {
+          "title": "FEATURED PROJECT",
+          "projects": [
+            {
+              "name": "Taskify: Campus Task & Equipment Marketplace",
+              "techLabel": "Tech: ",
+              "tech": "Node.js, Express, MySQL, HTML, CSS, JavaScript",
+              "description": "Full-stack web application enabling students to post tasks, hire services, and rent equipment within a secure campus-based marketplace.",
+              "bullets": [
+                "Implemented JWT-based authentication to secure user accounts and API access",
+                "Designed a full task lifecycle system (Posted → Accepted → In Progress → Completed)",
+                "Built an equipment rental system with booking and return-tracking functionality",
+                "Developed a rating and review system to establish trust between users",
+                "Created a payment simulation system to mimic escrow-style transactions",
+                "Designed RESTful APIs and integrated frontend with backend services",
+                "Implemented reporting and moderation features to improve platform safety"
+              ],
+              "github": "github.com/Malwandla21-ict/taskify"
+            }
+          ]
+        },
+        {
+          "title": "ADDITIONAL PROJECT",
+          "projects": [
+            {
+              "name": "FUEL SA: Fuel Station Management System",
+              "techLabel": "Tech: ",
+              "tech": "Java, JavaFX, FXML, Scene Builder, CSS",
+              "description": "Desktop fuel station management application simulating station operations through an interactive GUI.",
+              "bullets": [
+                "Built using object-oriented programming principles with modular separation of logic, controllers, and UI",
+                "Implemented fuel request functionality with input validation and event-driven interactions",
+                "Designed responsive interfaces using FXML and Scene Builder, styled with JavaFX CSS"
+              ],
+              "github": "github.com/Malwandla21-ict/FuelSA"
+            }
+          ]
+        }
+      ],
+      "coursework": [
+        [{"bold": true, "text": "Web Development: "}, {"text": "dynamic web content, PHP (OOP, arrays, forms), MySQL (joins, PDO), JavaScript (DOM, objects), sessions & authentication"}],
+        [{"bold": true, "text": "Application Development (Jakarta EE): "}, {"text": "Servlets, JSF, RESTful web services, JSON binding, persistence/ORM, microservices"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML system modelling, architectural design, Agile/Scrum, software testing"}]
+      ]
+    },
+    {
+      "key": "AndroidDev",
+      "fileBase": "CV_Malwandla_Hlongwane_AndroidDev",
+      "roleTitle": "Junior Android / Mobile App Developer",
+      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with practical experience building Android applications from the ground up: UI design, local data persistence, third-party API integration, and background services. Built HealthWise, an AI-assisted symptom-checker app, covering the full Android development lifecycle from interface design through to deployment-ready builds. Seeking a junior Android/mobile developer or internship role to grow professional mobile development experience.",
+      "skills": [
+        [{"bold": true, "text": "Languages: "}, {"text": "Java, Kotlin (module-level), SQL"}],
+        [{"bold": true, "text": "Android: "}, {"text": "Android Studio, XML layouts & Material Design, Activities/Fragments & lifecycle management, event handling & intents, AlarmManager, RecyclerView"}],
+        [{"bold": true, "text": "Data & Networking: "}, {"text": "Room Database, SQLite, SharedPreferences, Retrofit (REST API consumption), JSON parsing, Firebase integration"}],
+        [{"bold": true, "text": "Other: "}, {"text": "Google Maps API & location services, multimedia integration, Git/GitHub, app testing, debugging & performance profiling, signed APK/AAB packaging"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "Object-oriented design, MVVM/MVC patterns, UML modelling, Agile/Scrum practices"}]
+      ],
+      "projectSections": [
+        {
+          "title": "FEATURED PROJECT",
+          "projects": [
+            {
+              "name": "HealthWise: AI-Based Symptom Checker App",
+              "techLabel": "Tech: ",
+              "tech": "Java, Android Studio, Retrofit, Room Database",
+              "description": "Mobile health application allowing users to check symptoms and receive possible conditions with AI-generated explanations.",
+              "bullets": [
+                "Developed symptom selection and condition-matching logic for user diagnosis assistance",
+                "Integrated an AI API to generate dynamic medical explanations for users",
+                "Built an interactive chatbot for user engagement and guidance",
+                "Implemented Room Database for storing user history and previous results",
+                "Developed reminder functionality using Android AlarmManager",
+                "Designed responsive, user-friendly mobile interfaces using XML layouts"
+              ],
+              "github": "github.com/Malwandla21-ict/HealthWise"
+            }
+          ]
+        }
+      ],
+      "coursework": [
+        [{"bold": true, "text": "Android Application Development: "}, {"text": "Android Studio & SDK setup, application architecture and lifecycle, XML/Material Design UI, event handling & navigation (intents, listeners), SharedPreferences & SQLite/Room, multimedia & location-based services, REST/Firebase integration, testing, debugging, and Play Store deployment"}],
+        [{"bold": true, "text": "Application Development II (Java): "}, {"text": "OOP, GUI development, arrays/collections, recursion, searching & sorting algorithms, file I/O and JDBC database access"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML system modelling, design patterns, Agile/Scrum, software testing"}]
+      ]
+    },
+    {
+      "key": "DatabaseDev",
+      "fileBase": "CV_Malwandla_Hlongwane_DatabaseDev",
+      "roleTitle": "Junior Database Developer / Data-Focused ICT Graduate",
+      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with a strong grounding in relational database design, from entity-relationship modelling and normalization through to advanced SQL, performance tuning, and emerging NoSQL/Big Data concepts. Applied this knowledge practically by designing and querying MySQL databases for two full production-style applications. Seeking a junior database developer, data analyst, or database administration role to build on this academic and applied foundation.",
+      "skills": [
+        [{"bold": true, "text": "Database Design: "}, {"text": "Entity-Relationship (ER) modelling, normalization (up to higher normal forms), relational schema design, data modelling (conceptual, logical, physical)"}],
+        [{"bold": true, "text": "SQL: "}, {"text": "Data definition & manipulation, complex queries, joins, relational set operators, SQL functions, stored procedures, transaction processing"}],
+        [{"bold": true, "text": "Database Systems: "}, {"text": "MySQL, SQLite, Room Database (Android), MySQL Workbench"}],
+        [{"bold": true, "text": "Advanced Topics: "}, {"text": "Transaction management & concurrency control, database performance tuning & query optimization, distributed database systems, database security & administration"}],
+        [{"bold": true, "text": "Emerging Data Technologies: "}, {"text": "Big Data & Hadoop concepts, NoSQL (MongoDB, Neo4j), business intelligence & data warehousing, star schemas, SQL analytical functions"}],
+        [{"bold": true, "text": "Applied Skills: "}, {"text": "REST API integration with databases, CRUD operations, backend data architecture"}]
+      ],
+      "projectSections": [
+        {
+          "title": "APPLIED EXPERIENCE",
+          "projects": [
+            {
+              "name": "Taskify: Campus Task & Equipment Marketplace",
+              "techLabel": "Tech: ",
+              "tech": "Node.js, Express, MySQL",
+              "description": "Designed the relational database schema and query layer behind a full-stack marketplace platform.",
+              "bullets": [
+                "Designed and implemented the MySQL schema supporting users, tasks, bookings, and reviews",
+                "Wrote CRUD queries and integrated them with a RESTful API layer",
+                "Structured data relationships to support a full task lifecycle and equipment booking/return tracking"
+              ],
+              "github": "github.com/Malwandla21-ict/taskify"
+            },
+            {
+              "name": "HealthWise: AI-Based Symptom Checker App",
+              "techLabel": "Tech: ",
+              "tech": "Java, Room Database",
+              "description": "Implemented local data persistence for a mobile health application.",
+              "bullets": [
+                "Designed and implemented a Room Database schema for storing user history and previous results"
+              ],
+              "github": "github.com/Malwandla21-ict/HealthWise"
+            }
+          ]
+        }
+      ],
+      "coursework": [
+        [{"bold": true, "text": "Information Systems III (Database Systems): "}, {"text": "ER modelling, advanced data modelling, normalization, SQL programming (beginner to advanced), relational set/join operators, database architecture (file server, client-server, web-based)"}],
+        [{"bold": true, "text": "Information Systems III (Advanced Database Concepts): "}, {"text": "transaction management & concurrency control, database performance tuning, distributed DBMS, database security, Big Data & NoSQL (Hadoop, MongoDB, Neo4j), business intelligence & data warehousing"}],
+        [{"bold": true, "text": "Web Development: "}, {"text": "MySQL database design with PHP (PDO), single- and multi-table queries, foreign keys and joins"}]
+      ]
+    },
+    {
+      "key": "ITSupportNetworking",
+      "fileBase": "CV_Malwandla_Hlongwane_ITSupportNetworking",
+      "roleTitle": "IT Support Technician / Junior Network Technician",
+      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with a solid technical support and networking foundation, covering hardware/software troubleshooting (CompTIA A+ syllabus), network design and configuration (CompTIA Network+ syllabus), and IT service management best practice (ITIL v3 Foundation). Practical experience includes designing and configuring a two-campus WAN with segmented wireless networks. Seeking an IT Support, Help Desk, or Junior Network Technician role to apply and build on this foundation in a live production environment.",
+      "skills": [
+        [{"bold": true, "text": "Hardware & Troubleshooting: "}, {"text": "PC hardware configuration & diagnostics, motherboard/memory/CPU/GPU components, laptop hardware & repairs, printer installation & troubleshooting, mobile device setup, sync, backup and security"}],
+        [{"bold": true, "text": "Networking: "}, {"text": "OSI/TCP-IP models, IP addressing & subnetting, routing & switching, VLANs & network segmentation, DHCP/DNS/NAT, wireless network configuration, WAN design, VPN & remote access, network troubleshooting"}],
+        [{"bold": true, "text": "Tools: "}, {"text": "Cisco Packet Tracer, Windows environment administration, command-line basics & scripting fundamentals"}],
+        [{"bold": true, "text": "IT Service Management (ITIL v3 Foundation): "}, {"text": "service lifecycle (strategy, design, transition, operation, continual improvement), incident/service request handling awareness, service level & availability management, change and service transition principles"}],
+        [{"bold": true, "text": "Professional Practice: "}, {"text": "technician conduct & communication, active listening, client-facing troubleshooting, IT ethics"}]
+      ],
+      "projectSections": [
+        {
+          "title": "PRACTICAL PROJECT",
+          "projects": [
+            {
+              "name": "Two-Campus WAN Design & Configuration",
+              "techLabel": "Tools: ",
+              "tech": "Cisco Packet Tracer",
+              "description": "Designed and configured a complete two-campus wide area network as a practical networking exercise.",
+              "bullets": [
+                "Built LAN infrastructure across 5 departments per campus, with 5 computers per department",
+                "Configured separate SSIDs for student, staff, and guest Wi-Fi networks at both campuses (network segmentation)",
+                "Established inter-campus routing and verified end-to-end connectivity via successful ping tests between campuses"
+              ]
+            }
+          ]
+        }
+      ],
+      "coursework": [
+        [{"bold": true, "text": "Computing Theory / Help Desk (CompTIA A+): "}, {"text": "hardware configuration & troubleshooting, memory & motherboard components, mobile device support, laptop hardware & repair, printer installation & management, IT roles and technician best practice"}],
+        [{"bold": true, "text": "Networking (CompTIA Network+): "}, {"text": "network topologies, IP addressing & subnetting, routing & switching, wireless standards, network security fundamentals, cloud & virtualization concepts, network troubleshooting methodology"}],
+        [{"bold": true, "text": "IT Service Management (ITIL v3 Foundation): "}, {"text": "ITSM fundamentals, service lifecycle, service design (catalogue, SLA, availability, capacity, continuity, security, supplier management), service transition, continual service improvement"}]
+      ]
+    },
+    {
+      "key": "Combined",
+      "fileBase": "CV_Malwandla_Hlongwane_Combined",
+      "roleTitle": "ICT Graduate: Software Development | Databases | Android | Networking & IT Support",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with broad, hands-on exposure across the ICT stack: full-stack web development, Android app development, relational database design, and networking/IT support fundamentals. Built and shipped three independent applications (a full-stack marketplace, an AI-assisted mobile health app, and a desktop management system) and practically configured a two-campus WAN. Comfortable moving between frontend, backend, mobile, and infrastructure work, well suited to a generalist junior ICT role, graduate programme, or internship where versatility across multiple technical domains is valued.",
+      "skills": [
+        [{"bold": true, "text": "Software Development: "}, {"text": "Java, JavaScript, PHP, HTML & CSS, SQL; Node.js (Express), REST API design, JWT authentication, MVC/layered architecture, OOP & design patterns"}],
+        [{"bold": true, "text": "Android Development: "}, {"text": "Android Studio, XML/Material Design UI, Activities/Fragments & lifecycle, Room Database, SQLite, Retrofit, Firebase, Google Maps API, AlarmManager"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, SQLite, Room Database; ER modelling, normalization, advanced SQL, transaction management, query optimization, BI & data warehousing, NoSQL/Big Data awareness"}],
+        [{"bold": true, "text": "Networking & IT Support: "}, {"text": "OSI/TCP-IP models, IP addressing & subnetting, routing & switching, VLANs, wireless configuration, WAN design (Cisco Packet Tracer), PC/mobile hardware troubleshooting, printer & peripheral support"}],
+        [{"bold": true, "text": "IT Service Management: "}, {"text": "ITIL v3 Foundation (service lifecycle, service design, service transition, continual service improvement)"}],
+        [{"bold": true, "text": "Software Engineering Practice: "}, {"text": "Requirements engineering, UML system modelling, Agile/Scrum, test-driven development, Git/GitHub"}]
+      ],
+      "projectSections": [
+        {
+          "title": "PROJECTS",
+          "projects": [
+            {
+              "name": "Taskify: Campus Task & Equipment Marketplace",
+              "techLabel": "Tech: ",
+              "tech": "Node.js, Express, MySQL, HTML, CSS, JavaScript",
+              "description": "Full-stack web app for posting tasks, hiring services, and renting equipment within a secure campus marketplace. Implemented JWT authentication, a full task lifecycle system, equipment booking/return tracking, a ratings/reviews system, simulated escrow payments, and RESTful APIs connecting frontend and backend.",
+              "github": "github.com/Malwandla21-ict/taskify"
+            },
+            {
+              "name": "HealthWise: AI-Based Symptom Checker App",
+              "techLabel": "Tech: ",
+              "tech": "Java, Android Studio, Retrofit, Room Database",
+              "description": "Android health app that matches user-selected symptoms to possible conditions using an integrated AI API for dynamic explanations. Includes an interactive chatbot, Room Database for history storage, and AlarmManager-based reminders.",
+              "github": "github.com/Malwandla21-ict/HealthWise"
+            },
+            {
+              "name": "FUEL SA: Fuel Station Management System",
+              "techLabel": "Tech: ",
+              "tech": "Java, JavaFX, FXML, Scene Builder, CSS",
+              "description": "Desktop fuel station management application with a JavaFX GUI, built using OOP principles with modular separation of logic, controllers, and UI.",
+              "github": "github.com/Malwandla21-ict/FuelSA"
+            },
+            {
+              "name": "Two-Campus WAN Design & Configuration",
+              "techLabel": "Tools: ",
+              "tech": "Cisco Packet Tracer",
+              "description": "Designed and configured a two-campus WAN with 5 departments per campus (5 computers each), separate student/staff/guest wireless networks, and verified inter-campus connectivity via successful ping tests."
+            }
+          ]
+        }
+      ],
+      "coursework": [
+        [{"bold": true, "text": "Application Development: "}, {"text": "Android (Java, Android Studio, SQLite/Room, Firebase); Jakarta EE (Servlets, JSF, REST services); Web Development (PHP, MySQL, JavaScript)"}],
+        [{"bold": true, "text": "Information Systems III: "}, {"text": "ER modelling & normalization, advanced SQL, transaction management, distributed databases, Big Data & NoSQL, business intelligence"}],
+        [{"bold": true, "text": "Computing Theory & Networking: "}, {"text": "CompTIA A+ (hardware/support) and Network+ (routing, switching, subnetting, wireless, WAN design) syllabi"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML, Agile/Scrum, software testing"}],
+        [{"bold": true, "text": "IT Service Management: "}, {"text": "ITIL v3 Foundation (service lifecycle, service design, transition, continual improvement)"}]
+      ]
+    }
+  ]
+}
