@@ -1,4 +1,65 @@
 {
+  "site": {
+    "name": "Malwandla Hlongwane",
+    "firstName": "Malwandla",
+    "lastName": "Hlongwane",
+    "location": "Pretoria, Gauteng, South Africa",
+    "email": "MalwandlaHlongwaneICT@outlook.com",
+    "phone": "065 883 1240",
+    "availability": "Open to opportunities",
+    "github": "https://github.com/Malwandla21-ict",
+    "linkedin": "https://www.linkedin.com/in/malwandla-hlongwane-8484603a3",
+    "instagram": "https://www.instagram.com/malwandla05_za?igsh=amh1MzM2YXh5aWF0",
+    "tiktok": "https://www.tiktok.com/@malwandla2105?_r=1&_t=ZS-98bQNTqusdh",
+    "web3formsAccessKey": "YOUR_WEB3FORMS_ACCESS_KEY",
+    "education": {
+      "qualification": "Diploma in ICT — Application Development",
+      "institution": "University of Mpumalanga",
+      "status": "In progress"
+    },
+    "experience": {
+      "status": "Seeking Internship",
+      "detail": "Final-year ICT student, open to internship and graduate roles."
+    },
+    "certificates": {
+      "status": "In progress",
+      "detail": "No certificates earned yet — exploring free/low-cost programs."
+    }
+  },
+  "toolsCatalog": {
+    "java": { "label": "Java", "icon": "code" },
+    "javascript": { "label": "JavaScript", "icon": "code" },
+    "php": { "label": "PHP", "icon": "code" },
+    "html5": { "label": "HTML5", "icon": "code" },
+    "css3": { "label": "CSS3", "icon": "code" },
+    "sql": { "label": "SQL", "icon": "database" },
+    "mysql": { "label": "MySQL", "icon": "database" },
+    "sqlite": { "label": "SQLite", "icon": "database" },
+    "room": { "label": "Room Database", "icon": "database" },
+    "er-modeling": { "label": "ER Modeling", "icon": "database" },
+    "normalization": { "label": "Normalization", "icon": "database" },
+    "nodejs": { "label": "Node.js", "icon": "box" },
+    "express": { "label": "Express", "icon": "box" },
+    "retrofit": { "label": "Retrofit", "icon": "box" },
+    "firebase": { "label": "Firebase", "icon": "box" },
+    "git": { "label": "Git", "icon": "branch" },
+    "github": { "label": "GitHub", "icon": "github" },
+    "android-studio": { "label": "Android Studio", "icon": "wrench" },
+    "material-ui": { "label": "XML / Material UI", "icon": "wrench" },
+    "vscode": { "label": "VS Code", "icon": "wrench" },
+    "postman": { "label": "Postman", "icon": "wrench" },
+    "tailwind": { "label": "Tailwind CSS", "icon": "wrench" },
+    "windows": { "label": "Windows", "icon": "wrench" },
+    "ticketing": { "label": "Ticketing Systems", "icon": "wrench" },
+    "itil": { "label": "ITIL v3", "icon": "wrench" },
+    "comptia-a": { "label": "CompTIA A+", "icon": "wrench" },
+    "packet-tracer": { "label": "Cisco Packet Tracer", "icon": "network" },
+    "tcp-ip": { "label": "TCP/IP", "icon": "network" },
+    "subnetting": { "label": "Subnetting", "icon": "network" },
+    "routing-switching": { "label": "Routing & Switching", "icon": "network" },
+    "vlans": { "label": "VLANs", "icon": "network" },
+    "network-plus": { "label": "Network+", "icon": "network" }
+  },
   "projectsCatalog": {
     "taskify": {
       "name": "Taskify — Campus Task & Equipment Marketplace",
@@ -53,9 +114,11 @@
   "profiles": {
     "software": {
       "label": "Software Developer",
+      "page": "software.html",
       "icon": "code",
       "cardDescription": "Building full-stack web applications and systems.",
       "headline": "Software Developer",
+      "tagline": "I build full-stack web applications end to end — from the database up through the API to the interface.",
       "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
       "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
       "skills": [
@@ -66,13 +129,16 @@
         { "name": "CSS", "level": 85 },
         { "name": "Node.js", "level": 75 }
       ],
+      "tools": ["java", "javascript", "html5", "css3", "mysql", "nodejs", "express", "git"],
       "projects": ["taskify", "fuelsa"]
     },
     "android": {
       "label": "Android Developer",
+      "page": "android.html",
       "icon": "smartphone",
       "cardDescription": "Creating intuitive and performant mobile apps.",
       "headline": "Android Developer",
+      "tagline": "I design and build native Android apps with clean architecture and a smooth, reliable user experience.",
       "summary": "I design and build native Android applications with clean, maintainable code — from UI layouts to local data storage.",
       "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
       "skills": [
@@ -81,13 +147,16 @@
         { "name": "XML Layouts", "level": 80 },
         { "name": "SQLite", "level": 70 }
       ],
+      "tools": ["java", "android-studio", "material-ui", "sqlite", "room", "retrofit", "firebase", "git"],
       "projects": ["healthwise"]
     },
     "database": {
       "label": "Database Developer",
+      "page": "database.html",
       "icon": "database",
       "cardDescription": "Designing and optimizing robust database solutions.",
       "headline": "Database Developer",
+      "tagline": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
       "summary": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
       "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
       "skills": [
@@ -96,13 +165,16 @@
         { "name": "ER Modeling", "level": 75 },
         { "name": "Normalization", "level": 75 }
       ],
+      "tools": ["mysql", "sql", "sqlite", "er-modeling", "normalization", "git"],
       "projects": ["taskify"]
     },
     "helpdesk": {
       "label": "IT Help Desk",
+      "page": "helpdesk.html",
       "icon": "wrench",
       "cardDescription": "Providing technical support and troubleshooting IT systems.",
       "headline": "IT Support Technician",
+      "tagline": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
       "summary": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
@@ -111,13 +183,16 @@
         { "name": "Customer Support", "level": 85 },
         { "name": "Windows", "level": 80 }
       ],
+      "tools": ["windows", "ticketing", "comptia-a", "itil", "tcp-ip"],
       "projects": ["networking-wan"]
     },
     "networking": {
       "label": "Networking",
+      "page": "networking.html",
       "icon": "globe",
       "cardDescription": "Configuring and managing networks for reliable connectivity.",
       "headline": "Network Support Technician",
+      "tagline": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
       "summary": "I configure, maintain, and troubleshoot network infrastructure — from subnetting to routing and switching.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
@@ -126,6 +201,7 @@
         { "name": "Routing & Switching", "level": 70 },
         { "name": "Network Security Basics", "level": 65 }
       ],
+      "tools": ["packet-tracer", "tcp-ip", "subnetting", "routing-switching", "vlans", "network-plus"],
       "projects": ["networking-wan"]
     }
   }
