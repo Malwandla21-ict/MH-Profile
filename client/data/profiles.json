@@ -4,122 +4,197 @@
     "firstName": "Malwandla",
     "lastName": "Hlongwane",
     "location": "Pretoria, Gauteng, South Africa",
+    "locationShort": "Pretoria, Gauteng",
     "email": "MalwandlaHlongwaneICT@outlook.com",
     "phone": "065 883 1240",
-    "availability": "Open to opportunities",
+    "phoneIntl": "+27658831240",
+    "availability": "Open to internships & graduate roles",
     "github": "https://github.com/Malwandla21-ict",
     "linkedin": "https://www.linkedin.com/in/malwandla-hlongwane-8484603a3",
     "instagram": "https://www.instagram.com/malwandla05_za?igsh=amh1MzM2YXh5aWF0",
-    "tiktok": "https://www.tiktok.com/@malwandla2105?_r=1&_t=ZS-98bQNTqusdh",
+    "tiktok": "https://www.tiktok.com/@malwandla2105",
     "web3formsAccessKey": "YOUR_WEB3FORMS_ACCESS_KEY",
+    "combinedCv": "cv/CV_Malwandla_Hlongwane_Combined.pdf",
     "education": {
       "qualification": "Diploma in ICT (Application Development)",
       "institution": "University of Mpumalanga",
       "status": "In progress"
     },
     "experience": {
-      "status": "Seeking Internship",
+      "status": "Seeking internship",
       "detail": "Final-year ICT student, open to internship and graduate roles."
     },
     "certificates": {
       "status": "In progress",
-      "detail": "No certificates earned yet. Exploring free/low-cost programs."
-    }
+      "detail": "Exploring free and low-cost programs."
+    },
+    "strengths": ["Problem solver", "Team player", "Fast learner", "Attention to detail"]
   },
+
+  "home": {
+    "heroBlurb": "ICT graduate building across software, Android, databases, IT support and networking. One developer, five ways to hire.",
+    "heroFocus": "Full-stack web & Android",
+    "heroCycle": ["full-stack web apps", "enterprise Java systems", "native Android apps", "relational databases", "reliable IT support", "campus networks"],
+    "about": "I'm a final-year ICT student at the University of Mpumalanga. I move comfortably between frontend, backend, mobile, databases and networks, and build in whichever track a role calls for.",
+    "aboutDark": "Final-year ICT student, comfortable moving between <em>frontend, backend, mobile, databases and networking</em>, building in whichever track a role calls for."
+  },
+
   "toolsCatalog": {
-    "java": { "label": "Java", "icon": "code" },
-    "javascript": { "label": "JavaScript", "icon": "code" },
-    "php": { "label": "PHP", "icon": "code" },
-    "html5": { "label": "HTML5", "icon": "code" },
-    "css3": { "label": "CSS3", "icon": "code" },
-    "sql": { "label": "SQL", "icon": "database" },
-    "mysql": { "label": "MySQL", "icon": "database" },
-    "sqlite": { "label": "SQLite", "icon": "database" },
-    "room": { "label": "Room Database", "icon": "database" },
-    "er-modeling": { "label": "ER Modeling", "icon": "database" },
-    "normalization": { "label": "Normalization", "icon": "database" },
-    "nodejs": { "label": "Node.js", "icon": "box" },
-    "express": { "label": "Express", "icon": "box" },
-    "retrofit": { "label": "Retrofit", "icon": "box" },
-    "firebase": { "label": "Firebase", "icon": "box" },
-    "git": { "label": "Git", "icon": "branch" },
-    "github": { "label": "GitHub", "icon": "github" },
-    "android-studio": { "label": "Android Studio", "icon": "wrench" },
-    "material-ui": { "label": "XML / Material UI", "icon": "wrench" },
-    "vscode": { "label": "VS Code", "icon": "wrench" },
-    "postman": { "label": "Postman", "icon": "wrench" },
-    "tailwind": { "label": "Tailwind CSS", "icon": "wrench" },
-    "windows": { "label": "Windows", "icon": "wrench" },
-    "ticketing": { "label": "Ticketing Systems", "icon": "wrench" },
-    "itil": { "label": "ITIL v3", "icon": "wrench" },
-    "comptia-a": { "label": "CompTIA A+", "icon": "wrench" },
-    "packet-tracer": { "label": "Cisco Packet Tracer", "icon": "network" },
-    "tcp-ip": { "label": "TCP/IP", "icon": "network" },
-    "subnetting": { "label": "Subnetting", "icon": "network" },
-    "routing-switching": { "label": "Routing & Switching", "icon": "network" },
-    "vlans": { "label": "VLANs", "icon": "network" },
-    "network-plus": { "label": "Network+", "icon": "network" }
+    "java": { "label": "Java" },
+    "javascript": { "label": "JavaScript" },
+    "php": { "label": "PHP" },
+    "html5": { "label": "HTML5" },
+    "css3": { "label": "CSS3" },
+    "sql": { "label": "SQL" },
+    "mysql": { "label": "MySQL" },
+    "postgresql": { "label": "PostgreSQL" },
+    "sqlite": { "label": "SQLite" },
+    "room": { "label": "Room Database" },
+    "er-modeling": { "label": "ER Modeling" },
+    "normalization": { "label": "Normalization" },
+    "nodejs": { "label": "Node.js" },
+    "express": { "label": "Express" },
+    "jakarta-ee": { "label": "Jakarta EE" },
+    "retrofit": { "label": "Retrofit" },
+    "firebase": { "label": "Firebase" },
+    "git": { "label": "Git" },
+    "github": { "label": "GitHub" },
+    "android-studio": { "label": "Android Studio" },
+    "material-ui": { "label": "XML / Material UI" },
+    "vscode": { "label": "VS Code" },
+    "postman": { "label": "Postman" },
+    "windows": { "label": "Windows" },
+    "ticketing": { "label": "Ticketing Systems" },
+    "itil": { "label": "ITIL v3" },
+    "comptia-a": { "label": "CompTIA A+" },
+    "packet-tracer": { "label": "Cisco Packet Tracer" },
+    "tcp-ip": { "label": "TCP/IP" },
+    "subnetting": { "label": "Subnetting" },
+    "routing-switching": { "label": "Routing & Switching" },
+    "vlans": { "label": "VLANs" },
+    "network-plus": { "label": "Network+" }
   },
+
   "projectsCatalog": {
+    "stokvault": {
+      "name": "StokVault",
+      "subtitle": "Stokvel Contribution & Payout Platform",
+      "type": "Enterprise Java",
+      "status": "Completed",
+      "context": "Group project · DICT312",
+      "description": "Replaces WhatsApp and notebook record-keeping for stokvels with one auditable system. Treasurers verify contributions per cycle, a batch job checks payout eligibility, high-value payouts need a second approver, and every financial action lands in a hash-chained, tamper-evident audit log.",
+      "tech": ["Jakarta EE 11", "Payara", "PostgreSQL", "Jakarta Faces", "JMS", "Docker"],
+      "github": "https://github.com/Malwandla21-ict/StokVault",
+      "demo": "",
+      "images": [],
+      "layout": "desktop",
+      "featured": true
+    },
     "taskify": {
-      "name": "Taskify: Campus Task & Equipment Marketplace",
-      "description": "Full-stack web app for posting tasks, hiring services, and renting equipment within a secure campus marketplace. JWT authentication, a full task lifecycle, equipment booking/return tracking, a ratings/reviews system, and simulated escrow payments.",
-      "tech": ["Node.js", "Express", "MySQL", "HTML", "CSS", "JavaScript"],
+      "name": "Taskify",
+      "subtitle": "Campus Task & Equipment Marketplace",
+      "type": "Full Stack",
+      "status": "Completed",
+      "context": "",
+      "description": "Post tasks, hire services and rent equipment inside a secure campus marketplace. JWT auth, a full task lifecycle, booking and return tracking, ratings and simulated escrow payments.",
+      "tech": ["Node.js", "Express", "MySQL", "JavaScript", "HTML", "CSS"],
       "github": "https://github.com/Malwandla21-ict/taskify",
       "demo": "https://taskify-frontend-ol07.onrender.com",
       "images": ["images/taskify-dashboard.png"],
-      "type": "Full Stack",
-      "status": "Completed"
+      "layout": "desktop",
+      "featured": true
     },
     "healthwise": {
-      "name": "HealthWise: AI-Based Symptom Checker App",
-      "description": "Android health app that matches user-selected symptoms to possible conditions using an integrated AI API for dynamic explanations. Includes an interactive chatbot, Room Database for history storage, and AlarmManager-based reminders.",
-      "tech": ["Java", "Android Studio", "Retrofit", "Room Database"],
+      "name": "HealthWise",
+      "subtitle": "AI Symptom Checker",
+      "type": "Android",
+      "status": "Completed",
+      "context": "",
+      "description": "Matches selected symptoms to possible conditions using an AI API, with an interactive chatbot, Room-backed history and AlarmManager pill reminders.",
+      "tech": ["Java", "Android Studio", "Retrofit", "Room"],
       "github": "https://github.com/Malwandla21-ict/HealthWise",
       "demo": "",
       "images": [
         "images/healthwise-dashboard.jpg",
-        "images/healthwise-symptom-select.jpg",
         "images/healthwise-ai-chat.jpg",
-        "images/healthwise-pill-scheduler.jpg"
+        "images/healthwise-pill-scheduler.jpg",
+        "images/healthwise-symptom-select.jpg"
       ],
-      "type": "Android",
-      "status": "Completed"
+      "layout": "phone",
+      "featured": true
     },
     "fuelsa": {
-      "name": "FUEL SA: Fuel Station Management System",
-      "description": "Desktop fuel station management application with a JavaFX GUI, built using OOP principles with modular separation of logic, controllers, and UI.",
+      "name": "FUEL SA",
+      "subtitle": "Fuel Station Management",
+      "type": "JavaFX Desktop",
+      "status": "Completed",
+      "context": "",
+      "description": "Desktop station management with a JavaFX GUI, built on OOP principles with clean separation of logic, controllers and UI.",
       "tech": ["Java", "JavaFX", "FXML", "Scene Builder", "CSS"],
       "github": "https://github.com/Malwandla21-ict/FuelSA",
       "demo": "",
       "images": [
-        "images/fuelsa-login.png",
         "images/fuelsa-admin-dashboard.jpg",
-        "images/fuelsa-analytics.jpg"
+        "images/fuelsa-analytics.jpg",
+        "images/fuelsa-login.png"
       ],
-      "type": "JavaFX",
-      "status": "Completed"
+      "layout": "desktop",
+      "featured": true
+    },
+    "ump-events": {
+      "name": "UMP Events",
+      "subtitle": "Campus Event Booking Website",
+      "type": "PHP Web",
+      "status": "Completed",
+      "context": "Group project",
+      "description": "Students register, browse upcoming campus events and book a seat, then view their bookings from a profile page. Admins create and remove events with images, dates and capacity. Built on PHP and MySQL with hashed passwords, prepared statements and role-based access.",
+      "tech": ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/Malwandla21-ict/Ump-Event-Booking-web",
+      "demo": "",
+      "images": [],
+      "layout": "desktop",
+      "featured": true
     },
     "networking-wan": {
-      "name": "Two-Campus WAN Design & Configuration",
-      "description": "Designed and configured a two-campus WAN with 5 departments per campus (5 computers each), separate student/staff/guest wireless networks, and verified inter-campus connectivity via successful ping tests.",
+      "name": "Two-Campus WAN",
+      "subtitle": "Design & Configuration",
+      "type": "Networking",
+      "status": "Completed",
+      "context": "",
+      "description": "Two campuses with five departments each, separate student, staff and guest wireless networks, and inter-campus connectivity verified with ping tests.",
       "tech": ["Cisco Packet Tracer", "TCP/IP", "Subnetting", "Routing & Switching"],
       "github": "",
       "demo": "",
       "images": ["images/network-topology.png"],
-      "type": "Networking",
-      "status": "Completed"
+      "layout": "desktop",
+      "featured": true
+    },
+    "stams": {
+      "name": "STAMS",
+      "subtitle": "Student Accommodation Management",
+      "type": "Mobile + API",
+      "status": "In progress",
+      "context": "",
+      "description": "Landlords manage properties, rooms and the students living in them. Students report maintenance issues with photos and can nudge a landlord when an issue stalls, and both sides are notified as it moves from Reported to Resolved.",
+      "tech": ["Spring Boot", "Java 21", "PostgreSQL", "Flutter", "JWT"],
+      "github": "https://github.com/Malwandla21-ict/STAMS-Student-Accomadation-Management-System-",
+      "demo": "",
+      "images": [],
+      "layout": "phone",
+      "featured": true
     }
   },
+
   "profiles": {
     "software": {
       "label": "Software Developer",
+      "short": "Software",
+      "cvLabel": "Software",
       "page": "software.html",
-      "icon": "code",
-      "cardDescription": "Building full-stack web applications and systems.",
+      "cardDescription": "Full-stack web applications and systems.",
       "headline": "Software Developer",
       "tagline": "I build full-stack web applications end to end, from the database up through the API to the interface.",
-      "summary": "I'm a final year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
+      "summary": "Final-year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
       "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
       "skills": [
         { "name": "Java", "level": 85 },
@@ -129,17 +204,18 @@
         { "name": "CSS", "level": 85 },
         { "name": "Node.js", "level": 75 }
       ],
-      "tools": ["java", "javascript", "html5", "css3", "mysql", "nodejs", "express", "git"],
-      "projects": ["taskify", "fuelsa"]
+      "tools": ["java", "jakarta-ee", "javascript", "php", "html5", "css3", "mysql", "postgresql", "nodejs", "express", "git"],
+      "projects": ["stokvault", "taskify", "ump-events", "fuelsa", "stams"]
     },
     "android": {
       "label": "Android Developer",
+      "short": "Android",
+      "cvLabel": "Android",
       "page": "android.html",
-      "icon": "smartphone",
-      "cardDescription": "Creating intuitive and performant mobile apps.",
+      "cardDescription": "Intuitive, performant native mobile apps.",
       "headline": "Android Developer",
       "tagline": "I design and build native Android apps with clean architecture and a smooth, reliable user experience.",
-      "summary": "I design and build native Android applications with clean, maintainable code, from UI layouts to local data storage.",
+      "summary": "Native Android applications with clean, maintainable code, from UI layouts to local data storage.",
       "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
       "skills": [
         { "name": "Java", "level": 80 },
@@ -148,16 +224,17 @@
         { "name": "SQLite", "level": 70 }
       ],
       "tools": ["java", "android-studio", "material-ui", "sqlite", "room", "retrofit", "firebase", "git"],
-      "projects": ["healthwise"]
+      "projects": ["healthwise", "stams"]
     },
     "database": {
       "label": "Database Developer",
+      "short": "Database",
+      "cvLabel": "Database",
       "page": "database.html",
-      "icon": "database",
-      "cardDescription": "Designing and optimizing robust database solutions.",
+      "cardDescription": "Robust, normalised relational data.",
       "headline": "Database Developer",
       "tagline": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
-      "summary": "I model, normalize, and optimize relational databases so applications stay fast and data stays consistent.",
+      "summary": "From ER models to normalised schemas and well-indexed queries: data that holds up as the application grows.",
       "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
       "skills": [
         { "name": "MySQL", "level": 85 },
@@ -165,17 +242,18 @@
         { "name": "ER Modeling", "level": 75 },
         { "name": "Normalization", "level": 75 }
       ],
-      "tools": ["mysql", "sql", "sqlite", "er-modeling", "normalization", "git"],
-      "projects": ["taskify"]
+      "tools": ["mysql", "postgresql", "sql", "sqlite", "er-modeling", "normalization", "git"],
+      "projects": ["stokvault", "taskify", "ump-events"]
     },
     "helpdesk": {
       "label": "IT Help Desk",
+      "short": "Help Desk",
+      "cvLabel": "IT Support",
       "page": "helpdesk.html",
-      "icon": "wrench",
-      "cardDescription": "Providing technical support and troubleshooting IT systems.",
+      "cardDescription": "Troubleshooting and clear technical support.",
       "headline": "IT Support Technician",
       "tagline": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
-      "summary": "I diagnose and resolve hardware, software, and user-facing technical issues quickly and clearly.",
+      "summary": "Calm, methodical troubleshooting with clear communication, getting people back to work fast.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
         { "name": "Troubleshooting", "level": 85 },
@@ -188,12 +266,13 @@
     },
     "networking": {
       "label": "Networking",
+      "short": "Networking",
+      "cvLabel": "Networking",
       "page": "networking.html",
-      "icon": "globe",
-      "cardDescription": "Configuring and managing networks for reliable connectivity.",
+      "cardDescription": "Reliable, well-configured connectivity.",
       "headline": "Network Support Technician",
       "tagline": "I configure, maintain, and troubleshoot network infrastructure, from subnetting to routing and switching.",
-      "summary": "I configure, maintain, and troubleshoot network infrastructure, from subnetting to routing and switching.",
+      "summary": "Designing addressing schemes, segmenting with VLANs and verifying connectivity across sites.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
         { "name": "TCP/IP", "level": 80 },

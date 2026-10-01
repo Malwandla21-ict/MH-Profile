@@ -1,46 +1,72 @@
 # Malwandla Hlongwane — Portfolio Site
 
-Multi-profile developer portfolio. One site, five professional identities:
+Multi-track developer portfolio. One site, five professional identities:
 Software Development · Android Development · Database Development · IT Help Desk · Networking.
 
-The core feature is the **Profile Switcher** — selecting a track updates skills,
-projects, CV download, certificates, and headline without a page reload.
+## The design
 
-## Build Stages
+The site has two looks, and the visitor's device setting picks one (the moon/sun button switches it):
 
-- [x] **MVP v1** — hero + about rebuilt to match approved mockup
-- [x] **MVP v2** — profile switcher card grid + skills (bars + icon grid) matched to mockup
-- [x] **MVP v3 (mostly)** — real photo/contact/socials, per-profile projects grid (Taskify, HealthWise, FuelSA, Two-Campus WAN), 4-up summary band. Still open: 3-column contact layout with GitHub activity feed; a true carousel for projects if the grid ever outgrows itself.
-- [ ] **V2** — Express + MySQL backend, contact form → DB, profile data served from DB
-- [ ] **V3** — Admin dashboard (auth + CRUD) for managing content without touching code
-- [ ] **V4** — GitHub live stats, extras (dark mode polish, command palette, etc.)
+- **Light ("Direction A")**: cream background, black type, green accent. Projects scroll sideways as you scroll down.
+- **Dark ("Direction B")**: near-black background with a grid, lime accent. Projects stack on top of each other as you scroll.
 
-See `client/data/profiles.json` for the profile-switcher data contract used in the MVP.
-See `mockup-reference.md` for the approved visual target.
-The `server/` folder is scaffolded now but stays empty until V2.
+Motion (scrambling text, buttons that follow the cursor, scroll effects) comes from `client/js/fx.js`, taken
+unchanged from the design files.
 
-## Folder Structure
+## How to change content
+
+Everything you'd want to edit lives in **`client/data/profiles.json`**: your details, projects, tracks, skills
+and tools. After editing it, rebuild the pages:
+
+```bash
+cd client/build
+python3 generate_pages.py
+```
+
+**To add screenshots to a project:** put the image files in `client/images/`, list them in that project's
+`"images"` array in `profiles.json`, and run the script again. Projects without images show a
+"Screenshots coming soon" cover. Use `"layout": "phone"` for phone screenshots (shown side by side) or
+`"desktop"` for one wide screenshot.
+
+**To make the contact form deliver mail:** get a free access key at web3forms.com and paste it into
+`site.web3formsAccessKey` in `profiles.json`. Until then the form asks people to email you directly.
+
+## Pages (all generated, don't edit the HTML by hand)
+
+| File | What it is |
+|---|---|
+| `client/index.html` | Homepage, with both looks in one file |
+| `client/track.html` | All five tracks; `track.html?t=software` / `android` / `database` / `helpdesk` / `networking` |
+| `client/privacy.html`, `client/terms.html` | Legal pages |
+| `client/software.html` etc. | Redirects to `track.html?t=...` so old links still work |
+
+## Build stages
+
+- [x] **MVP v1–v3**: hero, about, track pages, projects, contact, CV downloads
+- [x] **Redesign (Oct 2026)**: new light/dark design, single track page, StokVault, UMP Events and STAMS added
+- [ ] **V2**: Express + MySQL backend, contact form → DB, profile data served from DB
+- [ ] **V3**: Admin dashboard (auth + CRUD) for managing content without touching code
+- [ ] **V4**: GitHub live stats and extras
+
+The `server/` folder is scaffolded but stays empty until V2.
+
+## Folder structure
 
 ```
 client/
-  css/
-  js/
+  build/         # generate_pages.py (builds the HTML)
+  css/site.css
+  js/fx.js       # motion effects from the design
+  js/main.js     # theme toggle, contact form, lightbox, track switcher
   images/
-  data/          # MVP data source (profiles.json)
-server/
-  routes/
-  controllers/
-  middleware/
-  database/
-  models/
-public/
-uploads/
-cv/              # static CV PDFs, one per profile
+  data/          # profiles.json, the single source of content
+server/          # scaffolded for V2
+cv/              # static CV PDFs, one per track
 ```
 
 ## Stack
 
-- Frontend: HTML5, CSS3, Tailwind CSS, vanilla JS
+- Frontend: HTML5, CSS3, vanilla JS (no framework, no build tools beyond the Python script)
 - Backend (from V2): Node.js, Express.js
 - Database (from V2): MySQL
 - Version control: Git + GitHub
