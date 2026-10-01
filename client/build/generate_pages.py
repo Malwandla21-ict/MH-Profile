@@ -47,6 +47,11 @@ def cv_href(rel_path):
     return f"../{rel_path}"
 
 
+def u(path):
+    """Make a file path safe to use in a link (e.g. spaces become %20)."""
+    return urllib.parse.quote(path)
+
+
 def num_word(n):
     return NUM_WORDS[n] if n < len(NUM_WORDS) else str(n)
 
@@ -63,6 +68,7 @@ FAVICON_SVG = (
     "</svg>"
 )
 FAVICON_HREF = "data:image/svg+xml," + urllib.parse.quote(FAVICON_SVG)
+OG_IMAGE = ""  # set in main() from site.heroImages
 
 # Runs before the page paints, so there's no flash of the wrong theme.
 THEME_BOOT = (
@@ -73,6 +79,7 @@ THEME_BOOT = (
 
 
 def head(title, description):
+    og_image = OG_IMAGE
     return f"""<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -84,7 +91,7 @@ def head(title, description):
 <meta property="og:type" content="website" />
 <meta property="og:title" content="{e(title)}" />
 <meta property="og:description" content="{e(description)}" />
-<meta property="og:image" content="images/malwandla-hero.jpg" />
+<meta property="og:image" content="{og_image}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)" />
@@ -132,8 +139,32 @@ def lightbox_html():
 # Project media (screenshots, phone shots, or a "coming soon" cover)
 # ---------------------------------------------------------------------------
 def zoom_attrs(images, start=0, label="View screenshot"):
-    return (f" data-zoom='{e(json.dumps(images))}' data-start=\"{start}\" tabindex=\"0\" role=\"button\" "
+    return (f" data-zoom='{e(json.dumps([u(i) for i in images]))}' data-start=\"{start}\" tabindex=\"0\" role=\"button\" "
             f"aria-label=\"{e(label)}\"")
+
+
+def slideshow_html(images, alt, kind, zoom=True, interval=4500, extra_attrs="", dots_pos=""):
+    """A stack of images that fade from one to the next (js/main.js runs it).
+    kind: 'shot' (screenshots, shown whole) or 'photo' (fills the frame)."""
+    n = len(images)
+    slides = ""
+    for i, src in enumerate(images):
+        label = f"{alt} {i + 1} of {n}" if n > 1 else alt
+        z = zoom_attrs(images, i, f"Enlarge {label}") if zoom else ""
+        active = " is-active" if i == 0 else ""
+        hidden = "" if i == 0 else ' aria-hidden="true"'
+        lazy = "" if (i == 0 and kind == "photo") else ' loading="lazy"'
+        slides += f'<img class="slide slide-{kind}{active}" src="{e(u(src))}" alt="{e(label)}"{lazy}{hidden}{z}>'
+    dots = ""
+    if n > 1:
+        current = ' aria-current="true"'
+        btns = "".join(
+            f'<button type="button" aria-label="Show image {i + 1} of {n}"{current if i == 0 else ""}></button>'
+            for i in range(n))
+        dots = f'<div class="slide-dots {dots_pos}">{btns}</div>'
+    # extra_attrs go on the moving layer (e.g. parallax) so the dots stay put
+    return (f'<div class="slides" data-slides data-interval="{interval}">'
+            f'<div class="slides-inner"{extra_attrs}>{slides}</div>{dots}</div>')
 
 
 def cover_html(p):
@@ -161,17 +192,13 @@ def media_html(p, variant):
         else:
             wrap, img_style = None, None
         tags = "".join(
-            f'<img src="{e(s)}" alt="{e(name)} screenshot {i + 1}" loading="lazy"'
+            f'<img src="{e(u(s))}" alt="{e(name)} screenshot {i + 1}" loading="lazy"'
             f'{zoom_attrs(imgs, i, f"Enlarge {name} screenshot {i + 1}")}'
             + (f' style="{img_style}"' if img_style else "") + ">"
             for i, s in enumerate(shots)
         )
         return (f'<div style="{wrap}">{tags}</div>' if wrap else f'<div class="shots">{tags}</div>')
-    style = ' style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top left;"' \
-        if variant in ("a", "b") else ""
-    more = f" ({len(imgs)} screenshots)" if len(imgs) > 1 else ""
-    return (f'<img src="{e(imgs[0])}" alt="{e(name)} screenshot" loading="lazy"'
-            f'{zoom_attrs(imgs, 0, f"Enlarge {name} screenshots{more}")}{style}>')
+    return slideshow_html(imgs, f"{name} screenshot", "shot")
 
 
 def status_html(p):
@@ -241,7 +268,7 @@ def a_hero(site, home):
 </div>
 </div>
 <div data-reveal data-delay="420" style="position:relative; aspect-ratio:4/5; width:100%; max-width:440px; justify-self:center; overflow:hidden; border-radius:6px; background:#e4e1d8;">
-<img data-parallax="-0.1" src="images/malwandla-hero.jpg" alt="{e(site['name'])}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;">
+{slideshow_html(site['heroImages'], f"Photo of {site['name']}", "photo", zoom=False, interval=5000, extra_attrs=' data-parallax="-0.1"')}
 </div>
 <dl data-reveal data-delay="540" style="margin:0; display:grid; gap:0; font-size:15px;">
 {dl}</dl>
@@ -410,10 +437,10 @@ def b_nav(site):
 
 def b_hero(site, home):
     cycle = home["heroCycle"]
-    return f"""<header data-sec="hero" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:clamp(40px,5vw,80px); align-items:center; padding:clamp(48px,7vw,104px) clamp(20px,4vw,56px) clamp(80px,10vw,140px); min-height:calc(100vh - 64px);">
+    return f"""<header data-sec="hero" class="b-hero" style="position:relative; z-index:1; display:grid; gap:clamp(40px,5vw,80px); align-items:center; padding:clamp(48px,7vw,104px) clamp(20px,4vw,56px) clamp(80px,10vw,140px); min-height:calc(100vh - 64px);">
 <div style="display:flex; flex-direction:column; gap:clamp(28px,3vw,40px); min-width:0;">
 <div style="display:flex; align-items:center; gap:10px; {B_MONO} font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:#b5b3ab;"><span style="width:8px; height:8px; border-radius:50%; background:{B_ACCENT}; box-shadow:0 0 12px {B_ACCENT};"></span><span data-scramble>Available · Internship &amp; graduate roles</span></div>
-<h1 style="margin:0; font-stretch:125%; font-weight:800; text-transform:uppercase; font-size:clamp(44px,7.4vw,128px); line-height:.88; letter-spacing:-.03em;">
+<h1 style="margin:0; font-stretch:125%; font-weight:800; text-transform:uppercase; font-size:clamp(40px,6.4vw,112px); line-height:.88; letter-spacing:-.03em;">
 <span style="display:block; clip-path:inset(0 -100vw 0 -100vw);"><span data-rise style="display:block;">{e(site['firstName'])}</span></span>
 <span style="display:block; clip-path:inset(0 -100vw 0 -100vw);"><span data-rise data-delay="120" style="display:block; color:transparent; -webkit-text-stroke:1.5px #eceae4;">{e(site['lastName'])}</span></span>
 </h1>
@@ -424,12 +451,12 @@ def b_hero(site, home):
 <a href="#contact-b" data-magnetic style="padding:16px 26px; border-radius:6px; border:1px solid rgba(236,234,228,.25); font-weight:500; font-size:15px;">Contact me</a>
 </div>
 </div>
-<div data-reveal data-delay="200" style="justify-self:center; width:100%; max-width:460px;">
+<div data-reveal data-delay="200" class="b-hero-photo">
 <div data-tilt data-glow style="position:relative; aspect-ratio:4/5; border-radius:14px; padding:1px; background:radial-gradient(320px circle at var(--gx, 50%) var(--gy, 50%), oklch(0.86 0.17 128 / .9), rgba(236,234,228,.12) 70%); transition:transform .5s cubic-bezier(.2,.7,.2,1); transform-style:preserve-3d;">
 <div style="position:relative; width:100%; height:100%; border-radius:13px; overflow:hidden; background:#151619;">
-<img src="images/malwandla-hero.jpg" alt="{e(site['name'])}" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
-<div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(12,13,15,.85), transparent 45%);"></div>
-<div style="position:absolute; left:20px; right:20px; bottom:18px; display:flex; justify-content:space-between; gap:12px; {B_MONO} font-size:12px; text-transform:uppercase; letter-spacing:.06em;"><span>Pretoria, ZA</span><span style="color:{B_ACCENT};">ICT · UMP</span></div>
+{slideshow_html(site['heroImages'], f"Photo of {site['name']}", "photo", zoom=False, interval=5000, dots_pos="top")}
+<div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(to top, rgba(12,13,15,.85), transparent 45%);"></div>
+<div style="position:absolute; pointer-events:none; left:20px; right:20px; bottom:18px; display:flex; justify-content:space-between; gap:12px; {B_MONO} font-size:12px; text-transform:uppercase; letter-spacing:.06em;"><span>Pretoria, ZA</span><span style="color:{B_ACCENT};">ICT · UMP</span></div>
 </div>
 </div>
 </div>
@@ -826,6 +853,12 @@ def main():
         for img in p.get("images", []):
             if not (OUT_DIR / img).exists():
                 print(f"  warning: {pk} image '{img}' not found in client/{img}")
+
+    global OG_IMAGE
+    OG_IMAGE = u(site["heroImages"][0])
+    for img in site["heroImages"]:
+        if not (OUT_DIR / img).exists():
+            print(f"  warning: hero photo '{img}' not found in client/{img}")
 
     featured = [p for p in projects_catalog.values() if p.get("featured", True)]
 

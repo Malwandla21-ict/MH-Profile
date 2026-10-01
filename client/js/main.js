@@ -146,6 +146,70 @@
     }
   });
 
+  /* ---------- Slideshows ----------
+     Fades to the next image every few seconds. It pauses while the mouse is
+     over it, while it's off screen (so hidden slideshows don't churn), and
+     never auto-plays for people who've asked their device for less motion.
+     The dots jump to an image; on phones you can swipe. */
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const shows = [];
+  document.querySelectorAll('[data-slides]').forEach((box, idx) => {
+    const slides = [...box.querySelectorAll('.slide')];
+    if (slides.length < 2) return;
+    const dots = [...box.querySelectorAll('.slide-dots button')];
+    const interval = +(box.dataset.interval || 4500);
+    let i = 0, timer = 0, paused = false, onscreen = false, first = true;
+    // only the showing image can be tabbed to / clicked
+    slides.forEach((s, k) => { if (s.hasAttribute('data-zoom')) s.tabIndex = k === 0 ? 0 : -1; });
+
+    const go = (n) => {
+      slides[i].classList.remove('is-active');
+      slides[i].setAttribute('aria-hidden', 'true');
+      if (slides[i].hasAttribute('data-zoom')) slides[i].tabIndex = -1;
+      if (dots[i]) dots[i].removeAttribute('aria-current');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('is-active');
+      slides[i].removeAttribute('aria-hidden');
+      if (slides[i].hasAttribute('data-zoom')) slides[i].tabIndex = 0;
+      if (dots[i]) dots[i].setAttribute('aria-current', 'true');
+      // warm up the next image so the fade never shows a blank frame
+      const next = slides[(i + 1) % slides.length];
+      if (next.loading === 'lazy') next.loading = 'eager';
+    };
+    const tick = () => {
+      clearTimeout(timer);
+      if (reduceMotion || paused || !onscreen || document.hidden || !isVisible(box)) return;
+      // stagger the first change so neighbouring cards don't all flip at once
+      const wait = first ? interval + (idx % 5) * 650 : interval;
+      timer = setTimeout(() => { first = false; go(i + 1); tick(); }, wait);
+    };
+
+    dots.forEach((d, k) => d.addEventListener('click', (ev) => { ev.stopPropagation(); go(k); tick(); }));
+    const host = box.closest('article, [data-tilt], [data-reveal]') || box;
+    host.addEventListener('pointerenter', (ev) => { if (ev.pointerType === 'mouse') { paused = true; tick(); } });
+    host.addEventListener('pointerleave', () => { paused = false; tick(); });
+    box.addEventListener('focusin', () => { paused = true; tick(); });
+    box.addEventListener('focusout', () => { paused = false; tick(); });
+
+    // Swipe left/right on touch screens
+    let sx = null, sy = 0;
+    box.addEventListener('pointerdown', (ev) => { if (ev.pointerType !== 'mouse') { sx = ev.clientX; sy = ev.clientY; } });
+    box.addEventListener('pointerup', (ev) => {
+      if (sx === null) return;
+      const dx = ev.clientX - sx, dy = ev.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        box._swiped = true; // tells the lightbox this wasn't a tap
+        go(i + (dx < 0 ? 1 : -1)); tick();
+      }
+    });
+
+    const io = new IntersectionObserver((en) => { onscreen = en[0].isIntersecting; tick(); }, { threshold: 0.35 });
+    io.observe(box);
+    shows.push(tick);
+  });
+  document.addEventListener('visibilitychange', () => shows.forEach((t) => t()));
+
   /* ---------- Lightbox ---------- */
   const lb = document.querySelector('[data-lightbox]');
   if (lb) {
@@ -172,6 +236,8 @@
     document.addEventListener('click', (e) => {
       const z = e.target.closest('[data-zoom]');
       if (!z) return;
+      const box = z.closest('[data-slides]');
+      if (box && box._swiped) { box._swiped = false; return; }
       try { open(JSON.parse(z.dataset.zoom), +(z.dataset.start || 0), z); } catch (ex) { /* bad data */ }
     });
     document.addEventListener('keydown', (e) => {

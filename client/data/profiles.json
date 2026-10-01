@@ -28,53 +28,134 @@
       "status": "In progress",
       "detail": "Exploring free and low-cost programs."
     },
-    "strengths": ["Problem solver", "Team player", "Fast learner", "Attention to detail"]
+    "strengths": [
+      "Problem solver",
+      "Team player",
+      "Fast learner",
+      "Attention to detail"
+    ],
+    "heroImages": [
+      "images/My_IMG/WhatsApp Image 2026-10-01 at 17.32.21.jpeg",
+      "images/My_IMG/IMG-20240409-WA0015.jpg",
+      "images/My_IMG/WhatsApp Image 2026-10-01 at 17.32.19.jpeg",
+      "images/My_IMG/WhatsApp Image 2026-10-01 at 17.32.20.jpeg"
+    ]
   },
-
   "home": {
     "heroBlurb": "ICT graduate building across software, Android, databases, IT support and networking. One developer, five ways to hire.",
     "heroFocus": "Full-stack web & Android",
-    "heroCycle": ["full-stack web apps", "enterprise Java systems", "native Android apps", "relational databases", "reliable IT support", "campus networks"],
+    "heroCycle": [
+      "full-stack web apps",
+      "enterprise Java systems",
+      "native Android apps",
+      "relational databases",
+      "reliable IT support",
+      "campus networks"
+    ],
     "about": "I'm a final-year ICT student at the University of Mpumalanga. I move comfortably between frontend, backend, mobile, databases and networks, and build in whichever track a role calls for.",
     "aboutDark": "Final-year ICT student, comfortable moving between <em>frontend, backend, mobile, databases and networking</em>, building in whichever track a role calls for."
   },
-
   "toolsCatalog": {
-    "java": { "label": "Java" },
-    "javascript": { "label": "JavaScript" },
-    "php": { "label": "PHP" },
-    "html5": { "label": "HTML5" },
-    "css3": { "label": "CSS3" },
-    "sql": { "label": "SQL" },
-    "mysql": { "label": "MySQL" },
-    "postgresql": { "label": "PostgreSQL" },
-    "sqlite": { "label": "SQLite" },
-    "room": { "label": "Room Database" },
-    "er-modeling": { "label": "ER Modeling" },
-    "normalization": { "label": "Normalization" },
-    "nodejs": { "label": "Node.js" },
-    "express": { "label": "Express" },
-    "jakarta-ee": { "label": "Jakarta EE" },
-    "retrofit": { "label": "Retrofit" },
-    "firebase": { "label": "Firebase" },
-    "git": { "label": "Git" },
-    "github": { "label": "GitHub" },
-    "android-studio": { "label": "Android Studio" },
-    "material-ui": { "label": "XML / Material UI" },
-    "vscode": { "label": "VS Code" },
-    "postman": { "label": "Postman" },
-    "windows": { "label": "Windows" },
-    "ticketing": { "label": "Ticketing Systems" },
-    "itil": { "label": "ITIL v3" },
-    "comptia-a": { "label": "CompTIA A+" },
-    "packet-tracer": { "label": "Cisco Packet Tracer" },
-    "tcp-ip": { "label": "TCP/IP" },
-    "subnetting": { "label": "Subnetting" },
-    "routing-switching": { "label": "Routing & Switching" },
-    "vlans": { "label": "VLANs" },
-    "network-plus": { "label": "Network+" }
+    "java": {
+      "label": "Java"
+    },
+    "javascript": {
+      "label": "JavaScript"
+    },
+    "php": {
+      "label": "PHP"
+    },
+    "html5": {
+      "label": "HTML5"
+    },
+    "css3": {
+      "label": "CSS3"
+    },
+    "sql": {
+      "label": "SQL"
+    },
+    "mysql": {
+      "label": "MySQL"
+    },
+    "postgresql": {
+      "label": "PostgreSQL"
+    },
+    "sqlite": {
+      "label": "SQLite"
+    },
+    "room": {
+      "label": "Room Database"
+    },
+    "er-modeling": {
+      "label": "ER Modeling"
+    },
+    "normalization": {
+      "label": "Normalization"
+    },
+    "nodejs": {
+      "label": "Node.js"
+    },
+    "express": {
+      "label": "Express"
+    },
+    "jakarta-ee": {
+      "label": "Jakarta EE"
+    },
+    "retrofit": {
+      "label": "Retrofit"
+    },
+    "firebase": {
+      "label": "Firebase"
+    },
+    "git": {
+      "label": "Git"
+    },
+    "github": {
+      "label": "GitHub"
+    },
+    "android-studio": {
+      "label": "Android Studio"
+    },
+    "material-ui": {
+      "label": "XML / Material UI"
+    },
+    "vscode": {
+      "label": "VS Code"
+    },
+    "postman": {
+      "label": "Postman"
+    },
+    "windows": {
+      "label": "Windows"
+    },
+    "ticketing": {
+      "label": "Ticketing Systems"
+    },
+    "itil": {
+      "label": "ITIL v3"
+    },
+    "comptia-a": {
+      "label": "CompTIA A+"
+    },
+    "packet-tracer": {
+      "label": "Cisco Packet Tracer"
+    },
+    "tcp-ip": {
+      "label": "TCP/IP"
+    },
+    "subnetting": {
+      "label": "Subnetting"
+    },
+    "routing-switching": {
+      "label": "Routing & Switching"
+    },
+    "vlans": {
+      "label": "VLANs"
+    },
+    "network-plus": {
+      "label": "Network+"
+    }
   },
-
   "projectsCatalog": {
     "stokvault": {
       "name": "StokVault",
@@ -83,10 +164,22 @@
       "status": "Completed",
       "context": "Group project · DICT312",
       "description": "Replaces WhatsApp and notebook record-keeping for stokvels with one auditable system. Treasurers verify contributions per cycle, a batch job checks payout eligibility, high-value payouts need a second approver, and every financial action lands in a hash-chained, tamper-evident audit log.",
-      "tech": ["Jakarta EE 11", "Payara", "PostgreSQL", "Jakarta Faces", "JMS", "Docker"],
+      "tech": [
+        "Jakarta EE 11",
+        "Payara",
+        "PostgreSQL",
+        "Jakarta Faces",
+        "JMS",
+        "Docker"
+      ],
       "github": "https://github.com/Malwandla21-ict/StokVault",
       "demo": "",
-      "images": [],
+      "images": [
+        "images/StockVault/Screenshot 2026-10-01 172301.png",
+        "images/StockVault/Screenshot 2026-10-01 172313.png",
+        "images/StockVault/Screenshot 2026-10-01 172242.png",
+        "images/StockVault/Screenshot 2026-10-01 172328.png"
+      ],
       "layout": "desktop",
       "featured": true
     },
@@ -97,10 +190,23 @@
       "status": "Completed",
       "context": "",
       "description": "Post tasks, hire services and rent equipment inside a secure campus marketplace. JWT auth, a full task lifecycle, booking and return tracking, ratings and simulated escrow payments.",
-      "tech": ["Node.js", "Express", "MySQL", "JavaScript", "HTML", "CSS"],
+      "tech": [
+        "Node.js",
+        "Express",
+        "MySQL",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
       "github": "https://github.com/Malwandla21-ict/taskify",
       "demo": "https://taskify-frontend-ol07.onrender.com",
-      "images": ["images/taskify-dashboard.png"],
+      "images": [
+        "images/Taskify/Screenshot 2026-10-01 172703.png",
+        "images/Taskify/Screenshot 2026-10-01 172852.png",
+        "images/Taskify/Screenshot 2026-10-01 172912.png",
+        "images/Taskify/Screenshot 2026-10-01 172834.png",
+        "images/Taskify/Screenshot 2026-10-01 172933.png"
+      ],
       "layout": "desktop",
       "featured": true
     },
@@ -111,14 +217,18 @@
       "status": "Completed",
       "context": "",
       "description": "Matches selected symptoms to possible conditions using an AI API, with an interactive chatbot, Room-backed history and AlarmManager pill reminders.",
-      "tech": ["Java", "Android Studio", "Retrofit", "Room"],
+      "tech": [
+        "Java",
+        "Android Studio",
+        "Retrofit",
+        "Room"
+      ],
       "github": "https://github.com/Malwandla21-ict/HealthWise",
       "demo": "",
       "images": [
-        "images/healthwise-dashboard.jpg",
-        "images/healthwise-ai-chat.jpg",
-        "images/healthwise-pill-scheduler.jpg",
-        "images/healthwise-symptom-select.jpg"
+        "images/Healthwise/HomepageHW.png",
+        "images/Healthwise/symptom-check.png",
+        "images/Healthwise/assistant.png"
       ],
       "layout": "phone",
       "featured": true
@@ -130,13 +240,21 @@
       "status": "Completed",
       "context": "",
       "description": "Desktop station management with a JavaFX GUI, built on OOP principles with clean separation of logic, controllers and UI.",
-      "tech": ["Java", "JavaFX", "FXML", "Scene Builder", "CSS"],
+      "tech": [
+        "Java",
+        "JavaFX",
+        "FXML",
+        "Scene Builder",
+        "CSS"
+      ],
       "github": "https://github.com/Malwandla21-ict/FuelSA",
       "demo": "",
       "images": [
-        "images/fuelsa-admin-dashboard.jpg",
-        "images/fuelsa-analytics.jpg",
-        "images/fuelsa-login.png"
+        "images/FuelSA/Screenshot 2025-10-02 191401.png",
+        "images/FuelSA/Screenshot 2025-10-02 191340.png",
+        "images/FuelSA/Screenshot 2025-10-02 191409.png",
+        "images/FuelSA/Screenshot 2025-10-02 191419.png",
+        "images/FuelSA/Screenshot 2025-10-02 191427.png"
       ],
       "layout": "desktop",
       "featured": true
@@ -148,7 +266,13 @@
       "status": "Completed",
       "context": "Group project",
       "description": "Students register, browse upcoming campus events and book a seat, then view their bookings from a profile page. Admins create and remove events with images, dates and capacity. Built on PHP and MySQL with hashed passwords, prepared statements and role-based access.",
-      "tech": ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+      "tech": [
+        "PHP",
+        "MySQL",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "github": "https://github.com/Malwandla21-ict/Ump-Event-Booking-web",
       "demo": "",
       "images": [],
@@ -162,10 +286,17 @@
       "status": "Completed",
       "context": "",
       "description": "Two campuses with five departments each, separate student, staff and guest wireless networks, and inter-campus connectivity verified with ping tests.",
-      "tech": ["Cisco Packet Tracer", "TCP/IP", "Subnetting", "Routing & Switching"],
+      "tech": [
+        "Cisco Packet Tracer",
+        "TCP/IP",
+        "Subnetting",
+        "Routing & Switching"
+      ],
       "github": "",
       "demo": "",
-      "images": ["images/network-topology.png"],
+      "images": [
+        "images/Networking/network-topology.png"
+      ],
       "layout": "desktop",
       "featured": true
     },
@@ -176,15 +307,25 @@
       "status": "In progress",
       "context": "",
       "description": "Landlords manage properties, rooms and the students living in them. Students report maintenance issues with photos and can nudge a landlord when an issue stalls, and both sides are notified as it moves from Reported to Resolved.",
-      "tech": ["Spring Boot", "Java 21", "PostgreSQL", "Flutter", "JWT"],
+      "tech": [
+        "Spring Boot",
+        "Java 21",
+        "PostgreSQL",
+        "Flutter",
+        "JWT"
+      ],
       "github": "https://github.com/Malwandla21-ict/STAMS-Student-Accomadation-Management-System-",
       "demo": "",
-      "images": [],
-      "layout": "phone",
+      "images": [
+        "images/STAMS/Screenshot 2026-10-01 173503.png",
+        "images/STAMS/Screenshot 2026-10-01 173605.png",
+        "images/STAMS/Screenshot 2026-10-01 173650.png",
+        "images/STAMS/Screenshot 2026-10-01 173520.png"
+      ],
+      "layout": "desktop",
       "featured": true
     }
   },
-
   "profiles": {
     "software": {
       "label": "Software Developer",
@@ -197,15 +338,51 @@
       "summary": "Final-year ICT student majoring in Application Development at the University of Mpumalanga. I enjoy solving real-world problems through code and designing systems that make people's lives easier.",
       "cv": "cv/CV_Malwandla_Hlongwane_SoftwareWebDev.pdf",
       "skills": [
-        { "name": "Java", "level": 85 },
-        { "name": "JavaScript", "level": 80 },
-        { "name": "MySQL", "level": 85 },
-        { "name": "HTML", "level": 90 },
-        { "name": "CSS", "level": 85 },
-        { "name": "Node.js", "level": 75 }
+        {
+          "name": "Java",
+          "level": 85
+        },
+        {
+          "name": "JavaScript",
+          "level": 80
+        },
+        {
+          "name": "MySQL",
+          "level": 85
+        },
+        {
+          "name": "HTML",
+          "level": 90
+        },
+        {
+          "name": "CSS",
+          "level": 85
+        },
+        {
+          "name": "Node.js",
+          "level": 75
+        }
       ],
-      "tools": ["java", "jakarta-ee", "javascript", "php", "html5", "css3", "mysql", "postgresql", "nodejs", "express", "git"],
-      "projects": ["stokvault", "taskify", "ump-events", "fuelsa", "stams"]
+      "tools": [
+        "java",
+        "jakarta-ee",
+        "javascript",
+        "php",
+        "html5",
+        "css3",
+        "mysql",
+        "postgresql",
+        "nodejs",
+        "express",
+        "git"
+      ],
+      "projects": [
+        "stokvault",
+        "taskify",
+        "ump-events",
+        "fuelsa",
+        "stams"
+      ]
     },
     "android": {
       "label": "Android Developer",
@@ -218,13 +395,37 @@
       "summary": "Native Android applications with clean, maintainable code, from UI layouts to local data storage.",
       "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
       "skills": [
-        { "name": "Java", "level": 80 },
-        { "name": "Android SDK", "level": 75 },
-        { "name": "XML Layouts", "level": 80 },
-        { "name": "SQLite", "level": 70 }
+        {
+          "name": "Java",
+          "level": 80
+        },
+        {
+          "name": "Android SDK",
+          "level": 75
+        },
+        {
+          "name": "XML Layouts",
+          "level": 80
+        },
+        {
+          "name": "SQLite",
+          "level": 70
+        }
       ],
-      "tools": ["java", "android-studio", "material-ui", "sqlite", "room", "retrofit", "firebase", "git"],
-      "projects": ["healthwise", "stams"]
+      "tools": [
+        "java",
+        "android-studio",
+        "material-ui",
+        "sqlite",
+        "room",
+        "retrofit",
+        "firebase",
+        "git"
+      ],
+      "projects": [
+        "healthwise",
+        "stams"
+      ]
     },
     "database": {
       "label": "Database Developer",
@@ -237,13 +438,37 @@
       "summary": "From ER models to normalised schemas and well-indexed queries: data that holds up as the application grows.",
       "cv": "cv/CV_Malwandla_Hlongwane_DatabaseDev.pdf",
       "skills": [
-        { "name": "MySQL", "level": 85 },
-        { "name": "SQL", "level": 85 },
-        { "name": "ER Modeling", "level": 75 },
-        { "name": "Normalization", "level": 75 }
+        {
+          "name": "MySQL",
+          "level": 85
+        },
+        {
+          "name": "SQL",
+          "level": 85
+        },
+        {
+          "name": "ER Modeling",
+          "level": 75
+        },
+        {
+          "name": "Normalization",
+          "level": 75
+        }
       ],
-      "tools": ["mysql", "postgresql", "sql", "sqlite", "er-modeling", "normalization", "git"],
-      "projects": ["stokvault", "taskify", "ump-events"]
+      "tools": [
+        "mysql",
+        "postgresql",
+        "sql",
+        "sqlite",
+        "er-modeling",
+        "normalization",
+        "git"
+      ],
+      "projects": [
+        "stokvault",
+        "taskify",
+        "ump-events"
+      ]
     },
     "helpdesk": {
       "label": "IT Help Desk",
@@ -256,13 +481,33 @@
       "summary": "Calm, methodical troubleshooting with clear communication, getting people back to work fast.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
-        { "name": "Troubleshooting", "level": 85 },
-        { "name": "Ticketing Systems", "level": 70 },
-        { "name": "Customer Support", "level": 85 },
-        { "name": "Windows", "level": 80 }
+        {
+          "name": "Troubleshooting",
+          "level": 85
+        },
+        {
+          "name": "Ticketing Systems",
+          "level": 70
+        },
+        {
+          "name": "Customer Support",
+          "level": 85
+        },
+        {
+          "name": "Windows",
+          "level": 80
+        }
       ],
-      "tools": ["windows", "ticketing", "comptia-a", "itil", "tcp-ip"],
-      "projects": ["networking-wan"]
+      "tools": [
+        "windows",
+        "ticketing",
+        "comptia-a",
+        "itil",
+        "tcp-ip"
+      ],
+      "projects": [
+        "networking-wan"
+      ]
     },
     "networking": {
       "label": "Networking",
@@ -275,13 +520,34 @@
       "summary": "Designing addressing schemes, segmenting with VLANs and verifying connectivity across sites.",
       "cv": "cv/CV_Malwandla_Hlongwane_ITSupportNetworking.pdf",
       "skills": [
-        { "name": "TCP/IP", "level": 80 },
-        { "name": "Subnetting", "level": 75 },
-        { "name": "Routing & Switching", "level": 70 },
-        { "name": "Network Security Basics", "level": 65 }
+        {
+          "name": "TCP/IP",
+          "level": 80
+        },
+        {
+          "name": "Subnetting",
+          "level": 75
+        },
+        {
+          "name": "Routing & Switching",
+          "level": 70
+        },
+        {
+          "name": "Network Security Basics",
+          "level": 65
+        }
       ],
-      "tools": ["packet-tracer", "tcp-ip", "subnetting", "routing-switching", "vlans", "network-plus"],
-      "projects": ["networking-wan"]
+      "tools": [
+        "packet-tracer",
+        "tcp-ip",
+        "subnetting",
+        "routing-switching",
+        "vlans",
+        "network-plus"
+      ],
+      "projects": [
+        "networking-wan"
+      ]
     }
   }
 }

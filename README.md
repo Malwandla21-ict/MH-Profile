@@ -23,10 +23,14 @@ cd client/build
 python3 generate_pages.py
 ```
 
-**To add screenshots to a project:** put the image files in `client/images/`, list them in that project's
-`"images"` array in `profiles.json`, and run the script again. Projects without images show a
-"Screenshots coming soon" cover. Use `"layout": "phone"` for phone screenshots (shown side by side) or
-`"desktop"` for one wide screenshot.
+**To add screenshots to a project:** put the image files in that project's folder inside `client/images/`
+(e.g. `client/images/Taskify/`), list them in the project's `"images"` array in `profiles.json`, and run the
+script again. The order in the list is the order the slideshow plays. Projects without images show a
+"Screenshots coming soon" cover. Use `"layout": "phone"` for tall phone screenshots (shown side by side) or
+`"desktop"` for wide screenshots (shown as a slideshow, never cropped).
+
+**To change your photos:** put them in `client/images/My_IMG/` and list them in `site.heroImages` in
+`profiles.json`. They play as a slideshow at the top of the homepage.
 
 **To make the contact form deliver mail:** get a free access key at web3forms.com and paste it into
 `site.web3formsAccessKey` in `profiles.json`. Until then the form asks people to email you directly.
