@@ -235,26 +235,29 @@
     },
     "fuelsa": {
       "name": "FUEL SA",
-      "subtitle": "Fuel Station Management",
+      "subtitle": "Fuel Ordering & Station Management",
       "type": "JavaFX Desktop",
       "status": "Completed",
       "context": "",
-      "description": "Desktop station management with a JavaFX GUI, built on OOP principles with clean separation of logic, controllers and UI.",
+      "description": "Customers register their car, request fuel and see the cost up front. Admins approve or reject requests from a sidebar dashboard and track revenue, top customers and weekly sales, with SMS updates through the BulkSMS API. Passwords are salted PBKDF2 hashes, credentials stay out of source code, and a demo mode ships with sample data.",
       "tech": [
-        "Java",
+        "Java 17",
         "JavaFX",
         "FXML",
-        "Scene Builder",
+        "SQLite",
+        "Maven",
         "CSS"
       ],
       "github": "https://github.com/Malwandla21-ict/FuelSA",
       "demo": "",
       "images": [
-        "images/FuelSA/Screenshot 2025-10-02 191401.png",
-        "images/FuelSA/Screenshot 2025-10-02 191340.png",
-        "images/FuelSA/Screenshot 2025-10-02 191409.png",
-        "images/FuelSA/Screenshot 2025-10-02 191419.png",
-        "images/FuelSA/Screenshot 2025-10-02 191427.png"
+        "images/FuelSA/request-fuel.png",
+        "images/FuelSA/admin-dashboard.png",
+        "images/FuelSA/admin-analytics.png",
+        "images/FuelSA/admin-pending-requests.png",
+        "images/FuelSA/admin-request-history.png",
+        "images/FuelSA/login.png",
+        "images/FuelSA/register.png"
       ],
       "layout": "desktop",
       "featured": true
@@ -264,18 +267,27 @@
       "subtitle": "Campus Event Booking Website",
       "type": "PHP Web",
       "status": "Completed",
-      "context": "Group project",
-      "description": "Students register, browse upcoming campus events and book a seat, then view their bookings from a profile page. Admins create and remove events with images, dates and capacity. Built on PHP and MySQL with hashed passwords, prepared statements and role-based access.",
+      "context": "Group project · since rebuilt",
+      "description": "Students browse campus events, book seats and get a digital ticket with a booking reference. Admins manage events, track fill rates and export attendee lists to CSV. Rebuilt from procedural pages into a framework-free PHP MVC app, with transactional booking that prevents overbooking, CSRF tokens, a strict CSP, login throttling and dark mode.",
       "tech": [
-        "PHP",
+        "PHP 8.2",
         "MySQL",
+        "MVC",
         "HTML",
         "CSS",
         "JavaScript"
       ],
       "github": "https://github.com/Malwandla21-ict/Ump-Event-Booking-web",
       "demo": "",
-      "images": [],
+      "images": [
+        "images/UMP-Events/home.jpg",
+        "images/UMP-Events/events.jpg",
+        "images/UMP-Events/event-detail.jpg",
+        "images/UMP-Events/ticket.jpg",
+        "images/UMP-Events/bookings-dark.jpg",
+        "images/UMP-Events/admin-dashboard.jpg",
+        "images/UMP-Events/admin-edit.jpg"
+      ],
       "layout": "desktop",
       "featured": true
     },
