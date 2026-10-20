@@ -5,10 +5,25 @@
  * for layout/design. Edit the JSON, re-run this script, never hand-edit
  * the .docx files.
  *
- * Visual language matches the portfolio site's theme, translated for print/
- * ATS: white background (not literal dark mode), Poppins for headings /
- * Inter for body (same fonts as the site), electric blue (#0A84FF) as the
- * one accent color, no gradients, no pill shapes, no em dashes.
+ * ATS rules this layout follows (Applicant Tracking Systems are the robots
+ * that read CVs before a human does):
+ *   - One column, no tables, no text boxes, no images, no headers/footers
+ *     holding contact details (many ATS skip those areas).
+ *   - Standard section names (Professional Summary, Technical Skills,
+ *     Project Experience, Education) so the parser knows what each part is.
+ *   - Calibri: a font every Windows/Office machine has, so nothing gets
+ *     swapped or garbled.
+ *   - Every link is written out as readable text (not "click here"), so the
+ *     URL survives even when the ATS strips hyperlinks.
+ *   - Plain characters only: real Word bullets, "|" separators, no arrows,
+ *     no emoji, no em dashes.
+ *   - Document title/author metadata filled in.
+ * Visual language still matches the site: near-black text, one electric
+ * blue (#0A84FF) accent, thin rules, no gradients.
+ *
+ * Projects live once in data.projects; each CV references them by "ref" and
+ * may pick bullets by index ("bullets": [0, 2]), add its own
+ * ("extraBullets"), or override "meta"/"tech".
  *
  * Usage: node generate_cvs.js
  */
@@ -16,8 +31,7 @@ const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, ExternalHyperlink,
-  HeadingLevel, AlignmentType, BorderStyle, LevelFormat,
-  convertInchesToTwip,
+  AlignmentType, BorderStyle, LevelFormat, convertInchesToTwip,
 } = require("docx");
 
 const DATA_PATH = path.join(__dirname, "cv-data.json");
@@ -25,146 +39,144 @@ const OUT_DIR = path.join(__dirname, "..");
 const data = JSON.parse(fs.readFileSync(DATA_PATH, "utf8"));
 
 const COLOR = {
-  text: "1D1D1F",   // near-black body text — matches the site's light-mode text color
-  muted: "6E6E73",  // secondary/meta text — matches the site's light-mode muted color
-  accent: "0A84FF", // electric blue — the site's one accent color
-  rule: "D9D9DE",   // faint neutral divider
+  text: "1D1D1F",
+  muted: "55555A",
+  accent: "0A84FF",
+  rule: "C9C9CE",
 };
-const FONT_HEAD = "Poppins";
-const FONT_BODY = "Inter";
-
+const FONT = "Calibri";
+const SIZE = 21; // half-points: 10.5pt body
 const BULLET_REF = "cv-bullets";
 
 function run(text, opts = {}) {
-  return new TextRun({ text, font: FONT_BODY, size: 20, color: COLOR.text, ...opts });
+  return new TextRun({ text, font: FONT, size: SIZE, color: COLOR.text, ...opts });
 }
 
-function segmentsToRuns(segments, opts = {}) {
-  return segments.map((s) =>
-    run(s.text, { bold: !!s.bold, ...opts })
-  );
+function segmentsToRuns(segments) {
+  return segments.map((s) => run(s.text, { bold: !!s.bold }));
 }
 
-function link(displayText, url) {
+function link(displayText, url, opts = {}) {
   return new ExternalHyperlink({
     link: url,
-    children: [
-      new TextRun({
-        text: displayText,
-        font: FONT_BODY,
-        size: 20,
-        color: COLOR.accent,
-        underline: {},
-      }),
-    ],
+    children: [run(displayText, { color: COLOR.accent, underline: {}, ...opts })],
   });
+}
+
+function sep() {
+  return run("  |  ", { color: COLOR.rule });
 }
 
 function sectionHeader(text) {
   return new Paragraph({
-    spacing: { before: 180, after: 80 },
-    border: {
-      bottom: { style: BorderStyle.SINGLE, size: 6, color: COLOR.accent, space: 4 },
-    },
-    children: [
-      new TextRun({
-        text: text.toUpperCase(),
-        font: FONT_HEAD,
-        bold: true,
-        size: 20,
-        color: COLOR.text,
-        characterSpacing: 12,
-      }),
-    ],
+    spacing: { before: 200, after: 80 },
+    keepNext: true,
+    border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: COLOR.accent, space: 3 } },
+    children: [run(text.toUpperCase(), { bold: true, size: 23, characterSpacing: 10 })],
   });
 }
 
-function bodyParagraph(text, opts = {}) {
+function bodyParagraph(text) {
   return new Paragraph({
-    spacing: { after: 115, line: 238 },
+    spacing: { after: 60, line: 252 },
     children: [run(text)],
-    ...opts,
   });
 }
 
-function bulletParagraph(children, indent = 0) {
+function bulletParagraph(children, keepNext = false) {
   return new Paragraph({
     numbering: { reference: BULLET_REF, level: 0 },
-    indent: { left: convertInchesToTwip(0.22 + indent) },
-    spacing: { after: 38, line: 226 },
+    spacing: { after: 30, line: 245 },
+    keepNext,
     children,
   });
 }
 
 function buildHeader(site, roleTitle) {
-  const [firstName, ...rest] = site.name.split(" ");
-  const lastName = rest.join(" ");
   return [
     new Paragraph({
-      spacing: { after: 40 },
-      children: [
-        new TextRun({ text: firstName.toUpperCase() + " ", font: FONT_HEAD, bold: true, size: 40, color: COLOR.text }),
-        new TextRun({ text: lastName.toUpperCase(), font: FONT_HEAD, bold: true, size: 40, color: COLOR.accent }),
-      ],
+      spacing: { after: 20 },
+      children: [run(site.name.toUpperCase(), { bold: true, size: 40, characterSpacing: 20 })],
     }),
     new Paragraph({
-      spacing: { after: 95 },
-      children: [
-        new TextRun({ text: roleTitle, font: FONT_BODY, bold: true, size: 22, color: COLOR.muted }),
-      ],
+      spacing: { after: 80 },
+      children: [run(roleTitle, { bold: true, size: 24, color: COLOR.accent })],
     }),
     new Paragraph({
-      spacing: { before: 90, after: 180 },
-      border: { top: { style: BorderStyle.SINGLE, size: 10, color: COLOR.accent, space: 8 } },
+      spacing: { after: 20 },
       children: [
         run(site.location, { color: COLOR.muted }),
-        run("  |  ", { color: COLOR.rule }),
+        sep(),
         run(site.phone, { color: COLOR.muted }),
-        run("  |  ", { color: COLOR.rule }),
+        sep(),
         link(site.email, `mailto:${site.email}`),
-        run("  |  ", { color: COLOR.rule }),
+      ],
+    }),
+    new Paragraph({
+      spacing: { after: 20 },
+      children: [
+        run("Portfolio: ", { bold: true, color: COLOR.muted }),
+        link(site.portfolioDisplay, site.portfolioUrl),
+        sep(),
+        run("GitHub: ", { bold: true, color: COLOR.muted }),
+        link(site.githubDisplay, site.githubUrl),
+      ],
+    }),
+    new Paragraph({
+      spacing: { after: 60 },
+      children: [
+        run("LinkedIn: ", { bold: true, color: COLOR.muted }),
         link(site.linkedinDisplay, site.linkedinUrl),
-        run("  |  ", { color: COLOR.rule }),
-        link(site.githubDisplay, `https://${site.githubDisplay}`),
       ],
     }),
   ];
 }
 
-function buildProject(project) {
+function resolveProject(entry) {
+  const base = data.projects[entry.ref];
+  if (!base) throw new Error(`Unknown project ref: ${entry.ref}`);
+  let bullets = base.bullets;
+  if (Array.isArray(entry.bullets)) bullets = entry.bullets.map((i) => base.bullets[i]);
+  if (entry.extraBullets) bullets = [...bullets, ...entry.extraBullets];
+  return { ...base, ...entry, bullets };
+}
+
+function buildProject(p) {
   const paras = [
     new Paragraph({
-      spacing: { before: 95, after: 12 },
-      children: [
-        new TextRun({ text: project.name, font: FONT_HEAD, bold: true, size: 21, color: COLOR.text }),
-      ],
+      spacing: { before: 110, after: 0 },
+      keepNext: true,
+      children: [run(p.name, { bold: true, size: 22 })],
     }),
-    new Paragraph({
-      spacing: { after: 50 },
-      children: [
-        run(project.techLabel || "Tech: ", { bold: true, color: COLOR.muted, italics: true }),
-        run(project.tech, { color: COLOR.muted, italics: true }),
-      ],
-    }),
-    bodyParagraph(project.description, { spacing: { after: project.bullets && project.bullets.length ? 38 : 65 } }),
   ];
-  (project.bullets || []).forEach((b) => paras.push(bulletParagraph([run(b)])));
-  if (project.github) {
-    paras.push(
-      new Paragraph({
-        spacing: { after: 100 },
-        children: [run("GitHub: ", { bold: true, color: COLOR.muted }), link(project.github, `https://${project.github}`)],
-      })
-    );
-  } else {
-    paras.push(new Paragraph({ spacing: { after: 100 }, children: [] }));
+  if (p.meta) {
+    paras.push(new Paragraph({
+      spacing: { after: 0 },
+      keepNext: true,
+      children: [run(p.meta, { italics: true, color: COLOR.muted })],
+    }));
+  }
+  paras.push(new Paragraph({
+    spacing: { after: 40 },
+    keepNext: true,
+    children: [run(p.techLabel || "Tech: ", { bold: true, color: COLOR.muted }), run(p.tech, { color: COLOR.muted })],
+  }));
+  p.bullets.forEach((b, i) => paras.push(bulletParagraph([run(b)], i === 0)));
+  if (p.links && p.links.length) {
+    const kids = [];
+    p.links.forEach((l, i) => {
+      if (i) kids.push(sep());
+      kids.push(run(`${l.label}: `, { bold: true, color: COLOR.muted }));
+      kids.push(link(l.display, l.url));
+    });
+    paras.push(new Paragraph({ spacing: { before: 20, after: 40 }, children: kids }));
   }
   return paras;
 }
 
-function buildDocxChildren(cv, site, education) {
-  const children = [];
-  children.push(...buildHeader(site, cv.roleTitle));
+function buildDocxChildren(cv) {
+  const { site, education } = data;
+  const children = [...buildHeader(site, cv.roleTitle)];
 
   children.push(sectionHeader("Professional Summary"));
   children.push(bodyParagraph(cv.summary));
@@ -174,78 +186,77 @@ function buildDocxChildren(cv, site, education) {
 
   cv.projectSections.forEach((section) => {
     children.push(sectionHeader(section.title));
-    section.projects.forEach((project) => children.push(...buildProject(project)));
+    section.projects.forEach((entry) => children.push(...buildProject(resolveProject(entry))));
   });
 
-  children.push(sectionHeader("Relevant Coursework"));
-  cv.coursework.forEach((segs) => children.push(bulletParagraph(segmentsToRuns(segs))));
-
   children.push(sectionHeader("Education"));
-  children.push(
-    new Paragraph({
-      spacing: { after: 20 },
-      children: [new TextRun({ text: education.qualification, font: FONT_BODY, bold: true, size: 20, color: COLOR.text })],
-    })
-  );
-  children.push(
-    new Paragraph({
-      spacing: { after: 0 },
-      children: [
-        run(education.institution, { color: COLOR.muted }),
-        run("  |  ", { color: COLOR.rule }),
-        run(education.average, { color: COLOR.muted }),
-      ],
-    })
-  );
+  children.push(new Paragraph({
+    spacing: { after: 10 },
+    keepNext: true,
+    children: [run(education.qualification, { bold: true })],
+  }));
+  children.push(new Paragraph({
+    spacing: { after: 40 },
+    keepNext: true,
+    children: [
+      run(education.institution, { color: COLOR.muted }),
+      sep(),
+      run(education.dates, { color: COLOR.muted }),
+      sep(),
+      run(education.average, { color: COLOR.muted }),
+    ],
+  }));
+  children.push(new Paragraph({
+    spacing: { before: 40, after: 30 },
+    keepNext: true,
+    children: [run("Relevant coursework:", { bold: true, color: COLOR.muted })],
+  }));
+  cv.coursework.forEach((segs) => children.push(bulletParagraph(segmentsToRuns(segs))));
 
   return children;
 }
 
-function buildDocument(cv, site, education) {
+function buildDocument(cv) {
   return new Document({
+    creator: data.site.name,
+    title: cv.docTitle,
+    description: `CV of ${data.site.name}: ${cv.roleTitle}`,
+    keywords: cv.roleTitle,
     numbering: {
-      config: [
-        {
-          reference: BULLET_REF,
-          levels: [
-            {
-              level: 0,
-              format: LevelFormat.BULLET,
-              text: "•",
-              alignment: AlignmentType.LEFT,
-              style: { paragraph: { indent: { left: convertInchesToTwip(0.22), hanging: convertInchesToTwip(0.18) } } },
-            },
-          ],
-        },
-      ],
+      config: [{
+        reference: BULLET_REF,
+        levels: [{
+          level: 0,
+          format: LevelFormat.BULLET,
+          text: "•",
+          alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: convertInchesToTwip(0.22), hanging: convertInchesToTwip(0.16) } } },
+        }],
+      }],
     },
-    styles: {
-      default: {
-        document: { run: { font: FONT_BODY, size: 20, color: COLOR.text } },
-      },
-    },
-    sections: [
-      {
-        properties: {
-          page: {
-            margin: {
-              top: convertInchesToTwip(0.45),
-              bottom: convertInchesToTwip(0.45),
-              left: convertInchesToTwip(0.65),
-              right: convertInchesToTwip(0.65),
-            },
+    styles: { default: { document: { run: { font: FONT, size: SIZE, color: COLOR.text } } } },
+    sections: [{
+      properties: {
+        page: {
+          size: { width: 11906, height: 16838 }, // A4, the South African standard
+          margin: {
+            top: convertInchesToTwip(0.55),
+            bottom: convertInchesToTwip(0.55),
+            left: convertInchesToTwip(0.7),
+            right: convertInchesToTwip(0.7),
           },
         },
-        children: buildDocxChildren(cv, site, education),
       },
-    ],
+      children: buildDocxChildren(cv),
+    }],
   });
 }
 
 async function main() {
+  const only = process.argv[2];
   for (const cv of data.cvs) {
-    const doc = buildDocument(cv, data.site, data.education);
-    const buf = await Packer.toBuffer(doc);
+    if (only && cv.key !== only) continue;
+    const buf = await Packer.toBuffer(buildDocument(cv));
     const outPath = path.join(OUT_DIR, `${cv.fileBase}.docx`);
     fs.writeFileSync(outPath, buf);
     console.log("wrote", path.relative(path.join(OUT_DIR, ".."), outPath));

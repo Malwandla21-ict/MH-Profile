@@ -6,10 +6,12 @@ generating the site pages from `client/data/profiles.json`.
 - `build/cv-data.json` — single source of truth for CV content (contact info,
   education, and per-track summary/skills/projects/coursework).
 - `build/generate_cvs.js` — single source of truth for CV layout/design
-  (docx-js). Visual language matches the portfolio site's theme translated
-  for print: white background, Poppins headings / Inter body, electric blue
-  (#0A84FF) as the one accent color, no gradients, no pill shapes, no em
-  dashes.
+  (docx-js). Built to be ATS-friendly (ATS = the software that scans CVs
+  before a person reads them): one column, no tables or images, Calibri,
+  standard section names, every link written out as plain text, A4 size.
+  Still matches the site's look: one electric blue (#0A84FF) accent.
+- Projects are written once under `projects` in `cv-data.json`; each CV
+  picks which ones to show and which bullets to use.
 
 ## Regenerating
 

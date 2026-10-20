@@ -1,255 +1,312 @@
 {
   "site": {
     "name": "Malwandla Hlongwane",
-    "location": "Gauteng, South Africa",
+    "location": "Pretoria, Gauteng, South Africa",
     "phone": "065 883 1240",
     "email": "MalwandlaHlongwaneICT@outlook.com",
+    "portfolioUrl": "https://malwandla21-ict.github.io/MH-Profile/",
+    "portfolioDisplay": "malwandla21-ict.github.io/MH-Profile",
     "linkedinUrl": "https://www.linkedin.com/in/malwandla-hlongwane-8484603a3",
-    "linkedinDisplay": "linkedin.com/in/malwandla-hlongwane",
+    "linkedinDisplay": "linkedin.com/in/malwandla-hlongwane-8484603a3",
     "githubUrl": "https://github.com/Malwandla21-ict",
     "githubDisplay": "github.com/Malwandla21-ict"
   },
   "education": {
     "qualification": "Diploma in Information and Communication Technology (Applications Development)",
-    "institution": "University of Mpumalanga, Expected Completion: 2026",
-    "average": "Average: 75–78%"
+    "institution": "University of Mpumalanga",
+    "dates": "Expected completion: 2026",
+    "average": "Academic average: 75–78%"
+  },
+  "projects": {
+    "taskify": {
+      "name": "Taskify | Campus Task & Equipment Marketplace",
+      "meta": "Full-stack web application | Deployed live",
+      "tech": "Node.js, Express, MySQL, JavaScript, HTML, CSS, REST API, JWT, Render",
+      "bullets": [
+        "Built and deployed a full-stack marketplace where students post tasks, hire services, buy items and rent equipment.",
+        "Designed a 26-table MySQL schema (39 foreign keys, 76 indexes) behind a REST API with separate routes, controllers and services.",
+        "Secured the platform with JWT authentication, TOTP two-factor sign-in for admins, bcrypt password hashing, Helmet security headers, rate limiting and server-side input validation.",
+        "Stopped double bookings and duplicate payments under concurrent use with row-level locks and conditional updates.",
+        "Wrote 134 automated tests across 13 test suites (Node.js test runner) covering rentals, sales, disputes and tasks, all passing.",
+        "Integrated Cloudinary image uploads, Nodemailer email and web push notifications."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/taskify", "display": "github.com/Malwandla21-ict/taskify"},
+        {"label": "Live demo", "url": "https://taskify-frontend-ol07.onrender.com", "display": "taskify-frontend-ol07.onrender.com"}
+      ]
+    },
+    "stokvault": {
+      "name": "StokVault | Stokvel Contribution & Payout Platform",
+      "meta": "Enterprise Java | Group project (DICT312) for UMP Centre for Entrepreneurship, Cooperatives & Innovation",
+      "tech": "Java 21, Jakarta EE 11 (Faces, REST, EJB, CDI, JPA, JMS, Batch), Payara Server, PostgreSQL, Maven, Docker, GitHub Actions, JUnit 5",
+      "bullets": [
+        "Delivered a layered Jakarta EE application that replaces WhatsApp and notebook record-keeping for stokvels, with role-based access for treasurers, committee members and members.",
+        "Automated payout eligibility with a scheduled Jakarta Batch job and required a second approver (four-eyes check) for high-value payouts.",
+        "Built a SHA-256 hash-chained, tamper-evident audit log, with a PostgreSQL trigger that blocks updates and deletes.",
+        "Protected sensitive data with PBKDF2 password hashing, AES-256-GCM encryption of ID numbers and account lockout after failed logins.",
+        "Sent SMS, WhatsApp and email notifications asynchronously through a JMS queue with retries and a dead-letter queue.",
+        "Set up GitHub Actions CI to build the app, run 49 JUnit 5 unit tests and 48 end-to-end API checks, and build a Docker image."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/StokVault", "display": "github.com/Malwandla21-ict/StokVault"}
+      ]
+    },
+    "ump-events": {
+      "name": "UMP Events | Campus Event Booking Website",
+      "meta": "PHP web application | Started as a 2nd-year group project, since rebuilt",
+      "tech": "PHP 8.2, MySQL, PDO, MVC, HTML, CSS, JavaScript, Apache (XAMPP)",
+      "bullets": [
+        "Rebuilt a procedural PHP site into a framework-free MVC application with a router, middleware, controllers, services and repositories.",
+        "Students browse and book events and get a digital ticket with a booking reference; admins manage events, track fill rates and export attendee lists to CSV.",
+        "Prevented overbooking with database transactions, row locks and unique constraints.",
+        "Hardened security against common OWASP risks: prepared statements, CSRF tokens, a strict Content-Security-Policy, secure sessions, login throttling and safe file uploads.",
+        "Built responsive, accessible pages with dark mode, keyboard support and ARIA labels."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/Ump-Event-Booking-web", "display": "github.com/Malwandla21-ict/Ump-Event-Booking-web"}
+      ]
+    },
+    "fuelsa": {
+      "name": "FUEL SA | Fuel Ordering & Station Management System",
+      "meta": "Java desktop application",
+      "tech": "Java 17, JavaFX 21, FXML, CSS, SQLite (JDBC), Maven, BulkSMS REST API",
+      "bullets": [
+        "Built a desktop app where customers register vehicles and request fuel with a live cost estimate, and admins approve or reject requests from a dashboard.",
+        "Added admin analytics: revenue, profit, a weekly sales chart and top customers.",
+        "Integrated the BulkSMS REST API to send request status updates by SMS.",
+        "Stored passwords as salted PBKDF2 hashes and kept API credentials out of source code using environment variables.",
+        "Organised code into controllers, DAOs, models and services, with a demo mode that loads sample data."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/FuelSA", "display": "github.com/Malwandla21-ict/FuelSA"}
+      ]
+    },
+    "healthwise": {
+      "name": "HealthWise | AI Symptom Checker Android App",
+      "meta": "Native Android application",
+      "tech": "Java, Android SDK, XML, Material Components 3, Room (SQLite), Retrofit, Gson, AlarmManager, Hugging Face API",
+      "bullets": [
+        "Built a native Android app with a four-step guided symptom check that ranks likely conditions with confidence scores and gives urgency advice.",
+        "Integrated an AI chat assistant through the Hugging Face Inference API using Retrofit, keeping conversation context and suggesting follow-up questions.",
+        "Stored check history, health profile and medication data in Room, with schema migrations that keep user data across upgrades.",
+        "Built pill reminders with AlarmManager, BroadcastReceiver and notifications that work when the app is closed, with a mark-as-taken action.",
+        "Used a repository pattern to separate Activities (UI) from data access and scoring logic.",
+        "Designed light and dark themes with Material 3, voice input for symptoms and adaptive icons; supports Android 7.0 (API 24) and up."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/HealthWise", "display": "github.com/Malwandla21-ict/HealthWise"}
+      ]
+    },
+    "stams": {
+      "name": "STAMS | Student Accommodation Management System",
+      "meta": "Mobile app + REST API | In progress",
+      "tech": "Java 21, Spring Boot, Spring Security, JWT, Spring Data JPA, Hibernate, PostgreSQL, Flutter, Dart, Postman",
+      "bullets": [
+        "Building a Flutter mobile app and Spring Boot REST API for landlords to manage properties, rooms and student residents.",
+        "Designing a maintenance workflow where students report issues with photos, track them from Reported to Resolved, and nudge landlords when an issue stalls.",
+        "Implementing JWT authentication with Spring Security and testing API endpoints in Postman.",
+        "Next phases: Swagger/OpenAPI docs, unit tests, Docker and GitHub Actions CI/CD."
+      ],
+      "links": [
+        {"label": "GitHub", "url": "https://github.com/Malwandla21-ict/STAMS-Student-Accomadation-Management-System-", "display": "github.com/Malwandla21-ict/STAMS-Student-Accomadation-Management-System-"}
+      ]
+    },
+    "wan": {
+      "name": "Two-Campus WAN Design & Configuration",
+      "meta": "Networking project",
+      "techLabel": "Tools: ",
+      "tech": "Cisco Packet Tracer, TCP/IP, IP addressing & subnetting, routing, switching, wireless LAN",
+      "bullets": [
+        "Designed and configured a wide area network linking two campuses, each with 5 departments of 5 computers.",
+        "Segmented wireless access with separate SSIDs for student, staff and guest networks at both campuses.",
+        "Configured inter-campus routing and verified end-to-end connectivity with ping tests between campuses."
+      ],
+      "links": []
+    }
   },
   "cvs": [
     {
       "key": "SoftwareWebDev",
       "fileBase": "CV_Malwandla_Hlongwane_SoftwareWebDev",
-      "roleTitle": "Junior Software Developer (Full-Stack / Web)",
-      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with hands-on experience designing and building full-stack web applications end to end, from database schema and REST APIs through to authentication and frontend integration. Comfortable working across the stack in JavaScript, PHP, and Java, with a strong grounding in software engineering practice (requirements analysis, UML modelling, Agile/Scrum, and testing). Seeking a junior software developer or internship role to apply and grow full-stack development skills in a professional environment.",
+      "docTitle": "Malwandla Hlongwane CV - Junior Software Developer",
+      "roleTitle": "Junior Software Developer | Full-Stack Web Developer",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds and ships full-stack web applications. Projects include a live Node.js and MySQL marketplace with 134 automated tests, an enterprise Jakarta EE platform with CI/CD and Docker, and a security-hardened PHP MVC booking site. Skilled in REST API design, authentication and web security, relational database design, Git and automated testing. Seeking a Junior Software Developer, Graduate Developer or Software Development Internship role.",
       "skills": [
-        [{"bold": true, "text": "Languages: "}, {"text": "JavaScript, PHP, Java, HTML & CSS, SQL"}],
-        [{"bold": true, "text": "Backend & APIs: "}, {"text": "Node.js (Express), REST API design, JWT authentication, MVC / layered architecture"}],
-        [{"bold": true, "text": "Frameworks & Tools: "}, {"text": "Jakarta EE (Servlets, JSF, RESTful services), XAMPP, Git/GitHub"}],
-        [{"bold": true, "text": "Databases: "}, {"text": "MySQL (schema design, normalization, advanced SQL, CRUD operations)"}],
-        [{"bold": true, "text": "Software Engineering: "}, {"text": "Requirements engineering, UML/system modelling, Agile & Scrum practices, test-driven development, object-oriented design & design patterns"}]
+        [{"bold": true, "text": "Languages: "}, {"text": "Java, JavaScript, PHP, SQL, HTML5, CSS3, Dart"}],
+        [{"bold": true, "text": "Backend & APIs: "}, {"text": "Node.js, Express.js, Jakarta EE (Faces, REST, EJB, JPA, JMS), Spring Boot, REST API design, MVC and layered architecture"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; schema design, normalisation, indexing, transactions"}],
+        [{"bold": true, "text": "Security: "}, {"text": "JWT, two-factor authentication (TOTP), bcrypt/PBKDF2 hashing, AES encryption, CSRF protection, Content-Security-Policy, rate limiting, input validation"}],
+        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Automated testing (Node.js test runner, JUnit 5), Postman, Git, GitHub, GitHub Actions (CI), Docker, Maven, Render"}],
+        [{"bold": true, "text": "Practices: "}, {"text": "Agile/Scrum, SDLC, requirements (SRS), UML modelling, object-oriented design, design patterns"}],
+        [{"bold": true, "text": "Professional: "}, {"text": "Problem solving, teamwork on group projects, technical documentation, attention to detail, fast learner"}]
       ],
       "projectSections": [
-        {
-          "title": "FEATURED PROJECT",
-          "projects": [
-            {
-              "name": "Taskify: Campus Task & Equipment Marketplace",
-              "techLabel": "Tech: ",
-              "tech": "Node.js, Express, MySQL, HTML, CSS, JavaScript",
-              "description": "Full-stack web application enabling students to post tasks, hire services, and rent equipment within a secure campus-based marketplace.",
-              "bullets": [
-                "Implemented JWT-based authentication to secure user accounts and API access",
-                "Designed a full task lifecycle system (Posted → Accepted → In Progress → Completed)",
-                "Built an equipment rental system with booking and return-tracking functionality",
-                "Developed a rating and review system to establish trust between users",
-                "Created a payment simulation system to mimic escrow-style transactions",
-                "Designed RESTful APIs and integrated frontend with backend services",
-                "Implemented reporting and moderation features to improve platform safety"
-              ],
-              "github": "github.com/Malwandla21-ict/taskify"
-            }
-          ]
-        },
-        {
-          "title": "ADDITIONAL PROJECT",
-          "projects": [
-            {
-              "name": "FUEL SA: Fuel Station Management System",
-              "techLabel": "Tech: ",
-              "tech": "Java, JavaFX, FXML, Scene Builder, CSS",
-              "description": "Desktop fuel station management application simulating station operations through an interactive GUI.",
-              "bullets": [
-                "Built using object-oriented programming principles with modular separation of logic, controllers, and UI",
-                "Implemented fuel request functionality with input validation and event-driven interactions",
-                "Designed responsive interfaces using FXML and Scene Builder, styled with JavaFX CSS"
-              ],
-              "github": "github.com/Malwandla21-ict/FuelSA"
-            }
-          ]
-        }
+        {"title": "Project Experience", "projects": [
+          {"ref": "taskify"},
+          {"ref": "stokvault", "bullets": [0, 1, 2, 3, 5]},
+          {"ref": "ump-events", "bullets": [0, 1, 2, 3]}
+        ]},
+        {"title": "Additional Projects", "projects": [
+          {"ref": "fuelsa", "bullets": [0, 2, 3]},
+          {"ref": "stams", "bullets": [0, 2]}
+        ]}
       ],
       "coursework": [
-        [{"bold": true, "text": "Web Development: "}, {"text": "dynamic web content, PHP (OOP, arrays, forms), MySQL (joins, PDO), JavaScript (DOM, objects), sessions & authentication"}],
-        [{"bold": true, "text": "Application Development (Jakarta EE): "}, {"text": "Servlets, JSF, RESTful web services, JSON binding, persistence/ORM, microservices"}],
-        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML system modelling, architectural design, Agile/Scrum, software testing"}]
+        [{"bold": true, "text": "Web Development: "}, {"text": "PHP (OOP, forms, sessions, authentication), MySQL with PDO, JavaScript (DOM)"}],
+        [{"bold": true, "text": "Application Development (Jakarta EE): "}, {"text": "Servlets, JSF, RESTful web services, JSON binding, JPA/ORM, microservices"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML, architectural design, Agile/Scrum, software testing"}]
       ]
     },
     {
       "key": "AndroidDev",
       "fileBase": "CV_Malwandla_Hlongwane_AndroidDev",
-      "roleTitle": "Junior Android / Mobile App Developer",
-      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with practical experience building Android applications from the ground up: UI design, local data persistence, third-party API integration, and background services. Built HealthWise, an AI-assisted symptom-checker app, covering the full Android development lifecycle from interface design through to deployment-ready builds. Seeking a junior Android/mobile developer or internship role to grow professional mobile development experience.",
+      "docTitle": "Malwandla Hlongwane CV - Junior Android Developer",
+      "roleTitle": "Junior Android Developer | Mobile App Developer",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds native Android apps in Java. Built HealthWise, an AI symptom checker using Room, Retrofit, AlarmManager and Material 3, and currently building STAMS, a Flutter app backed by a Spring Boot REST API. Strong Java and backend foundation from Jakarta EE, JavaFX and Node.js projects, covering both the app and the API behind it. Seeking a Junior Android Developer, Mobile Developer or internship role.",
       "skills": [
-        [{"bold": true, "text": "Languages: "}, {"text": "Java, Kotlin (module-level), SQL"}],
-        [{"bold": true, "text": "Android: "}, {"text": "Android Studio, XML layouts & Material Design, Activities/Fragments & lifecycle management, event handling & intents, AlarmManager, RecyclerView"}],
-        [{"bold": true, "text": "Data & Networking: "}, {"text": "Room Database, SQLite, SharedPreferences, Retrofit (REST API consumption), JSON parsing, Firebase integration"}],
-        [{"bold": true, "text": "Other: "}, {"text": "Google Maps API & location services, multimedia integration, Git/GitHub, app testing, debugging & performance profiling, signed APK/AAB packaging"}],
-        [{"bold": true, "text": "Software Engineering: "}, {"text": "Object-oriented design, MVVM/MVC patterns, UML modelling, Agile/Scrum practices"}]
+        [{"bold": true, "text": "Languages: "}, {"text": "Java, Dart, SQL, XML; Kotlin (coursework level)"}],
+        [{"bold": true, "text": "Android: "}, {"text": "Android Studio, Android SDK, Activities and lifecycle, XML layouts, Material Components 3, RecyclerView, intents, notifications, AlarmManager, BroadcastReceiver"}],
+        [{"bold": true, "text": "Data & Networking: "}, {"text": "Room (SQLite) with migrations, SharedPreferences, Retrofit, Gson, REST APIs, JSON, AI API integration (Hugging Face)"}],
+        [{"bold": true, "text": "Cross-platform & Backend: "}, {"text": "Flutter, Spring Boot, Spring Security (JWT), Node.js, Express.js, PostgreSQL, MySQL"}],
+        [{"bold": true, "text": "Architecture & Tools: "}, {"text": "Repository pattern, MVC/MVVM, object-oriented design, Git, GitHub, Postman, debugging and testing"}],
+        [{"bold": true, "text": "Also covered in coursework: "}, {"text": "Firebase, Google Maps API and location services, multimedia, signed APK/AAB and Play Store deployment"}],
+        [{"bold": true, "text": "Professional: "}, {"text": "Problem solving, user-focused design, teamwork, technical documentation, fast learner"}]
       ],
       "projectSections": [
-        {
-          "title": "FEATURED PROJECT",
-          "projects": [
-            {
-              "name": "HealthWise: AI-Based Symptom Checker App",
-              "techLabel": "Tech: ",
-              "tech": "Java, Android Studio, Retrofit, Room Database",
-              "description": "Mobile health application allowing users to check symptoms and receive possible conditions with AI-generated explanations.",
-              "bullets": [
-                "Developed symptom selection and condition-matching logic for user diagnosis assistance",
-                "Integrated an AI API to generate dynamic medical explanations for users",
-                "Built an interactive chatbot for user engagement and guidance",
-                "Implemented Room Database for storing user history and previous results",
-                "Developed reminder functionality using Android AlarmManager",
-                "Designed responsive, user-friendly mobile interfaces using XML layouts"
-              ],
-              "github": "github.com/Malwandla21-ict/HealthWise"
-            }
-          ]
-        }
+        {"title": "Project Experience", "projects": [
+          {"ref": "healthwise"},
+          {"ref": "stams"}
+        ]},
+        {"title": "Additional Projects", "projects": [
+          {"ref": "taskify", "bullets": [0, 2, 4]},
+          {"ref": "fuelsa", "bullets": [0, 3, 4]}
+        ]}
       ],
       "coursework": [
-        [{"bold": true, "text": "Android Application Development: "}, {"text": "Android Studio & SDK setup, application architecture and lifecycle, XML/Material Design UI, event handling & navigation (intents, listeners), SharedPreferences & SQLite/Room, multimedia & location-based services, REST/Firebase integration, testing, debugging, and Play Store deployment"}],
-        [{"bold": true, "text": "Application Development II (Java): "}, {"text": "OOP, GUI development, arrays/collections, recursion, searching & sorting algorithms, file I/O and JDBC database access"}],
-        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML system modelling, design patterns, Agile/Scrum, software testing"}]
+        [{"bold": true, "text": "Android Application Development: "}, {"text": "app architecture and lifecycle, XML/Material Design UI, navigation and intents, SharedPreferences, SQLite/Room, location services, REST/Firebase integration, testing, debugging, Play Store deployment"}],
+        [{"bold": true, "text": "Application Development II (Java): "}, {"text": "OOP, GUI development, collections, recursion, searching and sorting algorithms, file I/O, JDBC"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML, design patterns, Agile/Scrum, software testing"}]
       ]
     },
     {
       "key": "DatabaseDev",
       "fileBase": "CV_Malwandla_Hlongwane_DatabaseDev",
-      "roleTitle": "Junior Database Developer / Data-Focused ICT Graduate",
-      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with a strong grounding in relational database design, from entity-relationship modelling and normalization through to advanced SQL, performance tuning, and emerging NoSQL/Big Data concepts. Applied this knowledge practically by designing and querying MySQL databases for two full production-style applications. Seeking a junior database developer, data analyst, or database administration role to build on this academic and applied foundation.",
+      "docTitle": "Malwandla Hlongwane CV - Junior Database Developer",
+      "roleTitle": "Junior Database Developer | SQL Developer",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on relational database work across five real applications. Designed a 26-table MySQL schema with 39 foreign keys and 76 indexes, built a tamper-evident audit log in PostgreSQL, and used transactions and row locks to prevent double bookings. Skilled in ER modelling, normalisation, SQL, indexing, data security and connecting databases to REST APIs. Seeking a Junior Database Developer, SQL Developer, Junior DBA or data-focused graduate role.",
       "skills": [
-        [{"bold": true, "text": "Database Design: "}, {"text": "Entity-Relationship (ER) modelling, normalization (up to higher normal forms), relational schema design, data modelling (conceptual, logical, physical)"}],
-        [{"bold": true, "text": "SQL: "}, {"text": "Data definition & manipulation, complex queries, joins, relational set operators, SQL functions, stored procedures, transaction processing"}],
-        [{"bold": true, "text": "Database Systems: "}, {"text": "MySQL, SQLite, Room Database (Android), MySQL Workbench"}],
-        [{"bold": true, "text": "Advanced Topics: "}, {"text": "Transaction management & concurrency control, database performance tuning & query optimization, distributed database systems, database security & administration"}],
-        [{"bold": true, "text": "Emerging Data Technologies: "}, {"text": "Big Data & Hadoop concepts, NoSQL (MongoDB, Neo4j), business intelligence & data warehousing, star schemas, SQL analytical functions"}],
-        [{"bold": true, "text": "Applied Skills: "}, {"text": "REST API integration with databases, CRUD operations, backend data architecture"}]
+        [{"bold": true, "text": "Database Systems: "}, {"text": "MySQL, PostgreSQL, SQLite, Room (Android), MySQL Workbench, pgAdmin, phpMyAdmin"}],
+        [{"bold": true, "text": "SQL: "}, {"text": "DDL and DML, complex joins, subqueries, set operators, aggregate and analytical functions, stored procedures, triggers"}],
+        [{"bold": true, "text": "Design: "}, {"text": "ER modelling, normalisation, conceptual, logical and physical data models, primary and foreign keys, constraints, indexing"}],
+        [{"bold": true, "text": "Integrity & Performance: "}, {"text": "transactions, row-level locking, concurrency control, query optimisation, schema migrations"}],
+        [{"bold": true, "text": "Data Security: "}, {"text": "prepared statements (SQL injection prevention), password hashing, AES-256 encryption at rest, audit logging, role-based access"}],
+        [{"bold": true, "text": "Application Integration: "}, {"text": "PDO, JDBC, JPA/Hibernate, mysql2 (Node.js), REST APIs, CSV export; Java, PHP, JavaScript"}],
+        [{"bold": true, "text": "Also covered in coursework: "}, {"text": "distributed databases, data warehousing, star schemas, business intelligence, Big Data and NoSQL (MongoDB, Neo4j, Hadoop)"}]
       ],
       "projectSections": [
-        {
-          "title": "APPLIED EXPERIENCE",
-          "projects": [
-            {
-              "name": "Taskify: Campus Task & Equipment Marketplace",
-              "techLabel": "Tech: ",
-              "tech": "Node.js, Express, MySQL",
-              "description": "Designed the relational database schema and query layer behind a full-stack marketplace platform.",
-              "bullets": [
-                "Designed and implemented the MySQL schema supporting users, tasks, bookings, and reviews",
-                "Wrote CRUD queries and integrated them with a RESTful API layer",
-                "Structured data relationships to support a full task lifecycle and equipment booking/return tracking"
-              ],
-              "github": "github.com/Malwandla21-ict/taskify"
-            },
-            {
-              "name": "HealthWise: AI-Based Symptom Checker App",
-              "techLabel": "Tech: ",
-              "tech": "Java, Room Database",
-              "description": "Implemented local data persistence for a mobile health application.",
-              "bullets": [
-                "Designed and implemented a Room Database schema for storing user history and previous results"
-              ],
-              "github": "github.com/Malwandla21-ict/HealthWise"
-            }
-          ]
-        }
+        {"title": "Project Experience", "projects": [
+          {"ref": "taskify", "meta": "Full-stack web application | MySQL database design", "bullets": [], "extraBullets": [
+            "Designed a 26-table MySQL schema with 39 foreign keys and 76 indexes supporting users, tasks, sales, rentals, disputes and payments.",
+            "Prevented duplicate bookings and payments under concurrent use with row-level locks and conditional updates.",
+            "Combined 28 database repair scripts into one ordered runner and regenerated the schema file, verified against the live database (325 columns) with no rows lost.",
+            "Covered database-driven workflows with 134 automated tests across 13 suites, all passing."
+          ]},
+          {"ref": "stokvault", "meta": "Enterprise Java | Group project (DICT312) | PostgreSQL", "bullets": [], "extraBullets": [
+            "Modelled contributions, payout cycles and per-group member roles in PostgreSQL using JPA entities.",
+            "Built a SHA-256 hash-chained audit log, with a PostgreSQL trigger that blocks UPDATE, DELETE and TRUNCATE on audit records.",
+            "Encrypted ID numbers at rest with AES-256-GCM and enforced uniqueness with an HMAC."
+          ]},
+          {"ref": "ump-events", "bullets": [], "extraBullets": [
+            "Moved all SQL into one repository class per table, using PDO prepared statements to prevent SQL injection.",
+            "Prevented overbooking with transactions, row locks and a unique constraint on bookings.",
+            "Built admin reports (fill rates, recent bookings) and CSV attendee exports protected against formula injection."
+          ]}
+        ]},
+        {"title": "Additional Projects", "projects": [
+          {"ref": "healthwise", "bullets": [], "extraBullets": [
+            "Designed Room (SQLite) tables for check history, pill reminders, dose logs and health profile, with migrations that keep user data across schema versions."
+          ]},
+          {"ref": "fuelsa", "bullets": [], "extraBullets": [
+            "Built an SQLite database with DAO classes over JDBC for customers, vehicles and fuel requests, feeding revenue and top-customer reports."
+          ]}
+        ]}
       ],
       "coursework": [
-        [{"bold": true, "text": "Information Systems III (Database Systems): "}, {"text": "ER modelling, advanced data modelling, normalization, SQL programming (beginner to advanced), relational set/join operators, database architecture (file server, client-server, web-based)"}],
-        [{"bold": true, "text": "Information Systems III (Advanced Database Concepts): "}, {"text": "transaction management & concurrency control, database performance tuning, distributed DBMS, database security, Big Data & NoSQL (Hadoop, MongoDB, Neo4j), business intelligence & data warehousing"}],
-        [{"bold": true, "text": "Web Development: "}, {"text": "MySQL database design with PHP (PDO), single- and multi-table queries, foreign keys and joins"}]
+        [{"bold": true, "text": "Information Systems III (Database Systems): "}, {"text": "ER and advanced data modelling, normalisation, SQL programming, join and set operators, database architectures"}],
+        [{"bold": true, "text": "Information Systems III (Advanced Database Concepts): "}, {"text": "transaction management, concurrency control, performance tuning, distributed DBMS, database security, Big Data, NoSQL, BI and data warehousing"}],
+        [{"bold": true, "text": "Web Development: "}, {"text": "MySQL with PHP (PDO), multi-table queries, foreign keys and joins"}]
       ]
     },
     {
       "key": "ITSupportNetworking",
       "fileBase": "CV_Malwandla_Hlongwane_ITSupportNetworking",
-      "roleTitle": "IT Support Technician / Junior Network Technician",
-      "summary": "Final-year ICT (Applications Development) student at the University of Mpumalanga with a solid technical support and networking foundation, covering hardware/software troubleshooting (CompTIA A+ syllabus), network design and configuration (CompTIA Network+ syllabus), and IT service management best practice (ITIL v3 Foundation). Practical experience includes designing and configuring a two-campus WAN with segmented wireless networks. Seeking an IT Support, Help Desk, or Junior Network Technician role to apply and build on this foundation in a live production environment.",
+      "docTitle": "Malwandla Hlongwane CV - IT Support Technician / Junior Network Technician",
+      "roleTitle": "IT Support Technician | Help Desk | Junior Network Technician",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with a strong IT support and networking foundation: hardware and software troubleshooting (CompTIA A+ syllabus), network design and configuration (CompTIA Network+ syllabus) and IT service management (ITIL v3 Foundation). Designed and configured a two-campus WAN with segmented wireless networks in Cisco Packet Tracer, and have deployed and secured live web applications. Calm, clear communicator who explains technical issues in plain language. Seeking an IT Support, Help Desk, Service Desk or Junior Network Technician role.",
       "skills": [
-        [{"bold": true, "text": "Hardware & Troubleshooting: "}, {"text": "PC hardware configuration & diagnostics, motherboard/memory/CPU/GPU components, laptop hardware & repairs, printer installation & troubleshooting, mobile device setup, sync, backup and security"}],
-        [{"bold": true, "text": "Networking: "}, {"text": "OSI/TCP-IP models, IP addressing & subnetting, routing & switching, VLANs & network segmentation, DHCP/DNS/NAT, wireless network configuration, WAN design, VPN & remote access, network troubleshooting"}],
-        [{"bold": true, "text": "Tools: "}, {"text": "Cisco Packet Tracer, Windows environment administration, command-line basics & scripting fundamentals"}],
-        [{"bold": true, "text": "IT Service Management (ITIL v3 Foundation): "}, {"text": "service lifecycle (strategy, design, transition, operation, continual improvement), incident/service request handling awareness, service level & availability management, change and service transition principles"}],
-        [{"bold": true, "text": "Professional Practice: "}, {"text": "technician conduct & communication, active listening, client-facing troubleshooting, IT ethics"}]
+        [{"bold": true, "text": "Hardware & Troubleshooting: "}, {"text": "PC and laptop hardware diagnostics and repair, CPU, memory, storage and motherboard components, printers and peripherals, mobile device setup, backup and security"}],
+        [{"bold": true, "text": "Operating Systems & Software: "}, {"text": "Windows installation, configuration and administration, software installation and updates, command line basics, user account and password support"}],
+        [{"bold": true, "text": "Networking: "}, {"text": "OSI and TCP/IP models, IP addressing and subnetting, routing and switching, VLANs, DHCP, DNS, NAT, wireless LAN, WAN design, VPN and remote access, network troubleshooting"}],
+        [{"bold": true, "text": "Tools: "}, {"text": "Cisco Packet Tracer, ping and command-line network diagnostics, Git, GitHub, Postman"}],
+        [{"bold": true, "text": "IT Service Management: "}, {"text": "ITIL v3 service lifecycle, incident and service request handling, ticket logging, SLAs, change management"}],
+        [{"bold": true, "text": "Security Awareness: "}, {"text": "two-factor authentication, password hashing, account lockout, least-privilege access, secure configuration and secrets handling"}],
+        [{"bold": true, "text": "Professional: "}, {"text": "customer service, active listening, clear written and verbal communication, documentation, professional conduct and IT ethics"}]
       ],
       "projectSections": [
-        {
-          "title": "PRACTICAL PROJECT",
-          "projects": [
-            {
-              "name": "Two-Campus WAN Design & Configuration",
-              "techLabel": "Tools: ",
-              "tech": "Cisco Packet Tracer",
-              "description": "Designed and configured a complete two-campus wide area network as a practical networking exercise.",
-              "bullets": [
-                "Built LAN infrastructure across 5 departments per campus, with 5 computers per department",
-                "Configured separate SSIDs for student, staff, and guest Wi-Fi networks at both campuses (network segmentation)",
-                "Established inter-campus routing and verified end-to-end connectivity via successful ping tests between campuses"
-              ]
-            }
-          ]
-        }
+        {"title": "Practical Project", "projects": [
+          {"ref": "wan"}
+        ]},
+        {"title": "Additional Technical Projects", "projects": [
+          {"ref": "taskify", "bullets": [], "extraBullets": [
+            "Deployed a full-stack web app to the cloud (Render), managing environment variables and keeping secrets out of the code.",
+            "Set up two-factor sign-in for admin accounts, rate limiting and audit logging of admin actions.",
+            "Wrote plain-language user and deployment documentation, including a step-by-step deployment guide."
+          ]},
+          {"ref": "fuelsa", "bullets": [], "extraBullets": [
+            "Built a desktop app with SMS notifications, salted password storage and no default admin account, plus a demo mode for safe testing."
+          ]},
+          {"ref": "ump-events", "bullets": [], "extraBullets": [
+            "Ran and configured the site on Apache (XAMPP) with MySQL, and added login throttling, secure sessions and security headers."
+          ]}
+        ]}
       ],
       "coursework": [
-        [{"bold": true, "text": "Computing Theory / Help Desk (CompTIA A+): "}, {"text": "hardware configuration & troubleshooting, memory & motherboard components, mobile device support, laptop hardware & repair, printer installation & management, IT roles and technician best practice"}],
-        [{"bold": true, "text": "Networking (CompTIA Network+): "}, {"text": "network topologies, IP addressing & subnetting, routing & switching, wireless standards, network security fundamentals, cloud & virtualization concepts, network troubleshooting methodology"}],
-        [{"bold": true, "text": "IT Service Management (ITIL v3 Foundation): "}, {"text": "ITSM fundamentals, service lifecycle, service design (catalogue, SLA, availability, capacity, continuity, security, supplier management), service transition, continual service improvement"}]
+        [{"bold": true, "text": "Computing Theory / Help Desk (CompTIA A+ syllabus): "}, {"text": "hardware configuration and troubleshooting, memory and motherboards, mobile devices, laptop repair, printers, technician best practice"}],
+        [{"bold": true, "text": "Networking (CompTIA Network+ syllabus): "}, {"text": "topologies, IP addressing and subnetting, routing and switching, wireless standards, network security, cloud and virtualisation, troubleshooting methodology"}],
+        [{"bold": true, "text": "IT Service Management (ITIL v3 Foundation): "}, {"text": "service lifecycle, service design (catalogue, SLA, availability, capacity, continuity, security), service transition, continual service improvement"}]
       ]
     },
     {
       "key": "Combined",
       "fileBase": "CV_Malwandla_Hlongwane_Combined",
-      "roleTitle": "ICT Graduate: Software Development | Databases | Android | Networking & IT Support",
-      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with broad, hands-on exposure across the ICT stack: full-stack web development, Android app development, relational database design, and networking/IT support fundamentals. Built and shipped three independent applications (a full-stack marketplace, an AI-assisted mobile health app, and a desktop management system) and practically configured a two-campus WAN. Comfortable moving between frontend, backend, mobile, and infrastructure work, well suited to a generalist junior ICT role, graduate programme, or internship where versatility across multiple technical domains is valued.",
+      "docTitle": "Malwandla Hlongwane CV - ICT Graduate",
+      "roleTitle": "ICT Graduate | Software Developer | Android | Database | IT Support & Networking",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on experience across the ICT stack. Built or contributed to seven projects: a live Node.js and MySQL marketplace with 134 automated tests, an enterprise Jakarta EE platform with CI/CD, a secure PHP booking site, an AI-powered Android app, a JavaFX desktop system, a Spring Boot and Flutter app in progress, and a two-campus WAN. Comfortable moving between frontend, backend, mobile, databases and infrastructure. Seeking a graduate programme, internship or junior ICT role.",
       "skills": [
-        [{"bold": true, "text": "Software Development: "}, {"text": "Java, JavaScript, PHP, HTML & CSS, SQL; Node.js (Express), REST API design, JWT authentication, MVC/layered architecture, OOP & design patterns"}],
-        [{"bold": true, "text": "Android Development: "}, {"text": "Android Studio, XML/Material Design UI, Activities/Fragments & lifecycle, Room Database, SQLite, Retrofit, Firebase, Google Maps API, AlarmManager"}],
-        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, SQLite, Room Database; ER modelling, normalization, advanced SQL, transaction management, query optimization, BI & data warehousing, NoSQL/Big Data awareness"}],
-        [{"bold": true, "text": "Networking & IT Support: "}, {"text": "OSI/TCP-IP models, IP addressing & subnetting, routing & switching, VLANs, wireless configuration, WAN design (Cisco Packet Tracer), PC/mobile hardware troubleshooting, printer & peripheral support"}],
-        [{"bold": true, "text": "IT Service Management: "}, {"text": "ITIL v3 Foundation (service lifecycle, service design, service transition, continual service improvement)"}],
-        [{"bold": true, "text": "Software Engineering Practice: "}, {"text": "Requirements engineering, UML system modelling, Agile/Scrum, test-driven development, Git/GitHub"}]
+        [{"bold": true, "text": "Languages: "}, {"text": "Java, JavaScript, PHP, SQL, Dart, HTML5, CSS3, XML"}],
+        [{"bold": true, "text": "Web & Backend: "}, {"text": "Node.js, Express.js, Jakarta EE, Spring Boot, REST APIs, MVC and layered architecture, JWT, two-factor authentication"}],
+        [{"bold": true, "text": "Mobile & Desktop: "}, {"text": "Android SDK, Android Studio, Room, Retrofit, Material 3, Flutter, JavaFX"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; ER modelling, normalisation, indexing, transactions, triggers"}],
+        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Node.js test runner, JUnit 5, Postman, Git, GitHub, GitHub Actions, Docker, Maven, Render"}],
+        [{"bold": true, "text": "Networking & IT Support: "}, {"text": "TCP/IP, subnetting, routing and switching, VLANs, wireless LAN, Cisco Packet Tracer, hardware and software troubleshooting, ITIL v3"}],
+        [{"bold": true, "text": "Practices: "}, {"text": "Agile/Scrum, SDLC, UML, requirements (SRS), OOP, design patterns, technical documentation, teamwork"}]
       ],
       "projectSections": [
-        {
-          "title": "PROJECTS",
-          "projects": [
-            {
-              "name": "Taskify: Campus Task & Equipment Marketplace",
-              "techLabel": "Tech: ",
-              "tech": "Node.js, Express, MySQL, HTML, CSS, JavaScript",
-              "description": "Full-stack web app for posting tasks, hiring services, and renting equipment within a secure campus marketplace. Implemented JWT authentication, a full task lifecycle system, equipment booking/return tracking, a ratings/reviews system, simulated escrow payments, and RESTful APIs connecting frontend and backend.",
-              "github": "github.com/Malwandla21-ict/taskify"
-            },
-            {
-              "name": "HealthWise: AI-Based Symptom Checker App",
-              "techLabel": "Tech: ",
-              "tech": "Java, Android Studio, Retrofit, Room Database",
-              "description": "Android health app that matches user-selected symptoms to possible conditions using an integrated AI API for dynamic explanations. Includes an interactive chatbot, Room Database for history storage, and AlarmManager-based reminders.",
-              "github": "github.com/Malwandla21-ict/HealthWise"
-            },
-            {
-              "name": "FUEL SA: Fuel Station Management System",
-              "techLabel": "Tech: ",
-              "tech": "Java, JavaFX, FXML, Scene Builder, CSS",
-              "description": "Desktop fuel station management application with a JavaFX GUI, built using OOP principles with modular separation of logic, controllers, and UI.",
-              "github": "github.com/Malwandla21-ict/FuelSA"
-            },
-            {
-              "name": "Two-Campus WAN Design & Configuration",
-              "techLabel": "Tools: ",
-              "tech": "Cisco Packet Tracer",
-              "description": "Designed and configured a two-campus WAN with 5 departments per campus (5 computers each), separate student/staff/guest wireless networks, and verified inter-campus connectivity via successful ping tests."
-            }
-          ]
-        }
+        {"title": "Project Experience", "projects": [
+          {"ref": "taskify", "bullets": [0, 1, 2, 4]},
+          {"ref": "stokvault", "bullets": [0, 2, 5]},
+          {"ref": "ump-events", "bullets": [0, 2, 3]},
+          {"ref": "healthwise", "bullets": [0, 1, 2]},
+          {"ref": "fuelsa", "bullets": [0, 2]},
+          {"ref": "stams", "bullets": [0, 1]},
+          {"ref": "wan", "bullets": [0, 1, 2]}
+        ]}
       ],
       "coursework": [
-        [{"bold": true, "text": "Application Development: "}, {"text": "Android (Java, Android Studio, SQLite/Room, Firebase); Jakarta EE (Servlets, JSF, REST services); Web Development (PHP, MySQL, JavaScript)"}],
-        [{"bold": true, "text": "Information Systems III: "}, {"text": "ER modelling & normalization, advanced SQL, transaction management, distributed databases, Big Data & NoSQL, business intelligence"}],
-        [{"bold": true, "text": "Computing Theory & Networking: "}, {"text": "CompTIA A+ (hardware/support) and Network+ (routing, switching, subnetting, wireless, WAN design) syllabi"}],
-        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML, Agile/Scrum, software testing"}],
-        [{"bold": true, "text": "IT Service Management: "}, {"text": "ITIL v3 Foundation (service lifecycle, service design, transition, continual improvement)"}]
+        [{"bold": true, "text": "Application Development: "}, {"text": "Android (Java, Room, Firebase), Jakarta EE (Servlets, JSF, REST), Web Development (PHP, MySQL, JavaScript)"}],
+        [{"bold": true, "text": "Information Systems III: "}, {"text": "ER modelling, normalisation, advanced SQL, transactions, distributed databases, Big Data, NoSQL, BI"}],
+        [{"bold": true, "text": "Networking & Support: "}, {"text": "CompTIA A+ and Network+ syllabi, ITIL v3 Foundation"}],
+        [{"bold": true, "text": "Software Engineering: "}, {"text": "SDLC, requirements engineering, UML, Agile/Scrum, software testing"}]
       ]
     }
   ]
