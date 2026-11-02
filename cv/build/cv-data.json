@@ -35,6 +35,22 @@
         {"label": "Live site", "url": "https://taskify-marketplace.co.za", "display": "taskify-marketplace.co.za"}
       ]
     },
+    "zaka": {
+      "name": "ZAKA | Savings Tracker & Spitori Dictionary",
+      "meta": "Cross-platform app for Android and web | Deployed live | Private repository, code available on request",
+      "tech": "Flutter, Dart, Riverpod, go_router, Supabase (PostgreSQL, Auth, Storage, Edge Functions), pgTAP, Cloudflare Pages",
+      "bullets": [
+        "Built and launched a savings app inspired by Pretoria's Spitori culture: savings goals with daily, weekly or monthly plans, ahead/behind tracking, payday reminders, charts, and a free Spitori dictionary.",
+        "Designed a 17-table PostgreSQL schema in Supabase through 28 versioned migrations, with row-level security policies so each person can only read and change their own data.",
+        "Enforced money rules in the database with constraints and triggers: a goal's balance can never go below R0, daily per-person limits on new records, and a cap on uploaded photos.",
+        "Wrote 435 Flutter tests and 198 pgTAP database checks covering row-level security, balance rules, limits and admin access.",
+        "Organised the app by feature into data, domain and presentation layers, using Riverpod for state, with only the data layer allowed to call Supabase.",
+        "Shipped to production with a deploy script that builds the web app and signed Android APKs to Cloudflare Pages, plus security headers, custom account emails and POPIA privacy controls (download my data, delete my account)."
+      ],
+      "links": [
+        {"label": "Live site", "url": "https://zaka-3hi.pages.dev", "display": "zaka-3hi.pages.dev"}
+      ]
+    },
     "stokvault": {
       "name": "StokVault | Stokvel Contribution & Payout Platform",
       "meta": "Enterprise Java | Group project (DICT312) for UMP Centre for Entrepreneurship, Cooperatives & Innovation",
@@ -130,25 +146,26 @@
       "fileBase": "CV_Malwandla_Hlongwane_SoftwareWebDev",
       "docTitle": "Malwandla Hlongwane CV - Junior Software Developer",
       "roleTitle": "Junior Software Developer | Full-Stack Web Developer",
-      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds and ships full-stack web applications. Projects include a live Node.js and MySQL marketplace with 134 automated tests, an enterprise Jakarta EE platform with CI/CD and Docker, and a security-hardened PHP MVC booking site. Skilled in REST API design, authentication and web security, relational database design, Git and automated testing. Seeking a Junior Software Developer, Graduate Developer or Software Development Internship role.",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds and ships full-stack web applications. Projects include a live Node.js and MySQL marketplace with 134 automated tests, a Flutter and Supabase savings app live on Android and web, an enterprise Jakarta EE platform with CI/CD and Docker, and a security-hardened PHP MVC booking site. Skilled in REST API design, authentication and web security, relational database design, Git and automated testing. Seeking a Junior Software Developer, Graduate Developer or Software Development Internship role.",
       "skills": [
-        [{"bold": true, "text": "Languages: "}, {"text": "Java, JavaScript, PHP, SQL, HTML5, CSS3, Dart"}],
-        [{"bold": true, "text": "Backend & APIs: "}, {"text": "Node.js, Express.js, Jakarta EE (Faces, REST, EJB, JPA, JMS), Spring Boot, REST API design, MVC and layered architecture"}],
-        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; schema design, normalisation, indexing, transactions"}],
+        [{"bold": true, "text": "Languages & Frameworks: "}, {"text": "Java, JavaScript, PHP, SQL, HTML5, CSS3, Dart with Flutter (Riverpod, go_router)"}],
+        [{"bold": true, "text": "Backend & APIs: "}, {"text": "Node.js, Express.js, Jakarta EE (Faces, REST, EJB, JPA, JMS), Spring Boot, Supabase, REST API design, MVC and layered architecture"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; schema design, normalisation, indexing, transactions, row-level security, versioned migrations"}],
         [{"bold": true, "text": "Security: "}, {"text": "JWT, two-factor authentication (TOTP), bcrypt/PBKDF2 hashing, AES encryption, CSRF protection, Content-Security-Policy, rate limiting, input validation"}],
-        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Automated testing (Node.js test runner, JUnit 5), Postman, Git, GitHub, GitHub Actions (CI), Docker, Maven, Render"}],
+        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Automated testing (Node.js test runner, JUnit 5, Flutter tests, pgTAP), Postman, Git, GitHub, GitHub Actions (CI), Docker, Maven, Render, Cloudflare Pages"}],
         [{"bold": true, "text": "Practices: "}, {"text": "Agile/Scrum, SDLC, requirements (SRS), UML modelling, object-oriented design, design patterns"}],
         [{"bold": true, "text": "Professional: "}, {"text": "Problem solving, teamwork on group projects, technical documentation, attention to detail, fast learner"}]
       ],
       "projectSections": [
         {"title": "Project Experience", "projects": [
           {"ref": "taskify"},
-          {"ref": "stokvault", "bullets": [0, 1, 2, 3, 5]},
-          {"ref": "ump-events", "bullets": [0, 1, 2, 3]}
+          {"ref": "zaka", "bullets": [0, 1, 3, 5]},
+          {"ref": "stokvault", "bullets": [0, 2, 3, 5]}
         ]},
         {"title": "Additional Projects", "projects": [
-          {"ref": "fuelsa", "bullets": [0, 2, 3]},
-          {"ref": "stams", "bullets": [0, 2]}
+          {"ref": "ump-events", "bullets": [0, 3]},
+          {"ref": "fuelsa", "bullets": [0, 2]},
+          {"ref": "stams", "bullets": [0]}
         ]}
       ],
       "coursework": [
@@ -162,18 +179,22 @@
       "fileBase": "CV_Malwandla_Hlongwane_AndroidDev",
       "docTitle": "Malwandla Hlongwane CV - Junior Android Developer",
       "roleTitle": "Junior Android Developer | Mobile App Developer",
-      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds native Android apps in Java. Built HealthWise, an AI symptom checker using Room, Retrofit, AlarmManager and Material 3, and currently building STAMS, a Flutter app backed by a Spring Boot REST API. Strong Java and backend foundation from Jakarta EE, JavaFX and Node.js projects, covering both the app and the API behind it. Seeking a Junior Android Developer, Mobile Developer or internship role.",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga who builds mobile apps in Flutter and native Android (Java). Built and launched ZAKA, a Flutter and Supabase savings app for Android and web, and HealthWise, an AI symptom checker using Room, Retrofit, AlarmManager and Material 3; currently building STAMS, a Flutter app backed by a Spring Boot REST API. Strong Java and backend foundation from Jakarta EE, JavaFX and Node.js projects, covering both the app and the API behind it. Seeking a Junior Android Developer, Mobile Developer or internship role.",
       "skills": [
         [{"bold": true, "text": "Languages: "}, {"text": "Java, Dart, SQL, XML; Kotlin (coursework level)"}],
         [{"bold": true, "text": "Android: "}, {"text": "Android Studio, Android SDK, Activities and lifecycle, XML layouts, Material Components 3, RecyclerView, intents, notifications, AlarmManager, BroadcastReceiver"}],
         [{"bold": true, "text": "Data & Networking: "}, {"text": "Room (SQLite) with migrations, SharedPreferences, Retrofit, Gson, REST APIs, JSON, AI API integration (Hugging Face)"}],
-        [{"bold": true, "text": "Cross-platform & Backend: "}, {"text": "Flutter, Spring Boot, Spring Security (JWT), Node.js, Express.js, PostgreSQL, MySQL"}],
+        [{"bold": true, "text": "Flutter: "}, {"text": "Dart, Riverpod, go_router, local notifications, secure storage, widget and unit tests, signed release APKs"}],
+        [{"bold": true, "text": "Backend: "}, {"text": "Supabase (PostgreSQL, Auth, Storage), Spring Boot, Spring Security (JWT), Node.js, Express.js, MySQL"}],
         [{"bold": true, "text": "Architecture & Tools: "}, {"text": "Repository pattern, MVC/MVVM, object-oriented design, Git, GitHub, Postman, debugging and testing"}],
         [{"bold": true, "text": "Also covered in coursework: "}, {"text": "Firebase, Google Maps API and location services, multimedia, signed APK/AAB and Play Store deployment"}],
         [{"bold": true, "text": "Professional: "}, {"text": "Problem solving, user-focused design, teamwork, technical documentation, fast learner"}]
       ],
       "projectSections": [
         {"title": "Project Experience", "projects": [
+          {"ref": "zaka", "bullets": [0, 4, 3], "extraBullets": [
+            "Scheduled Android reminders with local notifications on South African time, kept the login session in secure storage, and shipped signed release APKs split by phone type."
+          ]},
           {"ref": "healthwise"},
           {"ref": "stams"}
         ]},
@@ -193,13 +214,13 @@
       "fileBase": "CV_Malwandla_Hlongwane_DatabaseDev",
       "docTitle": "Malwandla Hlongwane CV - Junior Database Developer",
       "roleTitle": "Junior Database Developer | SQL Developer",
-      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on relational database work across five real applications. Designed a 26-table MySQL schema with 39 foreign keys and 76 indexes, built a tamper-evident audit log in PostgreSQL, and used transactions and row locks to prevent double bookings. Skilled in ER modelling, normalisation, SQL, indexing, data security and connecting databases to REST APIs. Seeking a Junior Database Developer, SQL Developer, Junior DBA or data-focused graduate role.",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on relational database work across six real applications. Designed a 26-table MySQL schema with 39 foreign keys and 76 indexes, secured a live PostgreSQL database with row-level security and 198 automated database checks, built a tamper-evident audit log, and used transactions and row locks to prevent double bookings. Skilled in ER modelling, normalisation, SQL, indexing, data security and connecting databases to REST APIs. Seeking a Junior Database Developer, SQL Developer, Junior DBA or data-focused graduate role.",
       "skills": [
-        [{"bold": true, "text": "Database Systems: "}, {"text": "MySQL, PostgreSQL, SQLite, Room (Android), MySQL Workbench, pgAdmin, phpMyAdmin"}],
+        [{"bold": true, "text": "Database Systems: "}, {"text": "MySQL, PostgreSQL, Supabase, SQLite, Room (Android), MySQL Workbench, pgAdmin, phpMyAdmin"}],
         [{"bold": true, "text": "SQL: "}, {"text": "DDL and DML, complex joins, subqueries, set operators, aggregate and analytical functions, stored procedures, triggers"}],
         [{"bold": true, "text": "Design: "}, {"text": "ER modelling, normalisation, conceptual, logical and physical data models, primary and foreign keys, constraints, indexing"}],
-        [{"bold": true, "text": "Integrity & Performance: "}, {"text": "transactions, row-level locking, concurrency control, query optimisation, schema migrations"}],
-        [{"bold": true, "text": "Data Security: "}, {"text": "prepared statements (SQL injection prevention), password hashing, AES-256 encryption at rest, audit logging, role-based access"}],
+        [{"bold": true, "text": "Integrity & Performance: "}, {"text": "transactions, row-level locking, concurrency control, query optimisation, versioned schema migrations, database testing (pgTAP)"}],
+        [{"bold": true, "text": "Data Security: "}, {"text": "row-level security (RLS) policies, prepared statements (SQL injection prevention), password hashing, AES-256 encryption at rest, audit logging, role-based access"}],
         [{"bold": true, "text": "Application Integration: "}, {"text": "PDO, JDBC, JPA/Hibernate, mysql2 (Node.js), REST APIs, CSV export; Java, PHP, JavaScript"}],
         [{"bold": true, "text": "Also covered in coursework: "}, {"text": "distributed databases, data warehousing, star schemas, business intelligence, Big Data and NoSQL (MongoDB, Neo4j, Hadoop)"}]
       ],
@@ -210,6 +231,10 @@
             "Prevented duplicate bookings and payments under concurrent use with row-level locks and conditional updates.",
             "Combined 28 database repair scripts into one ordered runner and regenerated the schema file, verified against the live database (325 columns) with no rows lost.",
             "Covered database-driven workflows with 134 automated tests across 13 suites, all passing."
+          ]},
+          {"ref": "zaka", "meta": "Flutter + Supabase app | PostgreSQL database design | Private repository, code available on request", "bullets": [1, 2], "extraBullets": [
+            "Wrote 198 pgTAP checks across 14 test files, plus a Node.js runner that runs them against the hosted database inside transactions that are always rolled back.",
+            "Kept development and production databases in step by applying the same migrations to both, never changing tables by hand."
           ]},
           {"ref": "stokvault", "meta": "Enterprise Java | Group project (DICT312) | PostgreSQL", "bullets": [], "extraBullets": [
             "Modelled contributions, payout cycles and per-group member roles in PostgreSQL using JPA entities.",
@@ -262,6 +287,11 @@
             "Set up two-factor sign-in for admin accounts, rate limiting and audit logging of admin actions.",
             "Wrote plain-language user and deployment documentation, including a step-by-step deployment guide."
           ]},
+          {"ref": "zaka", "meta": "Flutter app for Android and web | Deployed live", "bullets": [], "extraBullets": [
+            "Deployed the web app and Android download to Cloudflare Pages with a scripted upload that retries on failure, and set website security headers.",
+            "Set up separate development and production environments, signed Android release builds, and wrote a step-by-step release checklist.",
+            "Wrote a privacy notice and terms of use covering POPIA, with options for people to download their data or delete their account."
+          ]},
           {"ref": "fuelsa", "bullets": [], "extraBullets": [
             "Built a desktop app with SMS notifications, salted password storage and no default admin account, plus a demo mode for safe testing."
           ]},
@@ -281,25 +311,25 @@
       "fileBase": "CV_Malwandla_Hlongwane_Combined",
       "docTitle": "Malwandla Hlongwane CV - ICT Graduate",
       "roleTitle": "ICT Graduate | Software Developer | Android | Database | IT Support & Networking",
-      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on experience across the ICT stack. Built or contributed to seven projects: a live Node.js and MySQL marketplace with 134 automated tests, an enterprise Jakarta EE platform with CI/CD, a secure PHP booking site, an AI-powered Android app, a JavaFX desktop system, a Spring Boot and Flutter app in progress, and a two-campus WAN. Comfortable moving between frontend, backend, mobile, databases and infrastructure. Seeking a graduate programme, internship or junior ICT role.",
+      "summary": "Final-year Diploma in ICT (Applications Development) student at the University of Mpumalanga with hands-on experience across the ICT stack. Projects include a live Node.js and MySQL marketplace with 134 automated tests, a Flutter and Supabase savings app live on Android and web, an enterprise Jakarta EE platform with CI/CD, a secure PHP booking site, an AI-powered Android app, a JavaFX desktop system and a two-campus WAN. Comfortable moving between frontend, backend, mobile, databases and infrastructure. Seeking a graduate programme, internship or junior ICT role.",
       "skills": [
         [{"bold": true, "text": "Languages: "}, {"text": "Java, JavaScript, PHP, SQL, Dart, HTML5, CSS3, XML"}],
-        [{"bold": true, "text": "Web & Backend: "}, {"text": "Node.js, Express.js, Jakarta EE, Spring Boot, REST APIs, MVC and layered architecture, JWT, two-factor authentication"}],
-        [{"bold": true, "text": "Mobile & Desktop: "}, {"text": "Android SDK, Android Studio, Room, Retrofit, Material 3, Flutter, JavaFX"}],
-        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; ER modelling, normalisation, indexing, transactions, triggers"}],
-        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Node.js test runner, JUnit 5, Postman, Git, GitHub, GitHub Actions, Docker, Maven, Render"}],
+        [{"bold": true, "text": "Web & Backend: "}, {"text": "Node.js, Express.js, Jakarta EE, Spring Boot, Supabase, REST APIs, MVC and layered architecture, JWT, two-factor authentication"}],
+        [{"bold": true, "text": "Mobile & Desktop: "}, {"text": "Flutter (Riverpod), Android SDK, Android Studio, Room, Retrofit, Material 3, JavaFX"}],
+        [{"bold": true, "text": "Databases: "}, {"text": "MySQL, PostgreSQL, SQLite; ER modelling, normalisation, indexing, transactions, triggers, row-level security"}],
+        [{"bold": true, "text": "Testing & DevOps: "}, {"text": "Node.js test runner, JUnit 5, Flutter tests, pgTAP, Postman, Git, GitHub, GitHub Actions, Docker, Maven, Render, Cloudflare Pages"}],
         [{"bold": true, "text": "Networking & IT Support: "}, {"text": "TCP/IP, subnetting, routing and switching, VLANs, wireless LAN, Cisco Packet Tracer, hardware and software troubleshooting, ITIL v3"}],
         [{"bold": true, "text": "Practices: "}, {"text": "Agile/Scrum, SDLC, UML, requirements (SRS), OOP, design patterns, technical documentation, teamwork"}]
       ],
       "projectSections": [
         {"title": "Project Experience", "projects": [
-          {"ref": "taskify", "bullets": [0, 1, 2, 4]},
-          {"ref": "stokvault", "bullets": [0, 2, 5]},
-          {"ref": "ump-events", "bullets": [0, 2, 3]},
-          {"ref": "healthwise", "bullets": [0, 1, 2]},
+          {"ref": "taskify", "bullets": [0, 1, 4]},
+          {"ref": "zaka", "bullets": [0, 1, 3]},
+          {"ref": "stokvault", "bullets": [0, 5]},
+          {"ref": "ump-events", "bullets": [0, 3]},
+          {"ref": "healthwise", "bullets": [0, 1]},
           {"ref": "fuelsa", "bullets": [0, 2]},
-          {"ref": "stams", "bullets": [0, 1]},
-          {"ref": "wan", "bullets": [0, 1, 2]}
+          {"ref": "wan", "bullets": [0, 1]}
         ]}
       ],
       "coursework": [
