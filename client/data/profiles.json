@@ -122,6 +122,15 @@
     "vscode": {
       "label": "VS Code"
     },
+    "flutter": {
+      "label": "Flutter"
+    },
+    "dart": {
+      "label": "Dart"
+    },
+    "supabase": {
+      "label": "Supabase"
+    },
     "postman": {
       "label": "Postman"
     },
@@ -199,7 +208,7 @@
         "CSS"
       ],
       "github": "https://github.com/Malwandla21-ict/taskify",
-      "demo": "https://taskify-frontend-ol07.onrender.com",
+      "demo": "https://taskify-marketplace.co.za",
       "images": [
         "images/Taskify/Screenshot 2026-10-01 172703.png",
         "images/Taskify/Screenshot 2026-10-01 172852.png",
@@ -208,6 +217,31 @@
         "images/Taskify/Screenshot 2026-10-01 172933.png"
       ],
       "layout": "desktop",
+      "featured": true
+    },
+    "zaka": {
+      "name": "ZAKA",
+      "subtitle": "Savings Tracker & Spitori Dictionary",
+      "type": "Flutter + Supabase",
+      "status": "Completed",
+      "context": "Live on Android & web",
+      "description": "A savings app inspired by Pretoria's Spitori culture, with a free Spitori dictionary built in. Savings goals with daily, weekly or monthly plans, ahead/behind tracking, payday reminders and charts, on a PostgreSQL database locked down with row-level security. Covered by 435 Flutter tests and 198 database checks. The code is private and available on request.",
+      "tech": [
+        "Flutter",
+        "Dart",
+        "Riverpod",
+        "Supabase",
+        "PostgreSQL",
+        "Cloudflare Pages"
+      ],
+      "github": "",
+      "demo": "https://zaka-3hi.pages.dev",
+      "images": [
+        "images/ZAKA/welcome.png",
+        "images/ZAKA/dictionary.png",
+        "images/ZAKA/word.png"
+      ],
+      "layout": "phone",
       "featured": true
     },
     "healthwise": {
@@ -386,11 +420,14 @@
         "postgresql",
         "nodejs",
         "express",
+        "flutter",
+        "supabase",
         "git"
       ],
       "projects": [
         "stokvault",
         "taskify",
+        "zaka",
         "ump-events",
         "fuelsa",
         "stams"
@@ -403,8 +440,8 @@
       "page": "android.html",
       "cardDescription": "Intuitive, performant native mobile apps.",
       "headline": "Android Developer",
-      "tagline": "I design and build native Android apps with clean architecture and a smooth, reliable user experience.",
-      "summary": "Native Android applications with clean, maintainable code, from UI layouts to local data storage.",
+      "tagline": "I design and build Android apps, in native Java and in Flutter, with clean architecture and a smooth, reliable user experience.",
+      "summary": "Android applications with clean, maintainable code, from UI layouts to local data storage and cloud backends.",
       "cv": "cv/CV_Malwandla_Hlongwane_AndroidDev.pdf",
       "skills": [
         {
@@ -432,9 +469,13 @@
         "room",
         "retrofit",
         "firebase",
+        "flutter",
+        "dart",
+        "supabase",
         "git"
       ],
       "projects": [
+        "zaka",
         "healthwise",
         "stams"
       ]
@@ -474,11 +515,13 @@
         "sqlite",
         "er-modeling",
         "normalization",
+        "supabase",
         "git"
       ],
       "projects": [
         "stokvault",
         "taskify",
+        "zaka",
         "ump-events"
       ]
     },
